@@ -1,1 +1,1672 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TATI COST | Tu brújula financiera</title>
+
+<style>
+:root {
+  --primary: #9c5d79;
+  --dark: #352831;
+  --pink: #ead2dc;
+  --background: #f8f5f3;
+  --white: #ffffff;
+  --green: #398368;
+  --red: #c45460;
+  --muted: #857780;
+  --border: #eadfe5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--background);
+  color: var(--dark);
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button { cursor: pointer; }
+
+.sidebar {
+  width: 245px;
+  position: fixed;
+  inset: 0 auto 0 0;
+  background: var(--dark);
+  color: white;
+  padding: 30px 18px;
+  overflow-y: auto;
+}
+
+.brand {
+  padding: 10px 12px 35px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 29px;
+  letter-spacing: 3px;
+}
+
+.brand p {
+  font-size: 12px;
+  color: var(--pink);
+  margin: 8px 0;
+}
+
+.nav {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 6px;
+  text-align: left;
+  background: transparent;
+  color: #e7dce2;
+}
+
+.nav:hover, .nav.active {
+  background: var(--primary);
+  color: white;
+}
+
+.sidebar-footer {
+  font-size: 12px;
+  color: #bdaab5;
+  margin: 40px 12px;
+}
+
+main {
+  margin-left: 245px;
+  padding: 35px;
+  max-width: 1600px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+h1, h2, h3 { margin-top: 0; }
+
+h2 { font-size: 28px; }
+
+.subtitle {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.tag {
+  background: var(--pink);
+  padding: 9px 15px;
+  border-radius: 30px;
+  font-size: 12px;
+}
+
+.hero {
+  background: linear-gradient(120deg, #8c506d, #bb8da2);
+  padding: 35px;
+  border-radius: 20px;
+  color: white;
+  margin-bottom: 25px;
+}
+
+.hero h2 { font-size: 32px; }
+
+.hero p {
+  max-width: 650px;
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 23px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 18px #35283106;
+}
+
+.metric {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 14px 0;
+}
+
+.small {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.green { color: var(--green); }
+.red { color: var(--red); }
+
+.progress {
+  height: 15px;
+  background: #f0e6eb;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 18px 0;
+}
+
+.progress div {
+  height: 100%;
+  background: var(--primary);
+  transition: width .3s;
+}
+
+.page { display: none; }
+.page.active { display: block; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #fdfbfc;
+  color: var(--dark);
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: var(--primary);
+}
+
+.btn {
+  border: 0;
+  background: var(--primary);
+  color: white;
+  padding: 12px 19px;
+  border-radius: 9px;
+  font-weight: 600;
+}
+
+.btn:hover { opacity: .88; }
+
+.btn-secondary {
+  background: #f0e5eb;
+  color: var(--dark);
+}
+
+.btn-danger {
+  background: #fae8eb;
+  color: var(--red);
+}
+
+.btn-small {
+  padding: 8px 12px;
+  font-size: 12px;
+  margin: 3px;
+}
+
+.table-wrap { overflow-x: auto; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 550px;
+}
+
+th, td {
+  padding: 14px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+th {
+  background: #faf5f7;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.empty {
+  padding: 30px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.notice {
+  background: #f5edf1;
+  border-left: 4px solid var(--primary);
+  padding: 15px;
+  border-radius: 8px;
+  line-height: 1.6;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.status {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  background: #f0e5eb;
+  display: inline-block;
+}
+
+.status-ok {
+  background: #e1f2e8;
+  color: var(--green);
+}
+
+.result {
+  background: #f8f2f5;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#toast {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: var(--dark);
+  color: white;
+  padding: 15px 22px;
+  border-radius: 10px;
+  display: none;
+  z-index: 100;
+  max-width: 85vw;
+}
+
+@media (max-width: 760px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .brand { padding: 5px 8px 15px; }
+
+  .brand h1 { font-size: 24px; }
+
+  .navigation {
+    display: flex;
+    overflow-x: auto;
+    gap: 5px;
+  }
+
+  .nav {
+    width: auto;
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 12px;
+  }
+
+  .sidebar-footer { display: none; }
+
+  main {
+    margin-left: 0;
+    padding: 18px;
+  }
+
+  header { align-items: flex-start; }
+  header .tag { display: none; }
+  .hero { padding: 24px; }
+  .hero h2 { font-size: 25px; }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .card { padding: 16px; }
+  .metric { font-size: 24px; }
+  .form-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <h1>✧ TATI COST</h1>
+    <p>TU BRÚJULA FINANCIERA</p>
+  </div>
+
+  <div class="navigation">
+    <button class="nav active" onclick="go('inicio',this)">⌂ Inicio</button>
+    <button class="nav" onclick="go('servicios',this)">✂ Servicios</button>
+    <button class="nav" onclick="go('insumos',this)">▣ Insumos</button>
+    <button class="nav" onclick="go('mano',this)">◷ Mano de obra</button>
+    <button class="nav" onclick="go('gastos',this)">▤ Gastos indirectos</button>
+    <button class="nav" onclick="go('fichas',this)">▧ Fichas de costos</button>
+    <button class="nav" onclick="go('simulador',this)">◇ Simulador</button>
+    <button class="nav" onclick="go('rentabilidad',this)">↗ Rentabilidad</button>
+    <button class="nav" onclick="go('config',this)">⚙ Configuración</button>
+  </div>
+
+  <div class="sidebar-footer">
+    Tati Beauty Studio<br><br>
+    Proyecto de Innovación y Emprendimiento III<br>
+    INACAP Curicó
+  </div>
+</aside>
+
+<main>
+
+<header>
+  <div>
+    <h2 id="pageTitle">Panel principal</h2>
+    <div class="subtitle">Gestión de costos y rentabilidad</div>
+  </div>
+  <span class="tag">Tati Beauty Studio</span>
+</header>
+
+<!-- INICIO -->
+
+<section id="inicio" class="page active">
+
+  <div class="hero">
+    <h2>Tu brújula financiera</h2>
+    <p>Conoce tus costos, analiza tus márgenes y toma mejores decisiones sobre los precios de tus servicios.</p>
+    <button class="btn btn-secondary" onclick="openPage('servicios')">
+      Gestionar servicios
+    </button>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="small">Servicios activos</div>
+      <div class="metric" id="totalServicios">0</div>
+    </div>
+
+    <div class="card">
+      <div class="small">Servicios costeados</div>
+      <div class="metric" id="totalCosteados">0</div>
+    </div>
+
+    <div class="card">
+      <div class="small">Margen promedio estimado</div>
+      <div class="metric green" id="margenPromedio">—</div>
+    </div>
+
+    <div class="card">
+      <div class="small">Insumos registrados</div>
+      <div class="metric" id="totalInsumos">0</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Avance del proyecto</h3>
+    <p class="subtitle">Meta: costear al menos el 80% de los servicios activos en tres meses.</p>
+
+    <div class="metric" id="cobertura">0%</div>
+    <div class="progress">
+      <div id="barra" style="width:0%"></div>
+    </div>
+    <div id="metaTexto" class="small"></div>
+  </div>
+
+  <div class="card">
+    <h3>Estado de los servicios</h3>
+    <div id="resumenServicios"></div>
+  </div>
+
+</section>
+
+<!-- SERVICIOS -->
+
+<section id="servicios" class="page">
+
+  <div class="card">
+    <h3>Registrar servicio</h3>
+
+    <form id="formServicio">
+      <input type="hidden" id="servicioId">
+
+      <div class="form-grid">
+        <div>
+          <label>Nombre del servicio</label>
+          <input id="servicioNombre" required placeholder="Nombre del servicio">
+        </div>
+
+        <div>
+          <label>Categoría</label>
+          <select id="servicioCategoria">
+            <option>Peluquería</option>
+            <option>Manicure</option>
+            <option>Pedicure</option>
+            <option>Masajes</option>
+            <option>Depilación</option>
+            <option>Otros</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Precio de venta ($)</label>
+          <input id="servicioPrecio" type="number" min="0" required>
+        </div>
+
+        <div>
+          <label>Duración estimada (minutos)</label>
+          <input id="servicioTiempo" type="number" min="1" required>
+        </div>
+      </div>
+
+      <button class="btn" type="submit">Guardar servicio</button>
+      <button class="btn btn-secondary" type="button" onclick="resetServicio()">Cancelar</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>Servicios registrados</h3>
+    <div id="tablaServicios"></div>
+  </div>
+
+</section>
+
+<!-- INSUMOS -->
+
+<section id="insumos" class="page">
+
+  <div class="card">
+    <h3>Registrar insumo</h3>
+
+    <form id="formInsumo">
+      <input type="hidden" id="insumoId">
+
+      <div class="form-grid">
+        <div>
+          <label>Nombre del producto</label>
+          <input id="insumoNombre" required>
+        </div>
+
+        <div>
+          <label>Precio de compra ($)</label>
+          <input id="insumoPrecio" type="number" min="0" required>
+        </div>
+
+        <div>
+          <label>Contenido total</label>
+          <input id="insumoCantidad" type="number" min="0.01" step="any" required>
+        </div>
+
+        <div>
+          <label>Unidad de medida</label>
+          <select id="insumoUnidad">
+            <option value="ml">Mililitros</option>
+            <option value="g">Gramos</option>
+            <option value="unidad">Unidades</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn" type="submit">Guardar insumo</button>
+      <button class="btn btn-secondary" type="button" onclick="resetInsumo()">Cancelar</button>
+    </form>
+  </div>
+
+  <div class="notice">
+    El costo por unidad se calcula dividiendo el precio de compra por el contenido total del producto.
+  </div>
+
+  <div class="card">
+    <h3>Catálogo de insumos</h3>
+    <div id="tablaInsumos"></div>
+  </div>
+
+</section>
+
+<!-- MANO DE OBRA -->
+
+<section id="mano" class="page">
+
+  <div class="card">
+    <h3>Costo del tiempo de trabajo</h3>
+
+    <p class="subtitle">Determina cuánto cuesta cada minuto de trabajo profesional.</p>
+
+    <form id="formMano">
+
+      <div class="form-grid">
+        <div>
+          <label>Costo mensual de mano de obra ($)</label>
+          <input id="manoMensual" type="number" min="0" required>
+        </div>
+
+        <div>
+          <label>Horas productivas mensuales</label>
+          <input id="manoHoras" type="number" min="0.01" step="any" required>
+        </div>
+      </div>
+
+      <button class="btn" type="submit">Guardar configuración</button>
+    </form>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="small">Costo por hora</div>
+      <div class="metric" id="costoHora">—</div>
+    </div>
+
+    <div class="card">
+      <div class="small">Costo por minuto</div>
+      <div class="metric" id="costoMinuto">—</div>
+    </div>
+  </div>
+
+  <div class="notice">
+    Esta primera versión utiliza una tarifa promedio de mano de obra. Las horas productivas deben corresponder al tiempo efectivamente destinado a prestar servicios.
+  </div>
+
+</section>
+
+<!-- GASTOS INDIRECTOS -->
+
+<section id="gastos" class="page">
+
+  <div class="card">
+    <h3>Registrar gasto indirecto mensual</h3>
+
+    <form id="formGasto">
+
+      <input type="hidden" id="gastoId">
+
+      <div class="form-grid">
+        <div>
+          <label>Nombre del gasto</label>
+          <input id="gastoNombre" required placeholder="Arriendo, electricidad...">
+        </div>
+
+        <div>
+          <label>Monto mensual ($)</label>
+          <input id="gastoMonto" type="number" min="0" required>
+        </div>
+
+        <div>
+          <label>Tipo de gasto</label>
+          <select id="gastoTipo">
+            <option>Fijo</option>
+            <option>Variable</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn" type="submit">Guardar gasto</button>
+      <button class="btn btn-secondary" type="button" onclick="resetGasto()">Cancelar</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>Base de distribución</h3>
+
+    <form id="formBase">
+      <div class="form-grid">
+        <div>
+          <label>Horas productivas mensuales del salón</label>
+          <input id="baseHoras" type="number" min="0.01" step="any" required>
+        </div>
+      </div>
+
+      <button class="btn" type="submit">Guardar base de distribución</button>
+    </form>
+
+    <p class="small">
+      Los gastos indirectos se distribuyen proporcionalmente según los minutos de duración de cada servicio.
+    </p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="small">Gastos indirectos mensuales</div>
+      <div class="metric" id="totalGastos">$0</div>
+    </div>
+
+    <div class="card">
+      <div class="small">Gasto indirecto por minuto</div>
+      <div class="metric" id="gastoMinuto">—</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Gastos registrados</h3>
+    <div id="tablaGastos"></div>
+  </div>
+
+</section>
+
+<!-- FICHAS -->
+
+<section id="fichas" class="page">
+
+  <div class="card">
+    <h3>Ficha de costos por servicio</h3>
+
+    <label>Seleccionar servicio</label>
+    <select id="fichaServicio" onchange="cargarFicha()"></select>
+  </div>
+
+  <div id="fichaContenido" style="display:none">
+
+    <div class="card">
+      <h3>Materiales utilizados</h3>
+
+      <form id="formMaterial">
+
+        <div class="form-grid">
+          <div>
+            <label>Insumo</label>
+            <select id="fichaInsumo"></select>
+          </div>
+
+          <div>
+            <label>Cantidad utilizada</label>
+            <input id="fichaCantidad" type="number" min="0.01" step="any" required>
+          </div>
+        </div>
+
+        <button class="btn" type="submit">Agregar material</button>
+      </form>
+
+      <br>
+      <div id="tablaMateriales"></div>
+    </div>
+
+    <div class="card">
+      <h3>Resumen del costo</h3>
+      <div id="detalleFicha"></div>
+    </div>
+
+    <div class="card">
+      <h3>Estado de la información</h3>
+
+      <div class="form-grid">
+        <div>
+          <label>Calidad de los datos</label>
+          <select id="fichaCalidad">
+            <option>Estimados</option>
+            <option>Parcialmente comprobados</option>
+            <option>Comprobados</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Estado de revisión</label>
+          <select id="fichaEstado">
+            <option>En desarrollo</option>
+            <option>Revisado</option>
+            <option>Validado</option>
+          </select>
+        </div>
+      </div>
+
+      <label>
+        <input id="materialesConfirmados" type="checkbox" style="width:auto">
+        Revisé todos los materiales utilizados, incluso si el servicio no requiere insumos.
+      </label>
+
+      <br>
+
+      <button class="btn" onclick="guardarFicha()">Guardar ficha de costos</button>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SIMULADOR -->
+
+<section id="simulador" class="page">
+
+  <div class="card">
+    <h3>Simulador de precios</h3>
+    <p class="subtitle">Evalúa distintos precios sin modificar el precio real del servicio.</p>
+
+    <div class="form-grid">
+      <div>
+        <label>Servicio</label>
+        <select id="simServicio" onchange="cargarSimulador()"></select>
+      </div>
+
+      <div>
+        <label>Precio de venta simulado ($)</label>
+        <input id="simPrecio" type="number" min="0" oninput="simular()">
+      </div>
+
+      <div>
+        <label>Margen deseado (%)</label>
+        <input id="simMargen" type="number" min="0" max="99" value="30" oninput="simular()">
+      </div>
+    </div>
+  </div>
+
+  <div id="resultadoSimulador"></div>
+
+</section>
+
+<!-- RENTABILIDAD -->
+
+<section id="rentabilidad" class="page">
+
+  <div class="notice">
+    Los márgenes corresponden a estimaciones por servicio. No representan la utilidad neta mensual de la empresa.
+  </div>
+
+  <div class="card">
+    <h3>Análisis de rentabilidad por servicio</h3>
+    <div id="tablaRentabilidad"></div>
+  </div>
+
+</section>
+
+<!-- CONFIGURACIÓN -->
+
+<section id="config" class="page">
+
+  <div class="card">
+    <h3>Información del proyecto</h3>
+
+    <p><strong>Empresa:</strong> Tati Beauty Studio</p>
+    <p><strong>Proyecto:</strong> TATI COST</p>
+    <p><strong>Metáfora:</strong> Una brújula financiera</p>
+
+    <p class="subtitle">
+      Mejorar el cálculo y seguimiento de costos y márgenes de al menos el 80% de los servicios activos en un plazo de tres meses.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Respaldo de información</h3>
+
+    <p class="subtitle">
+      Los datos se guardan en este navegador. Descarga un respaldo para conservarlos o trasladarlos a otro dispositivo.
+    </p>
+
+    <div class="actions">
+      <button class="btn" onclick="exportar()">Descargar respaldo</button>
+
+      <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">
+        Importar respaldo
+      </button>
+
+      <input id="importFile" type="file" accept=".json" style="display:none" onchange="importar(event)">
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Reiniciar aplicación</h3>
+
+    <p class="subtitle">Elimina los registros almacenados en este navegador.</p>
+
+    <button class="btn btn-danger" onclick="reiniciar()">Eliminar todos los datos</button>
+  </div>
+
+</section>
+
+</main>
+
+<div id="toast"></div>
+
+<script>
+
+const $ = id => document.getElementById(id);
+
+const inicial = () => ({
+  servicios: [],
+  insumos: [],
+  gastos: [],
+  mano: { mensual: 0, horas: 0 },
+  baseHoras: 0,
+  fichas: {}
+});
+
+let db = inicial();
+
+try {
+  const saved = localStorage.getItem("tatiCostV1");
+  if (saved) db = JSON.parse(saved);
+} catch (e) {
+  console.error(e);
+}
+
+const money = n => new Intl.NumberFormat("es-CL", {
+  style: "currency",
+  currency: "CLP",
+  maximumFractionDigits: 0
+}).format(n);
+
+const decimal = n => Number(n).toLocaleString("es-CL", {
+  maximumFractionDigits: 2
+});
+
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2);
+
+const num = id => Number($(id).value);
+
+function esc(value) {
+  return String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[c]));
+}
+
+function guardar() {
+  try {
+    localStorage.setItem("tatiCostV1", JSON.stringify(db));
+  } catch (e) {
+    alert("No fue posible guardar los datos en el navegador.");
+  }
+}
+
+function toast(text) {
+  $("toast").textContent = text;
+  $("toast").style.display = "block";
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer = setTimeout(() => {
+    $("toast").style.display = "none";
+  }, 3000);
+}
+
+const titulos = {
+  inicio: "Panel principal",
+  servicios: "Gestión de servicios",
+  insumos: "Gestión de insumos",
+  mano: "Mano de obra",
+  gastos: "Gastos indirectos",
+  fichas: "Fichas de costos",
+  simulador: "Simulador de precios",
+  rentabilidad: "Análisis de rentabilidad",
+  config: "Configuración"
+};
+
+function go(page, btn) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".nav").forEach(n => n.classList.remove("active"));
+
+  $(page).classList.add("active");
+  if (btn) btn.classList.add("active");
+
+  $("pageTitle").textContent = titulos[page];
+
+  render();
+  window.scrollTo(0, 0);
+}
+
+function openPage(page) {
+  const btn = [...document.querySelectorAll(".nav")]
+    .find(b => b.getAttribute("onclick").includes("'" + page + "'"));
+
+  go(page, btn);
+}
+
+function tabla(headers, rows) {
+  if (!rows.length) {
+    return '<div class="empty">Todavía no hay registros.</div>';
+  }
+
+  return `<div class="table-wrap"><table>
+    <thead><tr>${headers.map(h => `<th>${h}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody>
+    </table></div>`;
+}
+
+function costoLaboral() {
+  return db.mano.horas > 0
+    ? db.mano.mensual / (db.mano.horas * 60)
+    : 0;
+}
+
+function totalIndirectos() {
+  return db.gastos.reduce((a, g) => a + g.monto, 0);
+}
+
+function costoIndirecto() {
+  return db.baseHoras > 0
+    ? totalIndirectos() / (db.baseHoras * 60)
+    : 0;
+}
+
+function obtenerFicha(id) {
+  return db.fichas[id] || {
+    materiales: [],
+    calidad: "Estimados",
+    estado: "En desarrollo",
+    confirmados: false
+  };
+}
+
+function calcular(id) {
+  const s = db.servicios.find(x => x.id === id);
+  if (!s) return null;
+
+  const f = obtenerFicha(id);
+
+  const materiales = f.materiales.reduce((total, m) => {
+    const i = db.insumos.find(x => x.id === m.insumo);
+    return total + (i ? i.precio / i.cantidad * m.cantidad : 0);
+  }, 0);
+
+  const mano = s.tiempo * costoLaboral();
+  const indirectos = s.tiempo * costoIndirecto();
+
+  const total = materiales + mano + indirectos;
+  const resultado = s.precio - total;
+
+  const margen = s.precio > 0
+    ? resultado / s.precio * 100
+    : null;
+
+  const completo = Boolean(
+    f.confirmados &&
+    db.mano.horas > 0 &&
+    db.baseHoras > 0 &&
+    f.materiales.every(m => db.insumos.some(i => i.id === m.insumo)) &&
+    (f.estado === "Revisado" || f.estado === "Validado")
+  );
+
+  return { materiales, mano, indirectos, total, resultado, margen, completo };
+}
+
+function invalidarFichas() {
+  Object.values(db.fichas).forEach(f => {
+    f.estado = "En desarrollo";
+  });
+}
+
+function actualizar() {
+  guardar();
+  render();
+}
+
+function resetServicio() {
+  $("formServicio").reset();
+  $("servicioId").value = "";
+}
+
+$("formServicio").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const id = $("servicioId").value || uid();
+
+  const servicio = {
+    id,
+    nombre: $("servicioNombre").value.trim(),
+    categoria: $("servicioCategoria").value,
+    precio: num("servicioPrecio"),
+    tiempo: num("servicioTiempo")
+  };
+
+  if (!servicio.nombre) return;
+
+  const index = db.servicios.findIndex(s => s.id === id);
+
+  if (index >= 0) {
+    db.servicios[index] = servicio;
+    if (db.fichas[id]) db.fichas[id].estado = "En desarrollo";
+  } else {
+    db.servicios.push(servicio);
+  }
+
+  resetServicio();
+  actualizar();
+  toast("Servicio guardado correctamente");
+});
+
+function editarServicio(id) {
+  const s = db.servicios.find(x => x.id === id);
+
+  $("servicioId").value = s.id;
+  $("servicioNombre").value = s.nombre;
+  $("servicioCategoria").value = s.categoria;
+  $("servicioPrecio").value = s.precio;
+  $("servicioTiempo").value = s.tiempo;
+
+  window.scrollTo(0, 0);
+}
+
+function eliminarServicio(id) {
+  if (!confirm("¿Eliminar este servicio y su ficha de costos?")) return;
+
+  db.servicios = db.servicios.filter(s => s.id !== id);
+  delete db.fichas[id];
+
+  actualizar();
+  toast("Servicio eliminado");
+}
+
+function resetInsumo() {
+  $("formInsumo").reset();
+  $("insumoId").value = "";
+}
+
+$("formInsumo").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const id = $("insumoId").value || uid();
+
+  const insumo = {
+    id,
+    nombre: $("insumoNombre").value.trim(),
+    precio: num("insumoPrecio"),
+    cantidad: num("insumoCantidad"),
+    unidad: $("insumoUnidad").value
+  };
+
+  if (!insumo.nombre || insumo.cantidad <= 0) return;
+
+  const index = db.insumos.findIndex(i => i.id === id);
+
+  if (index >= 0) {
+    const anterior = db.insumos[index];
+
+    if (anterior.unidad !== insumo.unidad &&
+      Object.values(db.fichas).some(f => f.materiales.some(m => m.insumo === id))) {
+      alert("No puedes cambiar la unidad de un insumo utilizado en una ficha. Retíralo primero de las fichas correspondientes.");
+      return;
+    }
+
+    db.insumos[index] = insumo;
+    invalidarFichas();
+  } else {
+    db.insumos.push(insumo);
+  }
+
+  resetInsumo();
+  actualizar();
+  toast("Insumo guardado correctamente");
+});
+
+function editarInsumo(id) {
+  const i = db.insumos.find(x => x.id === id);
+
+  $("insumoId").value = i.id;
+  $("insumoNombre").value = i.nombre;
+  $("insumoPrecio").value = i.precio;
+  $("insumoCantidad").value = i.cantidad;
+  $("insumoUnidad").value = i.unidad;
+
+  window.scrollTo(0, 0);
+}
+
+function eliminarInsumo(id) {
+  if (Object.values(db.fichas).some(f => f.materiales.some(m => m.insumo === id))) {
+    alert("Este insumo está asociado a una ficha de costos. Retíralo de la ficha antes de eliminarlo.");
+    return;
+  }
+
+  if (!confirm("¿Eliminar este insumo?")) return;
+
+  db.insumos = db.insumos.filter(i => i.id !== id);
+
+  actualizar();
+  toast("Insumo eliminado");
+}
+
+$("formMano").addEventListener("submit", e => {
+  e.preventDefault();
+
+  db.mano = {
+    mensual: num("manoMensual"),
+    horas: num("manoHoras")
+  };
+
+  invalidarFichas();
+  actualizar();
+  toast("Mano de obra actualizada");
+});
+
+function resetGasto() {
+  $("formGasto").reset();
+  $("gastoId").value = "";
+}
+
+$("formGasto").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const id = $("gastoId").value || uid();
+
+  const gasto = {
+    id,
+    nombre: $("gastoNombre").value.trim(),
+    monto: num("gastoMonto"),
+    tipo: $("gastoTipo").value
+  };
+
+  if (!gasto.nombre) return;
+
+  const index = db.gastos.findIndex(g => g.id === id);
+
+  if (index >= 0) db.gastos[index] = gasto;
+  else db.gastos.push(gasto);
+
+  invalidarFichas();
+  resetGasto();
+  actualizar();
+  toast("Gasto guardado correctamente");
+});
+
+function editarGasto(id) {
+  const g = db.gastos.find(x => x.id === id);
+
+  $("gastoId").value = g.id;
+  $("gastoNombre").value = g.nombre;
+  $("gastoMonto").value = g.monto;
+  $("gastoTipo").value = g.tipo;
+
+  window.scrollTo(0, 0);
+}
+
+function eliminarGasto(id) {
+  if (!confirm("¿Eliminar este gasto?")) return;
+
+  db.gastos = db.gastos.filter(g => g.id !== id);
+
+  invalidarFichas();
+  actualizar();
+  toast("Gasto eliminado");
+}
+
+$("formBase").addEventListener("submit", e => {
+  e.preventDefault();
+
+  db.baseHoras = num("baseHoras");
+
+  invalidarFichas();
+  actualizar();
+  toast("Base de distribución guardada");
+});
+
+function opcionesServicios(id) {
+  const anterior = $(id).value;
+
+  $(id).innerHTML = '<option value="">Seleccionar servicio</option>' +
+    db.servicios.map(s =>
+      `<option value="${esc(s.id)}">${esc(s.nombre)}</option>`
+    ).join("");
+
+  if (db.servicios.some(s => s.id === anterior)) {
+    $(id).value = anterior;
+  }
+}
+
+function cargarFicha() {
+  const id = $("fichaServicio").value;
+
+  $("fichaContenido").style.display = id ? "block" : "none";
+
+  if (!id) return;
+
+  const f = obtenerFicha(id);
+  const c = calcular(id);
+
+  $("fichaInsumo").innerHTML =
+    '<option value="">Seleccionar insumo</option>' +
+    db.insumos.map(i =>
+      `<option value="${esc(i.id)}">${esc(i.nombre)} (${esc(i.unidad)})</option>`
+    ).join("");
+
+  $("fichaCalidad").value = f.calidad;
+  $("fichaEstado").value = f.estado;
+  $("materialesConfirmados").checked = f.confirmados;
+
+  $("tablaMateriales").innerHTML = tabla(
+    ["Material", "Cantidad", "Costo", "Acción"],
+    f.materiales.map((m, index) => {
+      const i = db.insumos.find(x => x.id === m.insumo);
+
+      return [
+        esc(i?.nombre || "Insumo no disponible"),
+        decimal(m.cantidad) + " " + esc(i?.unidad || ""),
+        money(i ? i.precio / i.cantidad * m.cantidad : 0),
+        `<button class="btn btn-danger btn-small" onclick="quitarMaterial(${index})">Quitar</button>`
+      ];
+    })
+  );
+
+  const s = db.servicios.find(x => x.id === id);
+
+  $("detalleFicha").innerHTML = `
+    <div class="notice">
+      ${db.mano.horas <= 0 || db.baseHoras <= 0
+        ? "Falta configurar la mano de obra o la distribución de gastos indirectos. El cálculo todavía es parcial."
+        : "Costo estimado según los datos registrados."}
+    </div>
+
+    ${tabla(["Concepto", "Monto"], [
+      ["Materiales", money(c.materiales)],
+      ["Mano de obra", money(c.mano)],
+      ["Gastos indirectos", money(c.indirectos)],
+      ["<strong>Costo total estimado</strong>", "<strong>" + money(c.total) + "</strong>"],
+      ["Precio de venta", money(s.precio)],
+      ["Resultado estimado", money(c.resultado)],
+      ["Margen sobre venta", c.margen === null ? "No disponible" : decimal(c.margen) + "%"]
+    ])}
+  `;
+}
+
+$("formMaterial").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const id = $("fichaServicio").value;
+  const insumo = $("fichaInsumo").value;
+  const cantidad = num("fichaCantidad");
+
+  if (!id || !insumo || cantidad <= 0) {
+    toast("Selecciona un insumo e ingresa una cantidad");
+    return;
+  }
+
+  const f = obtenerFicha(id);
+
+  const existente = f.materiales.find(m => m.insumo === insumo);
+
+  if (existente) existente.cantidad += cantidad;
+  else f.materiales.push({ insumo, cantidad });
+
+  f.estado = "En desarrollo";
+  f.confirmados = false;
+
+  db.fichas[id] = f;
+
+  $("fichaCantidad").value = "";
+
+  actualizar();
+  toast("Material agregado a la ficha");
+});
+
+function quitarMaterial(index) {
+  const id = $("fichaServicio").value;
+  const f = obtenerFicha(id);
+
+  f.materiales.splice(index, 1);
+  f.confirmados = false;
+  f.estado = "En desarrollo";
+
+  db.fichas[id] = f;
+
+  actualizar();
+}
+
+function guardarFicha() {
+  const id = $("fichaServicio").value;
+
+  if (!id) return;
+
+  const f = obtenerFicha(id);
+
+  const estado = $("fichaEstado").value;
+  const confirmado = $("materialesConfirmados").checked;
+
+  if (estado !== "En desarrollo" &&
+    (!confirmado || db.mano.horas <= 0 || db.baseHoras <= 0)) {
+    alert("Completa la revisión de materiales, mano de obra y gastos indirectos antes de marcar la ficha como revisada o validada.");
+    return;
+  }
+
+  if (estado === "Validado" && $("fichaCalidad").value !== "Comprobados") {
+    alert("Para validar una ficha, los datos deben estar comprobados.");
+    return;
+  }
+
+  f.calidad = $("fichaCalidad").value;
+  f.estado = estado;
+  f.confirmados = confirmado;
+  f.actualizado = new Date().toISOString();
+
+  db.fichas[id] = f;
+
+  actualizar();
+  toast("Ficha de costos guardada");
+}
+
+function cargarSimulador() {
+  const s = db.servicios.find(x => x.id === $("simServicio").value);
+
+  $("simPrecio").value = s ? s.precio : "";
+
+  simular();
+}
+
+function simular() {
+  const id = $("simServicio").value;
+  const c = calcular(id);
+
+  if (!c) {
+    $("resultadoSimulador").innerHTML =
+      '<div class="card empty">Selecciona un servicio para comenzar.</div>';
+    return;
+  }
+
+  if (!c.completo) {
+    $("resultadoSimulador").innerHTML =
+      '<div class="notice">Completa y revisa la ficha de costos de este servicio antes de simular precios.</div>';
+    return;
+  }
+
+  const precio = num("simPrecio");
+  const objetivo = num("simMargen");
+
+  if (precio < 0 || objetivo < 0 || objetivo >= 100) {
+    $("resultadoSimulador").innerHTML =
+      '<div class="notice">Ingresa un precio válido y un margen deseado entre 0 y 99%.</div>';
+    return;
+  }
+
+  const resultado = precio - c.total;
+  const margen = precio > 0 ? resultado / precio * 100 : null;
+
+  const sugerido = Math.ceil(c.total / (1 - objetivo / 100));
+
+  $("resultadoSimulador").innerHTML = `
+    <div class="grid">
+      <div class="card">
+        <div class="small">Costo total</div>
+        <div class="metric">${money(c.total)}</div>
+      </div>
+
+      <div class="card">
+        <div class="small">Resultado estimado</div>
+        <div class="metric ${resultado >= 0 ? "green" : "red"}">${money(resultado)}</div>
+      </div>
+
+      <div class="card">
+        <div class="small">Margen simulado</div>
+        <div class="metric ${resultado >= 0 ? "green" : "red"}">
+          ${margen === null ? "—" : decimal(margen) + "%"}
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="small">Precio para el margen deseado</div>
+        <div class="metric">${money(sugerido)}</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Interpretación</h3>
+
+      <p>${resultado < 0
+        ? "El precio simulado no cubre los costos estimados del servicio."
+        : resultado === 0
+        ? "El precio simulado cubre los costos, pero no genera un margen positivo."
+        : "El precio simulado permite cubrir los costos y obtener un resultado positivo estimado."}</p>
+
+      <p class="small">La simulación no modifica el precio registrado.</p>
+    </div>
+  `;
+}
+
+function render() {
+
+  const costeados = db.servicios.filter(s => calcular(s.id).completo);
+
+  const margenes = costeados
+    .map(s => calcular(s.id).margen)
+    .filter(m => m !== null);
+
+  const promedio = margenes.length
+    ? margenes.reduce((a, b) => a + b, 0) / margenes.length
+    : null;
+
+  const cobertura = db.servicios.length
+    ? costeados.length / db.servicios.length * 100
+    : 0;
+
+  const meta = Math.ceil(db.servicios.length * .8);
+
+  $("totalServicios").textContent = db.servicios.length;
+  $("totalCosteados").textContent = costeados.length;
+  $("totalInsumos").textContent = db.insumos.length;
+
+  $("margenPromedio").textContent =
+    promedio === null ? "—" : decimal(promedio) + "%";
+
+  $("margenPromedio").className =
+    "metric " + (promedio !== null && promedio < 0 ? "red" : "green");
+
+  $("cobertura").textContent = decimal(cobertura) + "%";
+  $("barra").style.width = cobertura + "%";
+
+  $("metaTexto").textContent = !db.servicios.length
+    ? "Registra los servicios activos para comenzar el seguimiento."
+    : cobertura >= 80
+    ? "Meta de cobertura alcanzada."
+    : "Faltan " + Math.max(0, meta - costeados.length) + " servicios costeados para alcanzar la meta.";
+
+  $("resumenServicios").innerHTML = tabla(
+    ["Servicio", "Precio", "Estado"],
+    db.servicios.map(s => [
+      esc(s.nombre),
+      money(s.precio),
+      calcular(s.id).completo
+        ? '<span class="status status-ok">Costeado</span>'
+        : '<span class="status">Pendiente</span>'
+    ])
+  );
+
+  $("tablaServicios").innerHTML = tabla(
+    ["Servicio", "Categoría", "Precio", "Duración", "Acciones"],
+    db.servicios.map(s => [
+      esc(s.nombre),
+      esc(s.categoria),
+      money(s.precio),
+      s.tiempo + " min",
+      `<button class="btn btn-secondary btn-small" onclick="editarServicio('${s.id}')">Editar</button>
+       <button class="btn btn-danger btn-small" onclick="eliminarServicio('${s.id}')">Eliminar</button>`
+    ])
+  );
+
+  $("tablaInsumos").innerHTML = tabla(
+    ["Producto", "Precio", "Contenido", "Costo unitario", "Acciones"],
+    db.insumos.map(i => [
+      esc(i.nombre),
+      money(i.precio),
+      decimal(i.cantidad) + " " + esc(i.unidad),
+      "$" + decimal(i.precio / i.cantidad),
+      `<button class="btn btn-secondary btn-small" onclick="editarInsumo('${i.id}')">Editar</button>
+       <button class="btn btn-danger btn-small" onclick="eliminarInsumo('${i.id}')">Eliminar</button>`
+    ])
+  );
+
+  $("manoMensual").value = db.mano.horas ? db.mano.mensual : "";
+  $("manoHoras").value = db.mano.horas || "";
+
+  $("costoHora").textContent = db.mano.horas
+    ? money(costoLaboral() * 60)
+    : "—";
+
+  $("costoMinuto").textContent = db.mano.horas
+    ? "$" + decimal(costoLaboral())
+    : "—";
+
+  $("baseHoras").value = db.baseHoras || "";
+  $("totalGastos").textContent = money(totalIndirectos());
+
+  $("gastoMinuto").textContent = db.baseHoras
+    ? "$" + decimal(costoIndirecto())
+    : "—";
+
+  $("tablaGastos").innerHTML = tabla(
+    ["Gasto", "Tipo", "Monto mensual", "Acciones"],
+    db.gastos.map(g => [
+      esc(g.nombre),
+      esc(g.tipo),
+      money(g.monto),
+      `<button class="btn btn-secondary btn-small" onclick="editarGasto('${g.id}')">Editar</button>
+       <button class="btn btn-danger btn-small" onclick="eliminarGasto('${g.id}')">Eliminar</button>`
+    ])
+  );
+
+  opcionesServicios("fichaServicio");
+  opcionesServicios("simServicio");
+
+  cargarFicha();
+
+  $("tablaRentabilidad").innerHTML = tabla(
+    ["Servicio", "Precio", "Costo", "Resultado", "Margen", "Estado"],
+    db.servicios.map(s => {
+      const c = calcular(s.id);
+
+      return [
+        esc(s.nombre),
+        money(s.precio),
+        c.completo ? money(c.total) : "Pendiente",
+        c.completo ? money(c.resultado) : "—",
+        c.completo && c.margen !== null
+          ? `<strong class="${c.margen >= 0 ? "green" : "red"}">${decimal(c.margen)}%</strong>`
+          : "—",
+        esc(obtenerFicha(s.id).estado)
+      ];
+    })
+  );
+
+  simular();
+}
+
+function exportar() {
+  const blob = new Blob([JSON.stringify(db, null, 2)], {
+    type: "application/json"
+  });
+
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+
+  a.href = url;
+  a.download = "TATI_COST_Respaldo.json";
+  a.click();
+
+  URL.revokeObjectURL(url);
+
+  toast("Respaldo descargado");
+}
+
+function importar(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result);
+
+      const valido =
+        Array.isArray(data.servicios) &&
+        Array.isArray(data.insumos) &&
+        Array.isArray(data.gastos) &&
+        data.mano &&
+        data.fichas &&
+        typeof data.baseHoras === "number" &&
+        data.baseHoras >= 0 &&
+        Number.isFinite(data.mano.mensual) &&
+        data.mano.mensual >= 0 &&
+        Number.isFinite(data.mano.horas) &&
+        data.mano.horas >= 0 &&
+        data.servicios.every(s =>
+          typeof s.id === "string" &&
+          /^[a-z0-9]+$/.test(s.id) &&
+          typeof s.nombre === "string" &&
+          Number.isFinite(s.precio) &&
+          s.precio >= 0 &&
+          Number.isFinite(s.tiempo) &&
+          s.tiempo > 0
+        ) &&
+        data.insumos.every(i =>
+          typeof i.id === "string" &&
+          /^[a-z0-9]+$/.test(i.id) &&
+          typeof i.nombre === "string" &&
+          Number.isFinite(i.precio) &&
+          i.precio >= 0 &&
+          Number.isFinite(i.cantidad) &&
+          i.cantidad > 0
+        ) &&
+        data.gastos.every(g =>
+          typeof g.id === "string" &&
+          /^[a-z0-9]+$/.test(g.id) &&
+          typeof g.nombre === "string" &&
+          Number.isFinite(g.monto) &&
+          g.monto >= 0
+        ) &&
+        Object.values(data.fichas).every(f =>
+          f &&
+          Array.isArray(f.materiales) &&
+          f.materiales.every(m =>
+            typeof m.insumo === "string" &&
+            Number.isFinite(m.cantidad) &&
+            m.cantidad > 0
+          )
+        );
+
+      if (!valido) {
+        throw new Error("Formato inválido");
+      }
+
+      if (!confirm("¿Reemplazar los datos actuales con este respaldo?")) return;
+
+      db = data;
+
+      actualizar();
+      toast("Respaldo importado correctamente");
+
+    } catch (error) {
+      alert("El archivo no corresponde a un respaldo válido de TATI COST.");
+    }
+
+    event.target.value = "";
+  };
+
+  reader.readAsText(file);
+}
+
+function reiniciar() {
+  if (!confirm("¿Eliminar permanentemente todos los datos de TATI COST almacenados en este navegador?")) return;
+
+  db = inicial();
+
+  resetServicio();
+  resetInsumo();
+  resetGasto();
+
+  actualizar();
+  cargarSimulador();
+
+  toast("Aplicación reiniciada");
+}
+
+render();
+
+</script>
+
+</body>
+</html>
+
