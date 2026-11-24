@@ -3,1969 +3,946 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TATI COST — Beauty Business Studio</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TATI COST | Studio Management</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
-
-:root {
-  --ink: #49382f;
-  --muted: #796c62;
-  --paper: #f7f3ed;
-  --white: #fffdf8;
-  --line: #e5d9cc;
-  --accent: #a5654d;
-  --rose: #e9c8ba;
-  --green: #667c61;
+:root{
+--bg:#f6f3ee;
+--paper:#fffdf9;
+--ink:#382f2a;
+--muted:#887c73;
+--accent:#a86c55;
+--line:#e7ddd3;
+--green:#66816d;
+--red:#b95353;
+--sand:#e9d6c3;
 }
-
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font: 14px 'DM Sans', Arial, sans-serif;
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px 'DM Sans',Arial,sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+h1,h2,h3,p{margin:0}
+h1,h2{font-family:'Playfair Display',Georgia,serif;font-weight:500}
+h1{font-size:40px}
+h2{font-size:27px}
+h3{font-size:16px}
+p{line-height:1.65}
+aside{position:fixed;inset:0 auto 0 0;width:245px;background:#302822;color:#fff8ef;padding:30px 18px;overflow:auto}
+.brand{font:39px 'Playfair Display',Georgia,serif;letter-spacing:-2px}
+.eyebrow{font-size:10px;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;color:var(--accent)}
+aside .eyebrow{color:#c5a38e}
+.navgroup{margin:28px 10px 10px}
+.nav{display:flex;align-items:center;gap:12px;width:100%;padding:12px;border:0;border-radius:7px;color:#d6c6b9;background:none;text-align:left;margin:3px 0}
+.nav:hover,.nav.active{background:#58443a;color:#fff}
+.nav svg,.ico{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+main{margin-left:245px;padding:30px 36px;max-width:1700px}
+header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:25px}
+.hero{background:#ead8c5;display:grid;grid-template-columns:1.3fr 1fr;align-items:center;padding:35px;border-radius:12px;overflow:hidden;margin-bottom:25px}
+.hero h1{font-size:clamp(32px,4vw,55px);line-height:1.1;margin:15px 0}
+.hero p{max-width:450px;color:#745d4d;margin-bottom:20px}
+.hero svg{width:100%;max-height:280px}
+.btn{border:1px solid var(--ink);border-radius:6px;padding:11px 17px;background:var(--ink);color:white;font-weight:600}
+.btn:hover{opacity:.82}
+.secondary{background:transparent;color:var(--ink);border-color:var(--line)}
+.danger{background:transparent;color:var(--red);border-color:#e7c4bd}
+.small{padding:6px 9px;font-size:12px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:22px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:15px;margin:18px 0}
+.grid .card{margin:0}
+.metric{font:33px 'Playfair Display',Georgia,serif;margin:12px 0}
+.muted,small{color:var(--muted)}
+.green{color:var(--green)}
+.red{color:var(--red)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:15px;margin:18px 0}
+label{display:block;font-size:12px;font-weight:600;margin-bottom:7px}
+input,select{width:100%;padding:11px;border:1px solid var(--line);border-radius:5px;background:#fffefa;color:var(--ink)}
+input:focus,select:focus{outline:2px solid #d9b7a4}
+input[type=checkbox]{width:auto}
+.tablewrap{overflow:auto;margin-top:15px}
+table{border-collapse:collapse;width:100%;min-width:480px}
+td,th{padding:12px 9px;border-bottom:1px solid var(--line);text-align:left}
+th{font-size:10px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
+tr:hover td{background:#faf5ee}
+.empty{text-align:center;color:var(--muted);padding:30px}
+.empty svg{display:block;margin:0 auto 12px;width:45px;height:45px;color:var(--accent)}
+.notice{background:#f0e5d8;border-left:3px solid var(--accent);padding:15px;margin:15px 0;line-height:1.6}
+.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tag{display:inline-block;padding:5px 9px;background:#efe3d7;border-radius:4px;font-size:11px}
+.ok{background:#e1e9dc;color:#527052}
+.warn{background:#f4ded8;color:#a14b42}
+.row{display:flex;align-items:center;gap:20px}
+.ring{width:140px;height:140px;border-radius:50%;background:conic-gradient(var(--accent) var(--pct),#eadfd3 0);display:grid;place-items:center;flex-shrink:0}
+.ring span{width:115px;height:115px;border-radius:50%;background:var(--paper);display:grid;place-items:center;font:30px Georgia}
+.bar{display:flex;height:14px;border-radius:5px;overflow:hidden;background:#eee5da;margin:16px 0}
+.legend{display:flex;justify-content:space-between;margin:12px 0;gap:10px}
+.alert{padding:14px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start}
+.alert .ico{flex-shrink:0;color:var(--accent)}
+.foot{border-top:1px solid #5d4c40;margin-top:30px;padding:20px 10px;color:#baa99a;font-size:11px;line-height:1.8}
+#toast{position:fixed;bottom:20px;right:20px;display:none;background:var(--ink);color:white;padding:15px 20px;border-radius:6px;z-index:99}
+#mobile{display:none}
+.servicephoto{width:64px;height:64px;border-radius:7px;object-fit:cover;background:#ead9c8}
+.servicehead{display:flex;align-items:center;gap:16px;margin:12px 0}
+.search{max-width:320px;margin-top:15px}
+.chartrow{margin:15px 0}
+.charttrack{height:10px;background:#eee3d7;border-radius:5px;overflow:hidden;margin-top:6px}
+.chartfill{height:100%;border-radius:5px;background:var(--green)}
+@media(max-width:850px){
+aside{position:relative;width:100%;padding:18px}
+#mobile{display:block;float:right}
+#navs{display:none}
+#navs.open{display:block}
+.foot{display:none}
+main{margin:0;padding:18px}
+.split{grid-template-columns:1fr}
+.hero{padding:24px}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.metric{font-size:27px}
+.card{padding:16px}
 }
-
-button, input, select { font: inherit; }
-button { cursor: pointer; }
-h1, h2, h3, p { margin: 0; }
-
-h1, h2 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 500;
+@media(max-width:480px){
+.hero{grid-template-columns:1fr}
+.hero svg{max-height:200px}
+.ring{width:110px;height:110px}
+.ring span{width:90px;height:90px}
 }
-
-h1 { font-size: 36px; }
-h2 { font-size: 26px; }
-h3 { font-size: 16px; }
-p { line-height: 1.65; }
-
-aside {
-  position: fixed;
-  width: 245px;
-  inset: 0 auto 0 0;
-  background: #efe7dc;
-  padding: 30px 20px;
-  overflow: auto;
-  border-right: 1px solid var(--line);
-}
-
-.brand {
-  font: 36px 'Playfair Display', Georgia, serif;
-  letter-spacing: -2px;
-}
-
-.eyebrow {
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 700;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  padding: 12px;
-  border: 0;
-  background: none;
-  color: var(--muted);
-  text-align: left;
-  border-radius: 6px;
-  margin: 4px 0;
-}
-
-.nav.active, .nav:hover {
-  background: #e0cbb9;
-  color: var(--ink);
-}
-
-.nav svg, .icon {
-  width: 21px;
-  height: 21px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.navgroup { margin: 28px 0 10px; }
-
-.foot {
-  margin-top: 35px;
-  border-top: 1px solid var(--line);
-  padding-top: 20px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-main {
-  margin-left: 245px;
-  padding: 32px 40px;
-  max-width: 1600px;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 22px;
-  margin-bottom: 28px;
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  align-items: center;
-  background: #ead9c9;
-  border: 1px solid #dfc9b6;
-  min-height: 260px;
-  padding: 30px 36px;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-
-.hero h1 {
-  font-size: clamp(30px, 4vw, 54px);
-  line-height: 1.12;
-  margin: 12px 0;
-}
-
-.hero p {
-  max-width: 420px;
-  color: #725c4f;
-  margin-bottom: 20px;
-}
-
-.hero svg {
-  width: 100%;
-  max-height: 260px;
-}
-
-.btn {
-  border: 1px solid var(--ink);
-  background: var(--ink);
-  color: white;
-  padding: 11px 17px;
-  border-radius: 5px;
-  font-weight: 600;
-}
-
-.btn:hover { opacity: .85; }
-
-.secondary {
-  background: transparent;
-  color: var(--ink);
-  border-color: var(--line);
-}
-
-.danger {
-  color: #a3443d;
-  background: transparent;
-  border-color: #e5c4bd;
-}
-
-.smallbtn {
-  padding: 6px 9px;
-  font-size: 12px;
-  margin: 2px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
-  gap: 15px;
-  margin: 18px 0 25px;
-}
-
-.card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  padding: 23px;
-  margin-bottom: 18px;
-  border-radius: 7px;
-}
-
-.grid .card { margin: 0; }
-
-.metric {
-  font: 34px 'Playfair Display', Georgia, serif;
-  margin: 10px 0;
-}
-
-.muted, small { color: var(--muted); }
-.green { color: var(--green); }
-.red { color: #a3443d; }
-
-.formgrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 16px;
-  margin: 18px 0;
-}
-
-label {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-input, select {
-  width: 100%;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  background: #fffefa;
-  padding: 11px;
-  color: var(--ink);
-}
-
-input:focus, select:focus {
-  outline: 2px solid var(--rose);
-}
-
-.tablewrap {
-  overflow: auto;
-  margin-top: 15px;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-  min-width: 470px;
-}
-
-td, th {
-  text-align: left;
-  padding: 13px 9px;
-  border-bottom: 1px solid var(--line);
-}
-
-th {
-  font-size: 11px;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.empty {
-  text-align: center;
-  padding: 30px;
-  color: var(--muted);
-}
-
-.empty svg {
-  display: block;
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 12px;
-  stroke: var(--accent);
-  fill: none;
-  stroke-width: 1.3;
-}
-
-.notice {
-  padding: 14px 18px;
-  background: #f0e6d9;
-  border-left: 3px solid var(--accent);
-  margin: 15px 0;
-  line-height: 1.6;
-}
-
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-
-.ring {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: conic-gradient(var(--accent) var(--pct), #eadfd2 0);
-  flex-shrink: 0;
-}
-
-.ring span {
-  background: var(--white);
-  width: 106px;
-  height: 106px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font: 28px Georgia;
-}
-
-.row {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.bar {
-  height: 12px;
-  background: #eee3d7;
-  display: flex;
-  overflow: hidden;
-  border-radius: 3px;
-  margin: 15px 0;
-}
-
-.tag {
-  display: inline-block;
-  padding: 5px 9px;
-  background: #eee3d7;
-  font-size: 11px;
-  border-radius: 3px;
-}
-
-.ok {
-  background: #e0e9da;
-  color: #50684b;
-}
-
-.actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-#toast {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--ink);
-  color: white;
-  padding: 15px;
-  z-index: 9;
-  display: none;
-}
-
-#mobile { display: none; }
-
-@media(max-width:800px) {
-  aside {
-    position: relative;
-    width: 100%;
-    padding: 18px;
-  }
-
-  #mobile {
-    display: block;
-    float: right;
-  }
-
-  #navs { display: none; }
-  #navs.open { display: block; }
-  .foot { display: none; }
-
-  main {
-    margin: 0;
-    padding: 20px;
-  }
-
-  header { margin-bottom: 18px; }
-
-  .hero {
-    padding: 22px;
-    grid-template-columns: 1.3fr 1fr;
-  }
-
-  .split { grid-template-columns: 1fr; }
-  .grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .card { padding: 17px; }
-  .metric { font-size: 28px; }
-}
-
-@media(max-width:420px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero svg { max-height: 170px; }
-  .row { gap: 12px; }
-  .ring { width: 100px; height: 100px; }
-  .ring span { width: 80px; height: 80px; }
+@media print{
+aside,header,.btn,#toast,.noprint{display:none!important}
+main{margin:0;padding:0}
+body{background:white}
+.card{break-inside:avoid;border:1px solid #ddd}
 }
 </style>
 </head>
-
 <body>
 
 <aside>
-  <button id="mobile" class="btn secondary"
-    onclick="document.querySelector('#navs').classList.toggle('open')">
-    Menú
-  </button>
-
-  <div class="brand">tati cost.</div>
-  <div class="eyebrow">Beauty Business Studio</div>
-
-  <nav id="navs"></nav>
-
-  <div class="foot">
-    Tati Beauty Studio · Curicó<br>
-    Tu brújula financiera<br><br>
-    Innovación y Emprendimiento III<br>
-    INACAP
-  </div>
+<button id="mobile" class="btn" onclick="document.getElementById('navs').classList.toggle('open')">Menú</button>
+<div class="brand">tati cost.</div>
+<div class="eyebrow">Studio Management</div>
+<nav id="navs"></nav>
+<div class="foot">
+TATI BEAUTY STUDIO<br>
+Curicó, Chile<br><br>
+Tu brújula financiera<br>
+Versión 3.0
+</div>
 </aside>
 
 <main>
-  <header>
-    <div>
-      <div class="eyebrow">Tati Beauty Studio</div>
-      <h2 id="heading"></h2>
-    </div>
-    <span class="tag">Mi estudio</span>
-  </header>
-
-  <div id="content"></div>
+<header>
+<div>
+<div class="eyebrow">Beauty Business Studio</div>
+<h2 id="heading"></h2>
+</div>
+<span class="tag">Mi estudio</span>
+</header>
+<div id="content"></div>
 </main>
 
 <div id="toast" role="status"></div>
 
 <script>
+'use strict';
 
-const $ = id => document.getElementById(id);
+const $=id=>document.getElementById(id);
+const money=n=>Number(n).toLocaleString('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0});
+const dec=n=>Number(n).toLocaleString('es-CL',{maximumFractionDigits:2});
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,9);
+const date=()=>new Date().toISOString();
+const fmtdate=d=>d?new Date(d).toLocaleDateString('es-CL'):'Sin fecha';
 
-const money = n => new Intl.NumberFormat('es-CL', {
-  style: 'currency',
-  currency: 'CLP',
-  maximumFractionDigits: 0
-}).format(n);
-
-const dec = n => Number(n).toLocaleString('es-CL', {
-  maximumFractionDigits: 2
+const fresh=()=>({
+ servicios:[],
+ insumos:[],
+ gastos:[],
+ mano:{mensual:0,horas:0},
+ baseHoras:0,
+ fichas:{},
+ config:{margen:30,meta:80,inicio:'',revision:30},
+ historial:[]
 });
 
-const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({
-  '&': '&amp;',
-  '<': '&lt;',
-  '>': '&gt;',
-  '"': '&quot;',
-  "'": '&#39;'
-}[c]));
+let db=fresh();
+let page='inicio';
+let edit='';
+let selected='';
+let simId='';
+let pendingPhoto=null;
+let storageError=false;
 
-const uid = () => Date.now().toString(36) +
-  Math.random().toString(36).slice(2);
-
-const fresh = () => ({
-  servicios: [],
-  insumos: [],
-  gastos: [],
-  mano: { mensual: 0, horas: 0 },
-  baseHoras: 0,
-  fichas: {}
-});
-
-let db = fresh();
-let page = 'inicio';
-let edit = '';
-let selected = '';
-let simId = '';
-
-try {
-  let x = localStorage.getItem('tatiCostV1');
-  if (x) {
-    const parsed = JSON.parse(x);
-    if (valid(parsed)) db = parsed;
-  }
-} catch(e) {
-  console.error(e);
+function migrate(d){
+ if(!d||!Array.isArray(d.servicios)||!Array.isArray(d.insumos)||!Array.isArray(d.gastos)||!d.mano||!d.fichas)throw Error('Formato inválido');
+ d.config={...fresh().config,...d.config};
+ d.historial=Array.isArray(d.historial)?d.historial:[];
+ d.servicios=d.servicios.map(s=>({
+  activo:true,
+  preparacion:0,
+  limpieza:0,
+  foto:'',
+  ...s,
+  atencion:s.atencion??Math.max(0,s.tiempo-(s.preparacion||0)-(s.limpieza||0))
+ }));
+ d.insumos=d.insumos.map(i=>({
+  proveedor:'',
+  stock:null,
+  minimo:null,
+  historial:[],
+  ...i
+ }));
+ return d;
 }
 
-const paths = {
-  inicio: '<path d="M3 10l9-7 9 7v11H3zM9 21v-8h6v8"/>',
-  servicios: '<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8 8l13 13M8 16L21 3"/>',
-  insumos: '<path d="M3 7l9-4 9 4v13H3zM3 7l9 4 9-4M12 11v9"/>',
-  mano: '<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/>',
-  gastos: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
-  fichas: '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M8 12l3 3 5-6"/>',
-  simulador: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2m4 0h2M8 16h2m4 0h2"/>',
-  rentabilidad: '<path d="M3 3v18h18M6 16l5-6 4 3 6-8"/>',
-  config: '<circle cx="12" cy="12" r="4"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4M5 5l3 3m8 8l3 3M5 19l3-3m8-8l3-3"/>'
+function valid(d){
+ const nn=x=>typeof x==='number'&&Number.isFinite(x)&&x>=0;
+ const ids=a=>Array.isArray(a)&&a.every(x=>x&&typeof x.nombre==='string'&&typeof x.id==='string'&&/^[a-zA-Z0-9_-]+$/.test(x.id))&&new Set(a.map(x=>x.id)).size===a.length;
+ return d&&ids(d.servicios)&&ids(d.insumos)&&ids(d.gastos)&&
+ d.servicios.every(s=>nn(s.precio)&&nn(s.tiempo)&&s.tiempo>0&&nn(s.preparacion)&&nn(s.atencion)&&nn(s.limpieza)&&typeof s.activo==='boolean'&&Math.abs(s.tiempo-s.preparacion-s.atencion-s.limpieza)<0.001)&&
+ d.insumos.every(i=>nn(i.precio)&&nn(i.cantidad)&&i.cantidad>0&&['ml','g','unidad'].includes(i.unidad)&&(i.stock===null||nn(i.stock))&&(i.minimo===null||nn(i.minimo))&&Array.isArray(i.historial))&&
+ d.gastos.every(g=>nn(g.monto))&&
+ nn(d.mano.mensual)&&nn(d.mano.horas)&&nn(d.baseHoras)&&
+ nn(d.config.margen)&&d.config.margen<100&&nn(d.config.meta)&&d.config.meta>0&&d.config.meta<=100&&nn(d.config.revision)&&d.config.revision>0&&
+ Object.entries(d.fichas).every(([id,f])=>d.servicios.some(s=>s.id===id)&&f&&Array.isArray(f.materiales)&&typeof f.confirmados==='boolean'&&['En desarrollo','Revisado','Validado'].includes(f.estado)&&['Estimados','Parcialmente comprobados','Comprobados'].includes(f.calidad)&&f.materiales.every(m=>nn(m.cantidad)&&m.cantidad>0&&d.insumos.some(i=>i.id===m.insumo)));
+}
+
+try{
+ const raw=localStorage.getItem('tatiCostV1');
+ if(raw){
+  const data=migrate(JSON.parse(raw));
+  if(!valid(data))throw Error('Datos inválidos');
+  db=data;
+ }
+}catch(e){
+ storageError=true;
+ console.error(e);
+}
+
+const paths={
+ inicio:'<path d="M3 10l9-7 9 7v11H3zM9 21v-8h6v8"/>',
+ servicios:'<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8 8l13 13M8 16L21 3"/>',
+ insumos:'<path d="M3 7l9-4 9 4v13H3zM3 7l9 4 9-4M12 11v9"/>',
+ mano:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/>',
+ gastos:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+ fichas:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M8 12l3 3 5-6"/>',
+ simulador:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2m4 0h2M8 16h2m4 0h2"/>',
+ rentabilidad:'<path d="M3 3v18h18M6 16l5-6 4 3 6-8"/>',
+ asistente:'<path d="M9 18h6M10 22h4M8 15c-6-6-2-13 4-13s10 7 4 13l-1 3H9z"/>',
+ informes:'<path d="M5 2h10l4 4v16H5zM14 2v6h5M8 12h8M8 16h8"/>',
+ historial:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2M2 3v6h6"/>',
+ config:'<circle cx="12" cy="12" r="4"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4M5 5l3 3m8 8l3 3M5 19l3-3m8-8l3-3"/>'
 };
 
-const icon = k => `
-  <svg class="icon" viewBox="0 0 24 24">
-    ${paths[k] || paths.fichas}
-  </svg>
-`;
+const icon=k=>`<svg class="ico" viewBox="0 0 24 24">${paths[k]||paths.fichas}</svg>`;
 
-const names = {
-  inicio: 'Vista general',
-  servicios: 'Servicios',
-  insumos: 'Insumos',
-  mano: 'Mano de obra',
-  gastos: 'Gastos indirectos',
-  fichas: 'Fichas de costos',
-  simulador: 'Simulador de precios',
-  rentabilidad: 'Rentabilidad',
-  config: 'Configuración'
+const names={
+ inicio:'Vista general',
+ servicios:'Mis servicios',
+ insumos:'Productos e insumos',
+ mano:'Mano de obra',
+ gastos:'Gastos indirectos',
+ fichas:'Fichas de costos',
+ simulador:'Simulador financiero',
+ rentabilidad:'Rentabilidad',
+ asistente:'Asistente financiero',
+ informes:'Informes',
+ historial:'Historial',
+ config:'Configuración'
 };
 
-const illustration = `
-<svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg">
+const illustration=`
+<svg viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
+<path d="M100 270V140a115 115 0 0 1 230 0v130Z" fill="#cda58d"/>
+<ellipse cx="215" cy="274" rx="190" ry="13" fill="#a67b65" opacity=".25"/>
+<rect x="116" y="116" width="72" height="155" rx="13" fill="#fff0dc" stroke="#98745d"/>
+<rect x="132" y="90" width="40" height="30" rx="4" fill="#795646"/>
+<path d="M147 90V70h42v8h-28v12" fill="#795646"/>
+<rect x="126" y="160" width="52" height="69" fill="#d8b49e"/>
+<text x="152" y="186" text-anchor="middle" font-family="Georgia" font-size="20" fill="#62493b">tati.</text>
+<text x="152" y="203" text-anchor="middle" font-size="7" fill="#62493b">HAIR CARE</text>
+<rect x="207" y="198" width="96" height="74" rx="8" fill="#a06c53"/>
+<rect x="202" y="187" width="106" height="17" rx="4" fill="#65473a"/>
+<rect x="219" y="222" width="72" height="30" fill="#ead5bb"/>
+<text x="255" y="241" text-anchor="middle" font-family="Georgia" font-size="10" fill="#65473a">BEAUTY</text>
+<g transform="translate(259 113) rotate(25)" fill="none" stroke="#6e5040" stroke-width="5" stroke-linecap="round">
+<circle cx="-15" cy="29" r="12"/>
+<circle cx="15" cy="29" r="12"/>
+<path d="M-8 20L24-55M8 20L-24-55"/>
+<circle cx="0" cy="0" r="3" fill="#6e5040"/>
+</g>
+<g fill="#9da489" stroke="#718064" stroke-width="1.5">
+<path d="M85 270Q42 150 67 60" fill="none" stroke-width="2"/>
+<path d="M60 110Q25 98 30 75Q56 81 60 110"/>
+<path d="M58 146Q90 120 88 102Q61 109 58 146"/>
+<path d="M64 181Q25 161 30 138Q59 145 64 181"/>
+<path d="M74 217Q105 189 102 171Q78 178 74 217"/>
+</g>
+<g transform="translate(326 216) rotate(15)">
+<rect width="30" height="58" rx="3" fill="#b88d72"/>
+<path d="M5 0v-38M12 0v-38M19 0v-38M26 0v-38" stroke="#765544" stroke-width="3" stroke-linecap="round"/>
+</g>
+<g stroke="#fff6e8" stroke-width="2" fill="none">
+<path d="M330 55v24M318 67h24M95 35v16M87 43h16M365 120v18M356 129h18"/>
+</g>
+</svg>`;
 
-  <path d="M75 263V125a115 115 0 0 1 230 0v138Z"
-    fill="#d7b39d"/>
+function toast(s){
+ $('toast').textContent=s;
+ $('toast').style.display='block';
+ clearTimeout(window.tt);
+ window.tt=setTimeout(()=>$('toast').style.display='none',2600);
+}
 
-  <ellipse cx="190" cy="263" rx="170" ry="12"
-    fill="#b78c76" opacity=".25"/>
+function save(msg){
+ if(storageError){
+  alert('Existe un problema con los datos anteriores. Importa un respaldo válido antes de guardar.');
+  return false;
+ }
+ try{
+  localStorage.setItem('tatiCostV1',JSON.stringify(db));
+  if(msg)toast(msg);
+  return true;
+ }catch(e){
+  alert('No fue posible guardar. Revisa el espacio del navegador y descarga un respaldo.');
+  return false;
+ }
+}
 
-  <rect x="110" y="125" width="70" height="137"
-    rx="12" fill="#f7ecdc" stroke="#96745e"/>
+function log(text){
+ db.historial.unshift({fecha:date(),texto:text});
+ db.historial=db.historial.slice(0,500);
+}
 
-  <rect x="125" y="99" width="40" height="30"
-    rx="4" fill="#775344"/>
+function go(p){
+ page=p;
+ edit='';
+ pendingPhoto=null;
+ render();
+ $('navs').classList.remove('open');
+ window.scrollTo(0,0);
+}
 
-  <path d="M140 99V79h42v8h-28v12"
-    fill="#775344"/>
+function invalidate(id){
+ Object.entries(db.fichas).forEach(([k,f])=>{
+  if(!id||id===k)f.estado='En desarrollo';
+ });
+}
 
-  <rect x="119" y="164" width="52" height="62"
-    fill="#d8b29a"/>
+function invalidateInput(id){
+ Object.entries(db.fichas).forEach(([k,f])=>{
+  if(f.materiales.some(m=>m.insumo===id))f.estado='En desarrollo';
+ });
+}
 
-  <text x="145" y="187" text-anchor="middle"
-    font-family="Georgia" font-size="15" fill="#604638">
-    tati.
-  </text>
+const labor=()=>db.mano.horas?db.mano.mensual/(60*db.mano.horas):0;
+const totalG=()=>db.gastos.reduce((a,g)=>a+g.monto,0);
+const indirect=()=>db.baseHoras?totalG()/(60*db.baseHoras):0;
+const active=()=>db.servicios.filter(s=>s.activo);
+const ficha=id=>db.fichas[id]||{materiales:[],calidad:'Estimados',estado:'En desarrollo',confirmados:false};
 
-  <text x="145" y="202" text-anchor="middle"
-    font-size="6" letter-spacing="1" fill="#604638">
-    BEAUTY STUDIO
-  </text>
+function calc(s){
+ const f=ficha(s.id);
+ const m=f.materiales.reduce((a,r)=>{
+  const i=db.insumos.find(i=>i.id===r.insumo);
+  return a+(i?i.precio/i.cantidad*r.cantidad:0);
+ },0);
+ const l=labor()*s.tiempo;
+ const g=indirect()*s.tiempo;
+ const t=m+l+g;
+ return{
+  m,l,g,t,
+  r:s.precio-t,
+  margin:s.precio>0?(s.precio-t)/s.precio*100:null,
+  complete:!!(f.confirmados&&db.mano.horas>0&&db.baseHoras>0&&f.materiales.every(r=>db.insumos.some(i=>i.id===r.insumo))&&['Revisado','Validado'].includes(f.estado))
+ };
+}
 
-  <path d="M194 187h83v75h-83z"
-    fill="#a16b53"/>
+const completed=()=>active().filter(s=>calc(s).complete);
 
-  <rect x="188" y="177" width="95" height="17"
-    rx="4" fill="#664b3d"/>
+function card(title,body){
+ return `<section class="card"><h3>${title}</h3>${body}</section>`;
+}
 
-  <rect x="204" y="211" width="63" height="32"
-    fill="#ead7c1"/>
+function metric(label,value,k){
+ return `<div class="card">${icon(k)}<div class="metric">${value}</div><small>${label}</small></div>`;
+}
 
-  <text x="235" y="230" text-anchor="middle"
-    font-family="Georgia" font-size="11" fill="#604638">
-    HAIR CARE
-  </text>
+function table(heads,rows){
+ return rows.length?`<div class="tablewrap"><table><thead><tr>${heads.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:`<div class="empty">${icon('fichas')}Aún no hay registros disponibles.</div>`;
+}
 
-  <g transform="translate(250 107) rotate(28)"
-    stroke="#705145" stroke-width="5"
-    fill="none" stroke-linecap="round">
+function field(label,id,type='text',v='',attrs=''){
+ return `<div><label for="${id}">${label}</label><input id="${id}" type="${type}" value="${esc(v)}" ${attrs}></div>`;
+}
 
-    <circle cx="-15" cy="28" r="12"/>
-    <circle cx="15" cy="28" r="12"/>
+function select(label,id,opts,v=''){
+ return `<div><label for="${id}">${label}</label><select id="${id}">${opts.map(o=>{
+ const [k,t]=Array.isArray(o)?o:[o,o];
+ return `<option value="${esc(k)}" ${String(k)===String(v)?'selected':''}>${esc(t)}</option>`;
+ }).join('')}</select></div>`;
+}
 
-    <path d="M-8 19L23-55M8 19L-23-55"/>
+function form(body,action,label='Guardar'){
+ return `<form onsubmit="event.preventDefault();${esc(action)}"><div class="formgrid">${body}</div><div class="actions"><button class="btn">${label}</button><button type="button" class="btn secondary" onclick="edit='';pendingPhoto=null;render()">Cancelar</button></div></form>`;
+}
 
-    <circle cx="0" cy="0" r="3" fill="#705145"/>
-  </g>
+const val=id=>$(id).value;
+const n=id=>Number(val(id));
+const serviceOpts=()=>[['','Seleccionar servicio'],...active().map(s=>[s.id,s.nombre])];
 
-  <g fill="#9da387" stroke="#748066" stroke-width="1.5">
+function buttons(id){
+ return `<button class="btn secondary small" onclick="edit='${id}';pendingPhoto=null;render();window.scrollTo(0,0)">Editar</button> <button class="btn danger small" onclick="remove('${id}')">Eliminar</button>`;
+}
 
-    <path d="M77 260Q40 150 65 60"
-      fill="none" stroke-width="2"/>
+function nav(){
+ const groups=[
+ ['Mi estudio',['inicio']],
+ ['Administración',['servicios','insumos','mano','gastos']],
+ ['Finanzas',['fichas','simulador','rentabilidad','asistente']],
+ ['Seguimiento',['informes','historial','config']]
+ ];
+ $('navs').innerHTML=groups.map(([title,items])=>`<div class="navgroup eyebrow">${title}</div>${items.map(k=>`<button class="nav ${page===k?'active':''}" onclick="go('${k}')">${icon(k)}${names[k]}</button>`).join('')}`).join('');
+}
 
-    <path d="M59 112Q24 100 30 76Q57 81 59 112"/>
+function costChart(ss){
+ const a=ss.reduce((a,s)=>{
+  const c=calc(s);
+  return[a[0]+c.m,a[1]+c.l,a[2]+c.g];
+ },[0,0,0]);
+ const t=a.reduce((x,y)=>x+y,0);
+ const colors=['#a86c55','#d6ad91','#66816d'];
+ if(!t)return `<div class="empty">${icon('rentabilidad')}Sin costos disponibles.</div>`;
+ return `<div class="bar">${a.map((v,j)=>`<div style="width:${v/t*100}%;background:${colors[j]}"></div>`).join('')}</div>${a.map((v,j)=>`<div class="legend"><span><span style="color:${colors[j]}">●</span> ${['Materiales','Mano de obra','Indirectos'][j]}</span><strong>${money(v)}</strong></div>`).join('')}`;
+}
 
-    <path d="M57 142Q88 121 88 101Q60 108 57 142"/>
-
-    <path d="M62 176Q23 159 28 136Q57 142 62 176"/>
-
-    <path d="M69 205Q101 182 98 165Q74 171 69 205"/>
-
-  </g>
-
-  <g transform="translate(298 207) rotate(14)">
-    <rect width="28" height="56" rx="3"
-      fill="#b58b71"/>
-    <path d="M5 0V-32M11 0V-32M17 0V-32M23 0V-32"
-      stroke="#775344" stroke-width="3"
-      stroke-linecap="round"/>
-  </g>
-
-  <g stroke="#fff5e8" stroke-width="2" fill="none">
-    <path d="M310 55v24M298 67h24"/>
-    <path d="M90 36v16M82 44h16"/>
-    <path d="M335 115v14M328 122h14"/>
-  </g>
-
-</svg>
-`;
-
-function save(msg) {
-  try {
-    localStorage.setItem('tatiCostV1', JSON.stringify(db));
-    if (msg) toast(msg);
-  } catch(e) {
-    alert('No se pudieron guardar los datos.');
+function alerts(){
+ const a=[];
+ active().forEach(s=>{
+  const c=calc(s);
+  const f=ficha(s.id);
+  if(!c.complete){
+   a.push({title:'Ficha pendiente',text:s.nombre+' necesita completar o revisar sus costos.',page:'fichas',id:s.id});
+  }else{
+   if(c.r<0)a.push({title:'Servicio con pérdida estimada',text:s.nombre+': resultado '+money(c.r)+'.',page:'fichas',id:s.id});
+   else if(c.margin!==null&&c.margin<db.config.margen)a.push({title:'Margen inferior al objetivo',text:s.nombre+': '+dec(c.margin)+'%. Precio sugerido: '+money(Math.ceil(c.t/(1-db.config.margen/100)))+'.',page:'fichas',id:s.id});
+   if(f.actualizado&&Date.now()-new Date(f.actualizado).getTime()>db.config.revision*86400000)a.push({title:'Revisión de costos pendiente',text:s.nombre+' supera el intervalo de revisión configurado.',page:'fichas',id:s.id});
   }
+ });
+ db.insumos.forEach(i=>{
+  if(i.stock!==null&&i.minimo!==null&&i.stock<=i.minimo)a.push({title:'Stock bajo',text:i.nombre+': '+dec(i.stock)+' '+i.unidad+' disponibles.',page:'insumos',id:i.id});
+  const last=i.historial[0];
+  if(last&&last.nuevo>last.anterior)a.push({title:'Aumento de costo unitario',text:i.nombre+': '+(last.anterior>0?dec((last.nuevo/last.anterior-1)*100)+'% de aumento.':'nuevo costo superior al anterior.'),page:'insumos',id:i.id});
+ });
+ return a;
 }
 
-function toast(s) {
-  $('toast').textContent = s;
-  $('toast').style.display = 'block';
-
-  clearTimeout(window.tt);
-
-  window.tt = setTimeout(() => {
-    $('toast').style.display = 'none';
-  }, 2500);
+function openAlert(p,id){
+ go(p);
+ if(p==='fichas')selected=id;
+ if(p==='insumos')edit=id;
+ render();
 }
 
-function go(p) {
-  page = p;
-  edit = '';
-  render();
-  $('navs').classList.remove('open');
-  window.scrollTo(0,0);
+function alertList(a){
+ return a.length?a.map(x=>`<div class="alert">${icon('asistente')}<div style="flex:1"><strong>${esc(x.title)}</strong><p class="muted">${esc(x.text)}</p></div><button class="btn secondary small" onclick="openAlert('${x.page}','${x.id}')">Ver</button></div>`).join(''):`<div class="empty">${icon('asistente')}No hay alertas detectadas con los datos disponibles.</div>`;
 }
 
-function invalidate() {
-  Object.values(db.fichas).forEach(f => {
-    f.estado = 'En desarrollo';
-  });
+function rank(){
+ const ss=completed().filter(s=>calc(s).margin!==null).sort((a,b)=>calc(b).margin-calc(a).margin).slice(0,5);
+ return ss.length?ss.map(s=>{
+  const c=calc(s);
+  return `<div class="chartrow"><div class="legend"><span>${esc(s.nombre)}</span><strong class="${c.margin<0?'red':'green'}">${dec(c.margin)}%</strong></div><div class="charttrack"><div class="chartfill" style="width:${Math.max(0,Math.min(100,c.margin))}%"></div></div></div>`;
+ }).join(''):`<div class="empty">${icon('rentabilidad')}Completa fichas para comparar márgenes.</div>`;
 }
 
-const labor = () => db.mano.horas
-  ? db.mano.mensual / (60 * db.mano.horas)
-  : 0;
-
-const totalG = () => db.gastos.reduce(
-  (a,g) => a + g.monto, 0
-);
-
-const ind = () => db.baseHoras
-  ? totalG() / (60 * db.baseHoras)
-  : 0;
-
-function ficha(id) {
-  return db.fichas[id] || {
-    materiales: [],
-    calidad: 'Estimados',
-    estado: 'En desarrollo',
-    confirmados: false
-  };
+function safePhoto(s){
+ return typeof s==='string'&&/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(s)?s:'';
 }
 
-function calc(s) {
-  let f = ficha(s.id);
+function render(){
+ nav();
+ $('heading').textContent=names[page];
+ let html='';
+ const s=db.servicios.find(x=>x.id===edit);
+ const i=db.insumos.find(x=>x.id===edit);
+ const g=db.gastos.find(x=>x.id===edit);
 
-  let m = f.materiales.reduce((a,r) => {
-    let i = db.insumos.find(i => i.id === r.insumo);
+ if(page==='inicio'){
+  const ss=active();
+  const cc=completed();
+  const coverage=ss.length?cc.length/ss.length*100:0;
+  const margins=cc.map(s=>calc(s).margin).filter(m=>m!==null);
+  const avg=margins.length?margins.reduce((a,b)=>a+b,0)/margins.length:null;
+  const remaining=Math.max(0,Math.ceil(ss.length*db.config.meta/100)-cc.length);
+  const aa=alerts();
 
-    return a + (i
-      ? i.precio / i.cantidad * r.cantidad
-      : 0);
-  }, 0);
-
-  let l = labor() * s.tiempo;
-  let g = ind() * s.tiempo;
-  let t = m + l + g;
-  let r = s.precio - t;
-
-  return {
-    m, l, g, t, r,
-
-    margin: s.precio > 0
-      ? r / s.precio * 100
-      : null,
-
-    complete: !!(
-      f.confirmados &&
-      db.mano.horas > 0 &&
-      db.baseHoras > 0 &&
-      f.materiales.every(r =>
-        db.insumos.some(i => i.id === r.insumo)
-      ) &&
-      ['Revisado','Validado'].includes(f.estado)
-    )
-  };
-}
-
-const card = (title,body) => `
-  <section class="card">
-    <h3>${title}</h3>
-    ${body}
-  </section>
-`;
-
-const metric = (label,value,k) => `
-  <div class="card">
-    ${icon(k)}
-    <div class="metric">${value}</div>
-    <small>${label}</small>
+  html=`<section class="hero"><div><div class="eyebrow">Tu brújula financiera</div><h1>La belleza de conocer tus números.</h1><p>Gestiona tus servicios, controla tus costos y descubre nuevas oportunidades para tu negocio.</p><div class="actions"><button class="btn" onclick="go('fichas')">Costear servicios</button><button class="btn secondary" onclick="go('asistente')">Ver recomendaciones</button></div></div>${illustration}</section>
+  <h3>Resumen de tu estudio</h3>
+  <div class="grid">
+  ${metric('Servicios activos',ss.length,'servicios')}
+  ${metric('Servicios costeados',cc.length,'fichas')}
+  ${metric('Margen promedio estimado',avg===null?'—':dec(avg)+'%','rentabilidad')}
+  ${metric('Alertas detectadas',aa.length,'asistente')}
   </div>
-`;
-
-const table = (heads,rows) => rows.length
-  ? `
-    <div class="tablewrap">
-      <table>
-        <thead>
-          <tr>
-            ${heads.map(h => `<th>${h}</th>`).join('')}
-          </tr>
-        </thead>
-        <tbody>
-          ${rows.map(r => `
-            <tr>
-              ${r.map(c => `<td>${c}</td>`).join('')}
-            </tr>
-          `).join('')}
-        </tbody>
-      </table>
-    </div>
-  `
-  : `
-    <div class="empty">
-      ${icon('fichas')}
-      Aún no hay registros. Agrega el primero para comenzar.
-    </div>
+  <div class="split">
+  ${card('Avance de tu objetivo',`<br><div class="row"><div class="ring" style="--pct:${coverage}%"><span>${dec(coverage)}%</span></div><div><strong>Meta: ${db.config.meta}%</strong><p class="muted">${ss.length?remaining?'Faltan '+remaining+' servicios costeados.':'Meta de cobertura alcanzada.':'Registra tus servicios para comenzar.'}</p><small>${db.config.inicio?'Inicio: '+fmtdate(db.config.inicio):'Fecha de inicio por configurar'}</small></div></div>`)}
+  ${card('Composición de costos',costChart(cc))}
+  </div>
+  <div class="split">
+  ${card('Servicios con mayor margen estimado',rank())}
+  ${card('Atención financiera',alertList(aa.slice(0,4))+`<br><button class="btn secondary" onclick="go('asistente')">Ver todas las alertas</button>`)}
+  </div>
+  ${card('Accesos rápidos',`<br><div class="actions"><button class="btn secondary" onclick="go('servicios')">Nuevo servicio</button><button class="btn secondary" onclick="go('insumos')">Registrar producto</button><button class="btn secondary" onclick="go('simulador')">Simular precios</button><button class="btn secondary" onclick="go('informes')">Generar informe</button></div>`)}
   `;
+ }
 
-const field = (label,id,type='text',v='',attrs='') => `
-  <div>
-    <label for="${id}">${label}</label>
-    <input id="${id}" type="${type}"
-      value="${esc(v)}" ${attrs} required>
-  </div>
-`;
+ if(page==='servicios'){
+  html=card(s?'Editar servicio':'Nuevo servicio',form(
+   field('Nombre del servicio','nombre','text',s?.nombre,'required')+
+   select('Categoría','categoria',['Peluquería','Manicure','Pedicure','Masajes','Depilación','Otros'],s?.categoria)+
+   field('Precio de venta ($)','precio','number',s?.precio,'min="0" required')+
+   field('Preparación (min)','preparacion','number',s?.preparacion??0,'min="0" step="any" required')+
+   field('Atención (min)','atencion','number',s?.atencion,'min="0" step="any" required')+
+   field('Limpieza (min)','limpieza','number',s?.limpieza??0,'min="0" step="any" required')+
+   select('Estado','activo',[['true','Activo'],['false','Inactivo']],String(s?.activo??true))+
+   `<div><label>Fotografía opcional</label><input type="file" accept="image/jpeg,image/png,image/webp" onchange="readPhoto(event)"><small id="photoStatus">Máximo 3 MB. Se reducirá automáticamente.</small><br><button type="button" class="btn secondary small" onclick="pendingPhoto='';$('photoStatus').textContent='Fotografía eliminada al guardar'">Quitar fotografía</button></div>`,
+   'store()','Guardar servicio'
+  ))+card('Catálogo de servicios',`<input class="search" placeholder="Buscar servicio..." oninput="filterRows(this.value,'serviceTable')"><div id="serviceTable">${table(['Servicio','Categoría','Precio','Tiempo','Estado','Acciones'],db.servicios.map(s=>[
+   `<div class="servicehead">${safePhoto(s.foto)?`<img class="servicephoto" src="${safePhoto(s.foto)}" alt="">`:icon('servicios')}<strong>${esc(s.nombre)}</strong></div>`,
+   esc(s.categoria),money(s.precio),dec(s.tiempo)+' min',
+   `<span class="tag ${s.activo?'ok':''}">${s.activo?'Activo':'Inactivo'}</span>`,
+   buttons(s.id)
+  ]))}</div>`);
+ }
 
-const select = (label,id,opts,v='') => `
-  <div>
-    <label for="${id}">${label}</label>
-    <select id="${id}">
-      ${opts.map(o => {
-        let [k,t] = Array.isArray(o) ? o : [o,o];
+ if(page==='insumos'){
+  html=card(i?'Editar producto':'Nuevo producto',form(
+   field('Nombre','nombre','text',i?.nombre,'required')+
+   field('Proveedor','proveedor','text',i?.proveedor)+
+   field('Precio de compra ($)','precio','number',i?.precio,'min="0" required')+
+   field('Contenido del envase','cantidad','number',i?.cantidad,'min="0.01" step="any" required')+
+   select('Unidad','unidad',[['ml','Mililitros'],['g','Gramos'],['unidad','Unidades']],i?.unidad)+
+   field('Stock disponible (unidad indicada)','stock','number',i?.stock??'','min="0" step="any"')+
+   field('Stock mínimo','minimo','number',i?.minimo??'','min="0" step="any"'),
+   'store()','Guardar producto'
+  ))+card('Inventario',`<input class="search" placeholder="Buscar producto..." oninput="filterRows(this.value,'inputTable')"><div id="inputTable">${table(['Producto','Proveedor','Compra','Costo unitario','Stock','Acciones'],db.insumos.map(i=>[
+   esc(i.nombre),esc(i.proveedor||'—'),money(i.precio),
+   '$'+dec(i.precio/i.cantidad)+' / '+esc(i.unidad),
+   i.stock===null?'Sin registrar':`<span class="tag ${i.minimo!==null&&i.stock<=i.minimo?'warn':'ok'}">${dec(i.stock)} ${esc(i.unidad)}</span>`,
+   buttons(i.id)
+  ]))}</div>`)+card('Historial de precios',table(['Fecha','Producto','Costo anterior','Costo nuevo'],db.insumos.flatMap(i=>i.historial.map(h=>[fmtdate(h.fecha),esc(i.nombre),'$'+dec(h.anterior),'$'+dec(h.nuevo)]))))+`<div class="notice">El stock se actualiza manualmente. Elaborar una ficha de costos no descuenta inventario, porque no representa una venta realizada.</div>`;
+ }
 
-        return `
-          <option value="${esc(k)}"
-            ${k === v ? 'selected' : ''}>
-            ${esc(t)}
-          </option>
-        `;
-      }).join('')}
-    </select>
-  </div>
-`;
+ if(page==='mano'){
+  html=card('Costo del tiempo de trabajo',form(
+   field('Costo mensual de mano de obra ($)','mensual','number',db.mano.horas?db.mano.mensual:'','min="0" required')+
+   field('Horas productivas mensuales','horas','number',db.mano.horas||'','min="0.01" step="any" required'),
+   'saveLabor()'
+  ))+`<div class="grid">${metric('Costo por hora',db.mano.horas?money(labor()*60):'—','mano')}${metric('Costo por minuto',db.mano.horas?'$'+dec(labor()):'—','mano')}</div><div class="notice">Se utiliza una tarifa promedio de mano de obra. El costo de cada servicio considera preparación, atención y limpieza.</div>`;
+ }
 
-const form = (body,action,label='Guardar') => `
-  <form onsubmit="event.preventDefault();${esc(action)}">
-    <div class="formgrid">${body}</div>
+ if(page==='gastos'){
+  html=card(g?'Editar gasto':'Nuevo gasto mensual',form(
+   field('Nombre','nombre','text',g?.nombre,'required')+
+   field('Monto mensual ($)','monto','number',g?.monto,'min="0" required')+
+   select('Tipo','tipo',['Fijo','Variable'],g?.tipo),'store()'
+  ))+card('Base de distribución',form(
+   field('Horas productivas mensuales del salón','horas','number',db.baseHoras||'','min="0.01" step="any" required'),'saveBase()'
+  ))+`<div class="grid">${metric('Gastos mensuales',money(totalG()),'gastos')}${metric('Gasto por minuto',db.baseHoras?'$'+dec(indirect()):'—','mano')}</div>`+card('Gastos registrados',table(['Gasto','Tipo','Monto','Acciones'],db.gastos.map(g=>[esc(g.nombre),esc(g.tipo),money(g.monto),buttons(g.id)])))+`<div class="notice">Los gastos indirectos se distribuyen proporcionalmente al tiempo productivo de cada servicio. Evita registrar dos veces los mismos costos.</div>`;
+ }
 
-    <div class="actions">
-      <button class="btn">${label}</button>
+ if(page==='fichas'){
+  html=card('Selecciona un servicio',`<div class="formgrid">${select('Servicio','pick',serviceOpts(),selected)}</div>`);
+  const s=active().find(s=>s.id===selected);
+  if(s){
+   const f=ficha(s.id);
+   const c=calc(s);
+   html+=card('Ficha de '+esc(s.nombre),`<div class="servicehead">${safePhoto(s.foto)?`<img class="servicephoto" src="${safePhoto(s.foto)}" alt="">`:icon('servicios')}<div><strong>${esc(s.categoria)}</strong><p>${dec(s.tiempo)} minutos · ${money(s.precio)}</p><span class="tag ${c.complete?'ok':''}">${esc(f.estado)}</span></div></div><small>Preparación: ${dec(s.preparacion)} min · Atención: ${dec(s.atencion)} min · Limpieza: ${dec(s.limpieza)} min</small>`);
+   html+=card('Materiales utilizados',form(
+    select('Producto','material',[['','Seleccionar'],...db.insumos.map(i=>[i.id,i.nombre+' ('+i.unidad+')'])])+
+    field('Cantidad utilizada','cantidad','number','','min="0.01" step="any" required'),
+    'addMaterial()','Agregar material'
+   )+table(['Material','Cantidad','Costo','Acción'],f.materiales.map((m,j)=>{
+    const i=db.insumos.find(i=>i.id===m.insumo);
+    return[esc(i?.nombre),dec(m.cantidad)+' '+esc(i?.unidad),money(i?i.precio/i.cantidad*m.cantidad:0),`<button class="btn danger small" onclick="dropMaterial(${j})">Quitar</button>`];
+   })));
+   html+=`<div class="grid">${metric('Costo total estimado',money(c.t),'fichas')}${metric('Resultado estimado',money(c.r),'rentabilidad')}${metric('Margen sobre venta',c.margin===null?'—':dec(c.margin)+'%','rentabilidad')}</div>`;
+   html+=card('Desglose de costos',costChart([s])+table(['Concepto','Monto'],[
+    ['Materiales',money(c.m)],['Mano de obra',money(c.l)],['Indirectos',money(c.g)],['Costo total',money(c.t)],['Precio actual',money(s.precio)]
+   ])+(!c.complete?'<div class="notice">Ficha pendiente: los costos pueden estar incompletos.</div>':''));
+   html+=card('Revisión y validación',`<div class="formgrid">${select('Calidad de los datos','calidad',['Estimados','Parcialmente comprobados','Comprobados'],f.calidad)}${select('Estado','estado',['En desarrollo','Revisado','Validado'],f.estado)}</div><label><input type="checkbox" id="confirmed" ${f.confirmados?'checked':''}> Revisé todos los materiales del servicio, incluso si no requiere insumos.</label><br><div class="actions"><button class="btn" onclick="review()">Guardar ficha</button><button class="btn secondary" onclick="printFicha()">Imprimir ficha</button></div><br><small>Última revisión: ${fmtdate(f.actualizado)}</small>`);
+  }
+ }
 
-      <button type="button" class="btn secondary"
-        onclick="edit='';render()">
-        Cancelar
-      </button>
-    </div>
-  </form>
-`;
+ if(page==='simulador'){
+  const s=active().find(s=>s.id===simId);
+  html=card('Laboratorio de precios',`<p class="muted">Compara escenarios sin modificar los precios reales del catálogo.</p><div class="formgrid">${select('Servicio','simPick',serviceOpts(),simId)}${field('Precio simulado ($)','simPrecio','number',s?.precio,'min="0"')}${field('Margen deseado (%)','simMargen','number',db.config.margen,'min="0" max="99.99" step="any"')}${field('Variación del costo de materiales (%)','simCosto','number',0,'min="-100" step="any"')}</div>`)+`<div id="simResult"></div>`;
+ }
 
-const val = id => $(id).value;
-const n = id => Number(val(id));
+ if(page==='rentabilidad'){
+  html=card('Rentabilidad por servicio',table(['Servicio','Precio','Costo','Resultado','Margen','Estado'],active().map(s=>{
+   const c=calc(s);
+   return[esc(s.nombre),money(s.precio),c.complete?money(c.t):'Pendiente',c.complete?money(c.r):'—',c.complete&&c.margin!==null?`<strong class="${c.margin<0?'red':'green'}">${dec(c.margin)}%</strong>`:'—',esc(ficha(s.id).estado)];
+  })))+card('Comparación de márgenes',rank())+`<div class="notice">Los resultados corresponden a estimaciones por servicio. No representan utilidad neta mensual ni consideran volúmenes reales de ventas.</div>`;
+ }
 
-const opts = () => [
-  ['', 'Seleccionar servicio'],
-  ...db.servicios.map(s => [s.id,s.nombre])
-];
+ if(page==='asistente'){
+  html=`<section class="hero"><div><div class="eyebrow">Inteligencia financiera</div><h1>Pequeños ajustes. Mejores decisiones.</h1><p>Recomendaciones automáticas basadas en los datos de tu estudio.</p></div>${illustration}</section>`+card('Recomendaciones y alertas',alertList(alerts()))+`<div class="notice">Este asistente utiliza reglas de cálculo, no inteligencia artificial generativa. Las recomendaciones deben revisarse antes de modificar precios.</div>`;
+ }
 
-const buttons = id => `
-  <button class="btn secondary smallbtn"
-    onclick="edit='${id}';render();window.scrollTo(0,0)">
-    Editar
-  </button>
+ if(page==='informes'){
+  const ss=active();
+  const cc=completed();
+  html=card('Informe de seguimiento',`<div class="grid">${metric('Servicios activos',ss.length,'servicios')}${metric('Servicios costeados',cc.length,'fichas')}${metric('Cobertura',ss.length?dec(cc.length/ss.length*100)+'%':'0%','rentabilidad')}</div><p>Meta de cobertura: ${db.config.meta}%.</p><p>Fecha de inicio: ${db.config.inicio?fmtdate(db.config.inicio):'No configurada'}.</p><p>Plazo del proyecto: tres meses.</p><br><div class="actions"><button class="btn" onclick="window.print()">Imprimir informe / PDF</button><button class="btn secondary" onclick="exportCSV()">Exportar a Excel (CSV)</button></div>`)+card('Detalle de servicios',table(['Servicio','Precio','Costo estimado','Margen','Estado'],ss.map(s=>{
+   const c=calc(s);
+   return[esc(s.nombre),money(s.precio),c.complete?money(c.t):'Pendiente',c.complete&&c.margin!==null?dec(c.margin)+'%':'—',esc(ficha(s.id).estado)];
+  })));
+ }
 
-  <button class="btn danger smallbtn"
-    onclick="remove('${id}')">
-    Eliminar
-  </button>
-`;
+ if(page==='historial'){
+  html=card('Registro de modificaciones',table(['Fecha','Actividad'],db.historial.map(h=>[esc(new Date(h.fecha).toLocaleString('es-CL')),esc(h.texto)])));
+ }
 
-function nav() {
-  const groups = [
-    ['Mi estudio', ['inicio']],
-    ['Administración', ['servicios','insumos','mano','gastos']],
-    ['Finanzas', ['fichas','simulador','rentabilidad']],
-    ['Sistema', ['config']]
-  ];
+ if(page==='config'){
+  html=card('Objetivos del negocio',form(
+   field('Margen objetivo (%)','margen','number',db.config.margen,'min="0" max="99.99" step="any" required')+
+   field('Meta de cobertura (%)','meta','number',db.config.meta,'min="1" max="100" required')+
+   field('Inicio del proyecto','inicioFecha','date',db.config.inicio)+
+   field('Revisar costos cada (días)','revision','number',db.config.revision,'min="1" required'),
+   'saveConfig()'
+  ))+card('Respaldo de información',`<br><p>La información se guarda en este navegador. Descarga respaldos para trasladarla a otro dispositivo.</p><br><div class="actions"><button class="btn" onclick="backup()">Descargar respaldo</button><button class="btn secondary" onclick="$('import').click()">Importar respaldo</button><input type="file" id="import" accept=".json" style="display:none" onchange="restore(event)"></div>`)+card('Reiniciar aplicación',`<br><p>Elimina todos los registros locales.</p><br><button class="btn danger" onclick="resetData()">Eliminar datos</button>`)+card('Acerca de TATI COST',`<br><h2>Tu brújula financiera.</h2><p>Proyecto académico desarrollado para Tati Beauty Studio.</p><small>Innovación y Emprendimiento III · INACAP Curicó.</small>`);
+ }
 
-  $('navs').innerHTML = groups.map(([title,items]) => `
-    <div class="navgroup eyebrow">${title}</div>
+ if(storageError)html=`<div class="notice"><strong>Advertencia:</strong> no se pudieron leer los datos anteriores. No se sobrescribirán automáticamente. Utiliza Configuración para importar un respaldo válido.</div>`+html;
 
-    ${items.map(k => `
-      <button class="nav ${page === k ? 'active' : ''}"
-        onclick="go('${k}')">
+ $('content').innerHTML=html;
 
-        ${icon(k)}
-        ${names[k]}
-      </button>
-    `).join('')}
-  `).join('');
+ if($('pick'))$('pick').onchange=()=>{selected=val('pick');render()};
+
+ if($('simPick')){
+  $('simPick').onchange=()=>{simId=val('simPick');render()};
+  ['simPrecio','simMargen','simCosto'].forEach(id=>$(id).oninput=simulate);
+  simulate();
+ }
 }
 
-function costChart(ss) {
-  let a = ss.reduce((a,s) => {
-    let c = calc(s);
-
-    return [
-      a[0] + c.m,
-      a[1] + c.l,
-      a[2] + c.g
-    ];
-  }, [0,0,0]);
-
-  let t = a.reduce((x,y) => x+y,0);
-
-  let colors = [
-    '#a5654d',
-    '#d5aa91',
-    '#7e8d71'
-  ];
-
-  return t ? `
-    <div class="bar">
-      ${a.map((v,j) => `
-        <div style="width:${v/t*100}%;
-          background:${colors[j]}">
-        </div>
-      `).join('')}
-    </div>
-
-    ${a.map((v,j) => `
-      <div style="display:flex;
-        justify-content:space-between;
-        margin:10px 0">
-
-        <span>
-          <span style="color:${colors[j]}">●</span>
-          ${['Materiales','Mano de obra','Indirectos'][j]}
-        </span>
-
-        <strong>${money(v)}</strong>
-      </div>
-    `).join('')}
-  ` : `
-    <div class="empty">
-      ${icon('rentabilidad')}
-      Sin costos registrados para graficar.
-    </div>
-  `;
+function filterRows(q,id){
+ $(id).querySelectorAll('tbody tr').forEach(tr=>{
+  tr.style.display=tr.textContent.toLowerCase().includes(q.toLowerCase())?'':'none';
+ });
 }
 
-function render() {
-
-  nav();
-
-  $('heading').textContent = names[page];
-
-  let html = '';
-
-  let s = db.servicios.find(x => x.id === edit);
-  let i = db.insumos.find(x => x.id === edit);
-  let g = db.gastos.find(x => x.id === edit);
-
-  if (page === 'inicio') {
-
-    const completed = db.servicios.filter(
-      s => calc(s).complete
-    );
-
-    const coverage = db.servicios.length
-      ? completed.length / db.servicios.length * 100
-      : 0;
-
-    const margins = completed.map(s => calc(s).margin)
-      .filter(m => m !== null);
-
-    const avg = margins.length
-      ? margins.reduce((a,b) => a+b,0) / margins.length
-      : null;
-
-    const remaining = Math.max(
-      0,
-      Math.ceil(db.servicios.length * .8) - completed.length
-    );
-
-    html = `
-      <section class="hero">
-        <div>
-          <div class="eyebrow">
-            Tu brújula financiera
-          </div>
-
-          <h1>
-            La belleza de conocer tus números.
-          </h1>
-
-          <p>
-            Conoce el costo de cada servicio, cuida tus márgenes
-            y toma mejores decisiones para tu estudio.
-          </p>
-
-          <button class="btn" onclick="go('servicios')">
-            Mis servicios
-          </button>
-        </div>
-
-        ${illustration}
-      </section>
-
-      <h3>Resumen de tu negocio</h3>
-
-      <div class="grid">
-
-        ${metric(
-          'Servicios activos',
-          db.servicios.length,
-          'servicios'
-        )}
-
-        ${metric(
-          'Servicios costeados',
-          completed.length,
-          'fichas'
-        )}
-
-        ${metric(
-          'Margen promedio estimado',
-          avg === null ? '—' : dec(avg)+'%',
-          'rentabilidad'
-        )}
-
-        ${metric(
-          'Insumos registrados',
-          db.insumos.length,
-          'insumos'
-        )}
-
-      </div>
-
-      <div class="split">
-
-        ${card('Tu camino hacia la meta', `
-          <br>
-
-          <div class="row">
-
-            <div class="ring" style="--pct:${coverage}%">
-              <span>${dec(coverage)}%</span>
-            </div>
-
-            <div>
-              <strong>Objetivo: 80%</strong>
-
-              <p class="muted">
-                Costear los servicios activos
-                en un plazo de tres meses.
-              </p>
-
-              <br>
-
-              <small>
-                ${!db.servicios.length
-                  ? 'Registra tus servicios para comenzar.'
-                  : coverage >= 80
-                  ? 'Meta de cobertura alcanzada.'
-                  : 'Faltan '+remaining+' servicios costeados.'}
-              </small>
-            </div>
-
-          </div>
-        `)}
-
-        ${card(
-          'Composición de costos de las fichas revisadas',
-          costChart(completed)
-        )}
-
-      </div>
-
-      ${card('Estado de tus servicios', table(
-        ['Servicio','Precio','Estado'],
-        db.servicios.map(s => [
-          esc(s.nombre),
-          money(s.precio),
-          calc(s).complete
-            ? '<span class="tag ok">Costeado</span>'
-            : '<span class="tag">Pendiente</span>'
-        ])
-      ))}
-
-      <div class="notice">
-        <strong>Tu estudio, tus decisiones.</strong><br>
-        Mantén actualizados los precios de compra y los costos
-        de trabajo para conocer la rentabilidad estimada de
-        tus servicios.
-      </div>
-    `;
-  }
-
-  if (page === 'servicios') {
-
-    html = card(
-      s ? 'Editar servicio' : 'Nuevo servicio',
-
-      form(
-        field('Nombre del servicio','nombre','text',s?.nombre) +
-
-        select('Categoría','categoria',[
-          'Peluquería',
-          'Manicure',
-          'Pedicure',
-          'Masajes',
-          'Depilación',
-          'Otros'
-        ],s?.categoria) +
-
-        field(
-          'Precio de venta ($)',
-          'precio',
-          'number',
-          s?.precio,
-          'min="0"'
-        ) +
-
-        field(
-          'Duración (minutos)',
-          'tiempo',
-          'number',
-          s?.tiempo,
-          'min="1"'
-        ),
-
-        'store()',
-        'Guardar servicio'
-      )
-
-    ) + card(
-      'Catálogo de servicios',
-
-      table(
-        ['Servicio','Categoría','Precio','Duración','Acciones'],
-
-        db.servicios.map(s => [
-          esc(s.nombre),
-          esc(s.categoria),
-          money(s.precio),
-          s.tiempo+' min',
-          buttons(s.id)
-        ])
-      )
-    );
-  }
-
-  if (page === 'insumos') {
-
-    html = card(
-      i ? 'Editar insumo' : 'Nuevo producto',
-
-      form(
-        field('Nombre del producto','nombre','text',i?.nombre) +
-
-        field(
-          'Precio de compra ($)',
-          'precio',
-          'number',
-          i?.precio,
-          'min="0"'
-        ) +
-
-        field(
-          'Contenido total',
-          'cantidad',
-          'number',
-          i?.cantidad,
-          'min="0.01" step="any"'
-        ) +
-
-        select('Unidad de medida','unidad',[
-          ['ml','Mililitros'],
-          ['g','Gramos'],
-          ['unidad','Unidades']
-        ],i?.unidad),
-
-        'store()',
-        'Guardar insumo'
-      )
-
-    ) + card(
-      'Catálogo de productos',
-
-      table(
-        ['Producto','Precio','Contenido','Costo unitario','Acciones'],
-
-        db.insumos.map(i => [
-          esc(i.nombre),
-          money(i.precio),
-          dec(i.cantidad)+' '+esc(i.unidad),
-          '$'+dec(i.precio/i.cantidad),
-          buttons(i.id)
-        ])
-      )
-
-    ) + `
-      <div class="notice">
-        El costo unitario se calcula dividiendo el precio
-        de compra por el contenido total del producto.
-      </div>
-    `;
-  }
-
-  if (page === 'mano') {
-
-    html = card(
-      'El valor de tu tiempo',
-
-      form(
-        field(
-          'Costo mensual de mano de obra ($)',
-          'mensual',
-          'number',
-          db.mano.horas ? db.mano.mensual : '',
-          'min="0"'
-        ) +
-
-        field(
-          'Horas productivas mensuales',
-          'horas',
-          'number',
-          db.mano.horas || '',
-          'min="0.01" step="any"'
-        ),
-
-        'db.mano={mensual:n("mensual"),horas:n("horas")};invalidate();save("Configuración guardada");render()'
-      )
-
-    ) + `
-      <div class="grid">
-
-        ${metric(
-          'Costo por hora',
-          db.mano.horas ? money(labor()*60) : '—',
-          'mano'
-        )}
-
-        ${metric(
-          'Costo por minuto',
-          db.mano.horas ? '$'+dec(labor()) : '—',
-          'mano'
-        )}
-
-      </div>
-
-      <div class="notice">
-        Tarifa promedio: costo mensual dividido por
-        los minutos productivos del mismo período.
-      </div>
-    `;
-  }
-
-  if (page === 'gastos') {
-
-    html = card(
-      g ? 'Editar gasto' : 'Nuevo gasto mensual',
-
-      form(
-        field('Nombre','nombre','text',g?.nombre) +
-
-        field(
-          'Monto ($)',
-          'monto',
-          'number',
-          g?.monto,
-          'min="0"'
-        ) +
-
-        select('Tipo','tipo',[
-          'Fijo',
-          'Variable'
-        ],g?.tipo),
-
-        'store()'
-      )
-
-    ) + card(
-      'Base de distribución',
-
-      form(
-        field(
-          'Horas productivas mensuales del salón',
-          'horas',
-          'number',
-          db.baseHoras || '',
-          'min="0.01" step="any"'
-        ),
-
-        'db.baseHoras=n("horas");invalidate();save("Base guardada");render()'
-      )
-
-    ) + `
-      <div class="grid">
-
-        ${metric(
-          'Gastos mensuales',
-          money(totalG()),
-          'gastos'
-        )}
-
-        ${metric(
-          'Gasto por minuto',
-          db.baseHoras ? '$'+dec(ind()) : '—',
-          'mano'
-        )}
-
-      </div>
-
-    ` + card(
-      'Gastos registrados',
-
-      table(
-        ['Gasto','Tipo','Monto','Acciones'],
-
-        db.gastos.map(g => [
-          esc(g.nombre),
-          esc(g.tipo),
-          money(g.monto),
-          buttons(g.id)
-        ])
-      )
-
-    ) + `
-      <div class="notice">
-        Distribución propuesta según duración de cada servicio.
-        Registra todos los gastos aplicables antes de revisar
-        las fichas.
-      </div>
-    `;
-  }
-
-  if (page === 'fichas') {
-
-    html = card('Selecciona un servicio', `
-      <div class="formgrid">
-        ${select('Servicio','pick',opts(),selected)}
-      </div>
-    `);
-
-    let s = db.servicios.find(s => s.id === selected);
-
-    if (s) {
-
-      let f = ficha(s.id);
-      let c = calc(s);
-
-      html += card(
-        'Materiales utilizados',
-
-        form(
-          select('Insumo','material',[
-            ['', 'Seleccionar'],
-            ...db.insumos.map(i => [
-              i.id,
-              i.nombre+' ('+i.unidad+')'
-            ])
-          ]) +
-
-          field(
-            'Cantidad utilizada',
-            'cantidad',
-            'number',
-            '',
-            'min="0.01" step="any"'
-          ),
-
-          'addMaterial()',
-          'Agregar material'
-
-        ) + table(
-          ['Material','Cantidad','Costo','Acción'],
-
-          f.materiales.map((m,j) => {
-
-            let i = db.insumos.find(
-              i => i.id === m.insumo
-            );
-
-            return [
-              esc(i?.nombre || 'No disponible'),
-              dec(m.cantidad)+' '+esc(i?.unidad),
-              money(i ? i.precio/i.cantidad*m.cantidad : 0),
-
-              `<button class="btn danger smallbtn"
-                onclick="dropMaterial(${j})">
-                Quitar
-              </button>`
-            ];
-          })
-        )
-
-      ) + card(
-        'Composición del costo',
-
-        costChart([s]) +
-
-        table(['Concepto','Monto'],[
-          ['Materiales',money(c.m)],
-          ['Mano de obra',money(c.l)],
-          ['Indirectos',money(c.g)],
-          ['<strong>Costo total estimado</strong>',
-            '<strong>'+money(c.t)+'</strong>'],
-          ['Precio de venta',money(s.precio)],
-          ['Resultado estimado',money(c.r)],
-          ['Margen sobre venta',
-            c.margin === null ? '—' : dec(c.margin)+'%']
-        ]) +
-
-        (!c.complete
-          ? `<div class="notice">
-              Ficha pendiente de revisión;
-              los costos pueden estar incompletos.
-            </div>`
-          : '')
-
-      ) + card(
-        'Revisión de la ficha',
-
-        `
-          <div class="formgrid">
-
-            ${select('Calidad de datos','calidad',[
-              'Estimados',
-              'Parcialmente comprobados',
-              'Comprobados'
-            ],f.calidad)}
-
-            ${select('Estado','estado',[
-              'En desarrollo',
-              'Revisado',
-              'Validado'
-            ],f.estado)}
-
-          </div>
-
-          <label>
-            <input type="checkbox"
-              id="confirmed"
-              style="width:auto"
-              ${f.confirmados ? 'checked' : ''}>
-
-            Revisé todos los materiales,
-            incluso si el servicio no requiere insumos.
-          </label>
-
-          <br>
-
-          <button class="btn" onclick="review()">
-            Guardar ficha
-          </button>
-        `
-      );
-    }
-  }
-
-  if (page === 'simulador') {
-
-    let s = db.servicios.find(s => s.id === simId);
-
-    html = card('Explora distintos precios', `
-
-      <p class="muted">
-        Evalúa diferentes escenarios sin modificar
-        el precio actual de tus servicios.
-      </p>
-
-      <div class="formgrid">
-
-        ${select('Servicio','simPick',opts(),simId)}
-
-        ${field(
-          'Precio simulado ($)',
-          'simPrecio',
-          'number',
-          s?.precio,
-          'min="0"'
-        )}
-
-        ${field(
-          'Margen deseado (%)',
-          'simMargen',
-          'number',
-          30,
-          'min="0" max="99" step="any"'
-        )}
-
-      </div>
-
-    `) + '<div id="simResult"></div>';
-  }
-
-  if (page === 'rentabilidad') {
-
-    html = card(
-      'Rentabilidad por servicio',
-
-      table(
-        ['Servicio','Precio','Costo','Resultado','Margen','Estado'],
-
-        db.servicios.map(s => {
-
-          let c = calc(s);
-
-          return [
-            esc(s.nombre),
-            money(s.precio),
-            c.complete ? money(c.t) : 'Pendiente',
-            c.complete ? money(c.r) : '—',
-
-            c.complete && c.margin !== null
-              ? `<strong class="${c.margin<0?'red':'green'}">
-                  ${dec(c.margin)}%
-                </strong>`
-              : '—',
-
-            esc(ficha(s.id).estado)
-          ];
-        })
-      )
-
-    ) + `
-      <div class="notice">
-        Los resultados son estimaciones por servicio,
-        no utilidad neta mensual.
-      </div>
-    `;
-  }
-
-  if (page === 'config') {
-
-    html = card('Sobre TATI COST', `
-
-      <br>
-
-      <div class="eyebrow">Beauty Business Studio</div>
-
-      <h2 style="margin:10px 0">
-        Tu brújula financiera.
-      </h2>
-
-      <p>
-        Una herramienta desarrollada para apoyar
-        la gestión de costos y márgenes de Tati Beauty Studio.
-      </p>
-
-      <br>
-
-      <small>
-        Proyecto académico · Innovación y Emprendimiento III
-        · INACAP Curicó.
-      </small>
-
-    `) + card('Tu información', `
-
-      <br>
-
-      <p>
-        Los datos se almacenan en este navegador,
-        no en una base de datos compartida.
-      </p>
-
-      <br>
-
-      <div class="actions">
-
-        <button class="btn" onclick="backup()">
-          Descargar respaldo
-        </button>
-
-        <button class="btn secondary"
-          onclick="$('import').click()">
-          Importar respaldo
-        </button>
-
-        <input type="file" id="import"
-          accept=".json"
-          style="display:none"
-          onchange="restore(event)">
-
-      </div>
-
-    `) + card('Reiniciar aplicación', `
-
-      <br>
-
-      <p>Elimina los datos locales de TATI COST.</p>
-
-      <br>
-
-      <button class="btn danger" onclick="resetData()">
-        Eliminar datos
-      </button>
-
-    `);
-  }
-
-  $('content').innerHTML = html;
-
-  if ($('pick')) {
-    $('pick').onchange = () => {
-      selected = val('pick');
-      render();
-    };
-  }
-
-  if ($('simPick')) {
-
-    $('simPick').onchange = () => {
-      simId = val('simPick');
-      render();
-    };
-
-    $('simPrecio').oninput = simulate;
-    $('simMargen').oninput = simulate;
-
-    simulate();
-  }
-}
-
-function store() {
-
-  let id = edit || uid();
-  let name = val('nombre').trim();
-
-  if (!name) {
-    alert('Ingresa un nombre válido.');
-    return;
-  }
-
-  let x = {
-    id,
-    nombre: name
-  };
-
-  if (page === 'servicios') {
-
-    Object.assign(x,{
-      categoria: val('categoria'),
-      precio: n('precio'),
-      tiempo: n('tiempo')
-    });
-
-    if (db.fichas[id]) {
-      db.fichas[id].estado = 'En desarrollo';
-    }
-  }
-
-  if (page === 'insumos') {
-
-    Object.assign(x,{
-      precio: n('precio'),
-      cantidad: n('cantidad'),
-      unidad: val('unidad')
-    });
-
-    let old = db.insumos.find(i => i.id === id);
-
-    if (
-      old &&
-      old.unidad !== x.unidad &&
-      Object.values(db.fichas).some(f =>
-        f.materiales.some(m => m.insumo === id)
-      )
-    ) {
-      alert(
-        'Retira el insumo de sus fichas antes de cambiar la unidad.'
-      );
-      return;
-    }
-
-    if (old) invalidate();
-  }
-
-  if (page === 'gastos') {
-
-    Object.assign(x,{
-      monto: n('monto'),
-      tipo: val('tipo')
-    });
-
-    invalidate();
-  }
-
-  let arr = db[page];
-  let j = arr.findIndex(x => x.id === id);
-
-  if (j < 0) arr.push(x);
-  else arr[j] = x;
-
-  edit = '';
-
-  save('Registro guardado');
-  render();
-}
-
-function remove(id) {
-
-  if (
-    page === 'insumos' &&
-    Object.values(db.fichas).some(f =>
-      f.materiales.some(m => m.insumo === id)
-    )
-  ) {
-    alert('Este insumo está asociado a una ficha.');
-    return;
-  }
-
-  if (!confirm('¿Eliminar este registro?')) return;
-
-  db[page] = db[page].filter(x => x.id !== id);
-
-  if (page === 'servicios') {
-
-    delete db.fichas[id];
-
-    if (selected === id) selected = '';
-    if (simId === id) simId = '';
-  }
-
-  if (page === 'gastos') invalidate();
-
-  edit = '';
-
-  save('Registro eliminado');
-  render();
-}
-
-function addMaterial() {
-
-  let id = val('material');
-  let q = n('cantidad');
-
-  if (!id || q <= 0 || !Number.isFinite(q)) {
-    alert('Selecciona un insumo y una cantidad válida.');
-    return;
-  }
-
-  let f = ficha(selected);
-
-  let m = f.materiales.find(m => m.insumo === id);
-
-  if (m) m.cantidad += q;
-  else f.materiales.push({
-    insumo: id,
-    cantidad: q
+async function readPhoto(e){
+ const file=e.target.files[0];
+ if(!file)return;
+ if(file.size>3*1024*1024||!['image/jpeg','image/png','image/webp'].includes(file.type)){
+  alert('Selecciona una imagen JPG, PNG o WebP de hasta 3 MB.');
+  return;
+ }
+ const status=$('photoStatus');
+ status.textContent='Procesando fotografía...';
+ try{
+  const url=URL.createObjectURL(file);
+  const img=new Image();
+  await new Promise((resolve,reject)=>{
+   img.onload=resolve;
+   img.onerror=reject;
+   img.src=url;
   });
-
-  f.confirmados = false;
-  f.estado = 'En desarrollo';
-
-  db.fichas[selected] = f;
-
-  save('Material agregado');
-  render();
+  URL.revokeObjectURL(url);
+  const canvas=document.createElement('canvas');
+  const scale=Math.min(1,500/Math.max(img.width,img.height));
+  canvas.width=Math.max(1,Math.round(img.width*scale));
+  canvas.height=Math.max(1,Math.round(img.height*scale));
+  const ctx=canvas.getContext('2d');
+  ctx.fillStyle='#fff';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.drawImage(img,0,0,canvas.width,canvas.height);
+  if(status.isConnected){
+   pendingPhoto=canvas.toDataURL('image/jpeg',.75);
+   status.textContent='Fotografía preparada. Guarda el servicio.';
+  }
+ }catch(err){
+  status.textContent='No fue posible procesar la imagen.';
+ }
 }
 
-function dropMaterial(j) {
+function store(){
+ const id=edit||uid();
+ const name=val('nombre').trim();
+ if(!name){alert('Ingresa un nombre válido.');return}
+ const old=db[page].find(x=>x.id===id);
+ let x={...old,id,nombre:name};
 
-  let f = ficha(selected);
-
-  f.materiales.splice(j,1);
-
-  f.confirmados = false;
-  f.estado = 'En desarrollo';
-
-  db.fichas[selected] = f;
-
-  save();
-  render();
-}
-
-function review() {
-
-  let f = ficha(selected);
-
-  let estado = val('estado');
-  let calidad = val('calidad');
-  let confirmados = $('confirmed').checked;
-
-  if (
-    estado !== 'En desarrollo' &&
-    (!confirmados || !db.mano.horas || !db.baseHoras)
-  ) {
-    alert(
-      'Completa materiales, mano de obra y base de gastos.'
-    );
-    return;
-  }
-
-  if (
-    estado === 'Validado' &&
-    calidad !== 'Comprobados'
-  ) {
-    alert('La validación requiere datos comprobados.');
-    return;
-  }
-
-  Object.assign(f,{
-    estado,
-    calidad,
-    confirmados,
-    actualizado: new Date().toISOString()
+ if(page==='servicios'){
+  const prep=n('preparacion');
+  const att=n('atencion');
+  const clean=n('limpieza');
+  if(prep+att+clean<=0){alert('La duración total debe ser mayor que cero.');return}
+  Object.assign(x,{
+   categoria:val('categoria'),
+   precio:n('precio'),
+   preparacion:prep,
+   atencion:att,
+   limpieza:clean,
+   tiempo:prep+att+clean,
+   activo:val('activo')==='true',
+   foto:pendingPhoto!==null?pendingPhoto:old?.foto||''
   });
+  if(old&&(old.precio!==x.precio||old.tiempo!==x.tiempo))invalidate(id);
+ }
 
-  db.fichas[selected] = f;
+ if(page==='insumos'){
+  Object.assign(x,{
+   proveedor:val('proveedor').trim(),
+   precio:n('precio'),
+   cantidad:n('cantidad'),
+   unidad:val('unidad'),
+   stock:val('stock')===''?null:n('stock'),
+   minimo:val('minimo')===''?null:n('minimo'),
+   historial:old?.historial||[]
+  });
+  if(old&&old.unidad!==x.unidad&&Object.values(db.fichas).some(f=>f.materiales.some(m=>m.insumo===id))){
+   alert('Retira el producto de las fichas antes de cambiar su unidad.');
+   return;
+  }
+  if(old){
+   const anterior=old.precio/old.cantidad;
+   const nuevo=x.precio/x.cantidad;
+   if(old.unidad===x.unidad&&anterior!==nuevo){
+    x.historial.unshift({fecha:date(),anterior,nuevo});
+    invalidateInput(id);
+   }
+   if(old.unidad!==x.unidad)x.historial=[];
+  }
+ }
 
-  save('Ficha guardada');
-  render();
+ if(page==='gastos'){
+  Object.assign(x,{monto:n('monto'),tipo:val('tipo')});
+  invalidate();
+ }
+
+ const j=db[page].findIndex(x=>x.id===id);
+ if(j<0)db[page].push(x);
+ else db[page][j]=x;
+ log((old?'Actualización: ':'Nuevo registro: ')+name);
+ edit='';
+ pendingPhoto=null;
+ save('Registro guardado');
+ render();
 }
 
-function simulate() {
-
-  let s = db.servicios.find(s => s.id === simId);
-  let out = $('simResult');
-
-  if (!s) {
-
-    out.innerHTML = `
-      <div class="notice">
-        Selecciona un servicio.
-      </div>
-    `;
-
-    return;
-  }
-
-  let c = calc(s);
-
-  if (!c.complete) {
-
-    out.innerHTML = `
-      <div class="notice">
-        Completa y revisa la ficha antes de simular precios.
-      </div>
-    `;
-
-    return;
-  }
-
-  let p = n('simPrecio');
-  let m = n('simMargen');
-
-  if (
-    val('simPrecio') === '' ||
-    val('simMargen') === '' ||
-    !Number.isFinite(p) ||
-    !Number.isFinite(m) ||
-    p < 0 ||
-    m < 0 ||
-    m >= 100
-  ) {
-
-    out.innerHTML = `
-      <div class="notice">
-        Ingresa valores válidos.
-      </div>
-    `;
-
-    return;
-  }
-
-  out.innerHTML = `
-
-    <div class="grid">
-
-      ${metric(
-        'Costo total',
-        money(c.t),
-        'fichas'
-      )}
-
-      ${metric(
-        'Resultado estimado',
-        money(p-c.t),
-        'rentabilidad'
-      )}
-
-      ${metric(
-        'Margen simulado',
-        p ? dec((p-c.t)/p*100)+'%' : '—',
-        'rentabilidad'
-      )}
-
-      ${metric(
-        'Precio para margen deseado',
-        money(Math.ceil(c.t/(1-m/100))),
-        'simulador'
-      )}
-
-    </div>
-
-  ` + card('Lectura del escenario', `
-
-    <br>
-
-    <p>
-      ${p < c.t
-        ? 'El precio no cubre los costos estimados.'
-        : p === c.t
-        ? 'El precio cubre los costos sin margen positivo.'
-        : 'El precio cubre los costos y genera un resultado positivo estimado.'}
-    </p>
-
-    <br>
-
-    <small>
-      La simulación no modifica el precio registrado.
-    </small>
-
-  `);
+function remove(id){
+ if(page==='insumos'&&Object.values(db.fichas).some(f=>f.materiales.some(m=>m.insumo===id))){
+  alert('Este producto está asociado a una ficha de costos.');
+  return;
+ }
+ const x=db[page].find(x=>x.id===id);
+ if(!x||!confirm('¿Eliminar '+x.nombre+'?'))return;
+ db[page]=db[page].filter(x=>x.id!==id);
+ if(page==='servicios'){
+  delete db.fichas[id];
+  if(selected===id)selected='';
+  if(simId===id)simId='';
+ }
+ if(page==='gastos')invalidate();
+ log('Registro eliminado: '+x.nombre);
+ edit='';
+ save('Registro eliminado');
+ render();
 }
 
-function backup() {
-
-  let a = document.createElement('a');
-
-  let url = URL.createObjectURL(
-    new Blob(
-      [JSON.stringify(db,null,2)],
-      {type:'application/json'}
-    )
-  );
-
-  a.href = url;
-  a.download = 'TATI_COST_Respaldo.json';
-
-  a.click();
-
-  setTimeout(() => URL.revokeObjectURL(url),1000);
+function saveLabor(){
+ db.mano={mensual:n('mensual'),horas:n('horas')};
+ invalidate();
+ log('Actualización del costo de mano de obra');
+ save('Mano de obra guardada');
+ render();
 }
 
-function valid(d) {
-
-  let nn = x =>
-    typeof x === 'number' &&
-    Number.isFinite(x) &&
-    x >= 0;
-
-  let ids = a =>
-    Array.isArray(a) &&
-
-    a.every(x =>
-      x &&
-      typeof x.id === 'string' &&
-      /^[a-z0-9]+$/.test(x.id) &&
-      typeof x.nombre === 'string'
-    ) &&
-
-    new Set(a.map(x => x.id)).size === a.length;
-
-  return d &&
-
-    ids(d.servicios) &&
-    ids(d.insumos) &&
-    ids(d.gastos) &&
-
-    d.servicios.every(s =>
-      nn(s.precio) &&
-      nn(s.tiempo) &&
-      s.tiempo > 0
-    ) &&
-
-    d.insumos.every(i =>
-      nn(i.precio) &&
-      nn(i.cantidad) &&
-      i.cantidad > 0 &&
-      ['ml','g','unidad'].includes(i.unidad)
-    ) &&
-
-    d.gastos.every(g => nn(g.monto)) &&
-
-    d.mano &&
-    nn(d.mano.mensual) &&
-    nn(d.mano.horas) &&
-    nn(d.baseHoras) &&
-
-    d.fichas &&
-    typeof d.fichas === 'object' &&
-    !Array.isArray(d.fichas) &&
-
-    Object.entries(d.fichas).every(([id,f]) =>
-
-      d.servicios.some(s => s.id === id) &&
-
-      f &&
-      Array.isArray(f.materiales) &&
-
-      f.materiales.every(m =>
-        nn(m.cantidad) &&
-        m.cantidad > 0 &&
-        d.insumos.some(i => i.id === m.insumo)
-      ) &&
-
-      ['En desarrollo','Revisado','Validado'].includes(f.estado) &&
-
-      typeof f.confirmados === 'boolean'
-    );
+function saveBase(){
+ db.baseHoras=n('horas');
+ invalidate();
+ log('Actualización de la base de gastos indirectos');
+ save('Base guardada');
+ render();
 }
 
-async function restore(e) {
+function addMaterial(){
+ const id=val('material');
+ const q=n('cantidad');
+ if(!id||!Number.isFinite(q)||q<=0){
+  alert('Selecciona un producto y una cantidad válida.');
+  return;
+ }
+ const f=ficha(selected);
+ const m=f.materiales.find(m=>m.insumo===id);
+ if(m)m.cantidad+=q;
+ else f.materiales.push({insumo:id,cantidad:q});
+ f.confirmados=false;
+ f.estado='En desarrollo';
+ db.fichas[selected]=f;
+ log('Material agregado a ficha de '+db.servicios.find(s=>s.id===selected).nombre);
+ save('Material agregado');
+ render();
+}
 
-  try {
+function dropMaterial(j){
+ const f=ficha(selected);
+ f.materiales.splice(j,1);
+ f.confirmados=false;
+ f.estado='En desarrollo';
+ db.fichas[selected]=f;
+ log('Material retirado de una ficha');
+ save();
+ render();
+}
 
-    if (!e.target.files.length) return;
+function review(){
+ const f=ficha(selected);
+ const estado=val('estado');
+ const calidad=val('calidad');
+ const confirmados=$('confirmed').checked;
+ if(estado!=='En desarrollo'&&(!confirmados||!db.mano.horas||!db.baseHoras)){
+  alert('Completa la revisión de materiales, mano de obra y base de gastos.');
+  return;
+ }
+ if(estado==='Validado'&&calidad!=='Comprobados'){
+  alert('La validación requiere datos comprobados.');
+  return;
+ }
+ Object.assign(f,{estado,calidad,confirmados,actualizado:date()});
+ db.fichas[selected]=f;
+ log('Ficha '+estado.toLowerCase()+': '+db.servicios.find(s=>s.id===selected).nombre);
+ save('Ficha guardada');
+ render();
+}
 
-    let d = JSON.parse(
-      await e.target.files[0].text()
-    );
+function simulate(){
+ const s=active().find(s=>s.id===simId);
+ const out=$('simResult');
+ if(!s){
+  out.innerHTML='<div class="notice">Selecciona un servicio.</div>';
+  return;
+ }
+ const c=calc(s);
+ if(!c.complete){
+  out.innerHTML='<div class="notice">Completa y revisa la ficha antes de simular precios.</div>';
+  return;
+ }
+ const p=n('simPrecio');
+ const m=n('simMargen');
+ const variation=n('simCosto');
+ if(['simPrecio','simMargen','simCosto'].some(id=>val(id)==='')||![p,m,variation].every(Number.isFinite)||p<0||m<0||m>=100||variation<-100){
+  out.innerHTML='<div class="notice">Ingresa valores válidos.</div>';
+  return;
+ }
+ const newCost=c.m*(1+variation/100)+c.l+c.g;
+ const newMargin=p>0?(p-newCost)/p*100:null;
+ const suggested=Math.ceil(newCost/(1-m/100));
 
-    if (!valid(d)) throw Error();
+ out.innerHTML=`<div class="grid">${metric('Costo simulado',money(newCost),'fichas')}${metric('Resultado simulado',money(p-newCost),'rentabilidad')}${metric('Margen simulado',newMargin===null?'—':dec(newMargin)+'%','rentabilidad')}${metric('Precio para margen deseado',money(suggested),'simulador')}</div>`+
+ card('Comparación de escenarios',table(['Concepto','Actual','Simulado'],[
+  ['Precio',money(s.precio),money(p)],
+  ['Materiales',money(c.m),money(c.m*(1+variation/100))],
+  ['Costo total',money(c.t),money(newCost)],
+  ['Resultado',money(c.r),money(p-newCost)],
+  ['Margen',c.margin===null?'—':dec(c.margin)+'%',newMargin===null?'—':dec(newMargin)+'%']
+ ]))+card('Interpretación',`<br><p>${p<newCost?'El escenario genera una pérdida estimada.':p===newCost?'El escenario cubre los costos sin margen positivo.':'El escenario genera un resultado positivo estimado.'}</p><br><small>La variación aplicada afecta únicamente los materiales. No modifica los datos registrados.</small>`);
+}
 
-    if (confirm('¿Reemplazar los datos actuales?')) {
+function saveConfig(){
+ db.config={
+  margen:n('margen'),
+  meta:n('meta'),
+  inicio:val('inicioFecha'),
+  revision:n('revision')
+ };
+ log('Actualización de objetivos financieros');
+ save('Objetivos guardados');
+ render();
+}
 
-      db = d;
-      edit = '';
-      selected = '';
-      simId = '';
+function downloadFile(content,name,type){
+ const a=document.createElement('a');
+ const url=URL.createObjectURL(new Blob([content],{type}));
+ a.href=url;
+ a.download=name;
+ a.click();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
 
-      save('Respaldo importado');
-      render();
-    }
+function backup(){
+ if(storageError){
+  const raw=localStorage.getItem('tatiCostV1');
+  if(raw)downloadFile(raw,'TATI_COST_Respaldo_Original.json','application/json');
+  return;
+ }
+ downloadFile(JSON.stringify(db,null,2),'TATI_COST_Respaldo.json','application/json');
+}
 
-  } catch(err) {
+function exportCSV(){
+ const rows=[['Servicio','Categoria','Precio','Duracion','Materiales','Mano de obra','Indirectos','Costo total','Resultado','Margen (%)','Estado']];
+ active().forEach(s=>{
+  const c=calc(s);
+  rows.push([
+   s.nombre,s.categoria,s.precio,s.tiempo,
+   c.complete?Math.round(c.m):'',
+   c.complete?Math.round(c.l):'',
+   c.complete?Math.round(c.g):'',
+   c.complete?Math.round(c.t):'',
+   c.complete?Math.round(c.r):'',
+   c.complete&&c.margin!==null?c.margin.toFixed(2).replace('.',','):'',
+   ficha(s.id).estado
+  ]);
+ });
+ const csv=rows.map(r=>r.map(v=>{
+  let text=String(v);
+  if(typeof v==='string'&&/^[=+\-@\t\r]/.test(text))text="'"+text;
+  return '"'+text.replace(/"/g,'""')+'"';
+ }).join(';')).join('\r\n');
+ downloadFile('\uFEFF'+csv,'TATI_COST_Informe.csv','text/csv;charset=utf-8');
+}
 
-    alert('Respaldo inválido.');
+function printFicha(){
+ window.print();
+}
+
+async function restore(e){
+ try{
+  if(!e.target.files.length)return;
+  const d=migrate(JSON.parse(await e.target.files[0].text()));
+  if(!valid(d))throw Error();
+  if(confirm('¿Reemplazar los datos actuales con este respaldo?')){
+   db=d;
+   storageError=false;
+   edit='';
+   selected='';
+   simId='';
+   pendingPhoto=null;
+   save('Respaldo importado');
+   render();
   }
-
-  e.target.value = '';
+ }catch(err){
+  alert('El respaldo no es válido o es incompatible.');
+ }
 }
 
-function resetData() {
-
-  if (!confirm('¿Eliminar todos los datos de TATI COST?')) {
-    return;
-  }
-
-  db = fresh();
-
-  edit = '';
-  selected = '';
-  simId = '';
-
-  save('Datos eliminados');
-  render();
+function resetData(){
+ if(!confirm('¿Eliminar permanentemente todos los datos locales?'))return;
+ if(!confirm('Esta acción no se puede deshacer sin un respaldo. ¿Continuar?'))return;
+ db=fresh();
+ storageError=false;
+ edit='';
+ selected='';
+ simId='';
+ pendingPhoto=null;
+ save('Datos eliminados');
+ render();
 }
 
 render();
-
 </script>
 </body>
 </html>
