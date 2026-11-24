@@ -3,166 +3,1019 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TATI COST | Studio Management</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#842b50">
+<title>TATI COST | Beauty & Finance</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
+
 :root{
---bg:#f6f3ee;
---paper:#fffdf9;
---ink:#382f2a;
---muted:#887c73;
---accent:#a86c55;
---line:#e7ddd3;
---green:#66816d;
---red:#b95353;
---sand:#e9d6c3;
+  --wine:#842b50;
+  --dark:#60203c;
+  --rose:#bc738c;
+  --pink:#f2dce3;
+  --light:#fcf3f5;
+  --bg:#fbf8f7;
+  --paper:#ffffff;
+  --ink:#30252b;
+  --muted:#8b747e;
+  --line:#ead8df;
+  --green:#527c65;
+  --red:#b83e56;
+  --shadow:0 4px 18px rgba(97,32,60,.06);
 }
+
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:14px 'DM Sans',Arial,sans-serif}
-button,input,select{font:inherit}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font:14px 'DM Sans',Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 h1,h2,h3,p{margin:0}
-h1,h2{font-family:'Playfair Display',Georgia,serif;font-weight:500}
-h1{font-size:40px}
-h2{font-size:27px}
+h1,h2,h3{letter-spacing:-.5px}
+h1{font-size:32px}
+h2{font-size:25px}
 h3{font-size:16px}
 p{line-height:1.65}
-aside{position:fixed;inset:0 auto 0 0;width:245px;background:#302822;color:#fff8ef;padding:30px 18px;overflow:auto}
-.brand{font:39px 'Playfair Display',Georgia,serif;letter-spacing:-2px}
-.eyebrow{font-size:10px;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;color:var(--accent)}
-aside .eyebrow{color:#c5a38e}
-.navgroup{margin:28px 10px 10px}
-.nav{display:flex;align-items:center;gap:12px;width:100%;padding:12px;border:0;border-radius:7px;color:#d6c6b9;background:none;text-align:left;margin:3px 0}
-.nav:hover,.nav.active{background:#58443a;color:#fff}
-.nav svg,.ico{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-main{margin-left:245px;padding:30px 36px;max-width:1700px}
-header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:25px}
-.hero{background:#ead8c5;display:grid;grid-template-columns:1.3fr 1fr;align-items:center;padding:35px;border-radius:12px;overflow:hidden;margin-bottom:25px}
-.hero h1{font-size:clamp(32px,4vw,55px);line-height:1.1;margin:15px 0}
-.hero p{max-width:450px;color:#745d4d;margin-bottom:20px}
-.hero svg{width:100%;max-height:280px}
-.btn{border:1px solid var(--ink);border-radius:6px;padding:11px 17px;background:var(--ink);color:white;font-weight:600}
-.btn:hover{opacity:.82}
-.secondary{background:transparent;color:var(--ink);border-color:var(--line)}
-.danger{background:transparent;color:var(--red);border-color:#e7c4bd}
-.small{padding:6px 9px;font-size:12px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:22px;margin-bottom:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:15px;margin:18px 0}
-.grid .card{margin:0}
-.metric{font:33px 'Playfair Display',Georgia,serif;margin:12px 0}
-.muted,small{color:var(--muted)}
+small,.muted{color:var(--muted)}
 .green{color:var(--green)}
 .red{color:var(--red)}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:15px;margin:18px 0}
-label{display:block;font-size:12px;font-weight:600;margin-bottom:7px}
-input,select{width:100%;padding:11px;border:1px solid var(--line);border-radius:5px;background:#fffefa;color:var(--ink)}
-input:focus,select:focus{outline:2px solid #d9b7a4}
-input[type=checkbox]{width:auto}
-.tablewrap{overflow:auto;margin-top:15px}
-table{border-collapse:collapse;width:100%;min-width:480px}
-td,th{padding:12px 9px;border-bottom:1px solid var(--line);text-align:left}
-th{font-size:10px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
-tr:hover td{background:#faf5ee}
-.empty{text-align:center;color:var(--muted);padding:30px}
-.empty svg{display:block;margin:0 auto 12px;width:45px;height:45px;color:var(--accent)}
-.notice{background:#f0e5d8;border-left:3px solid var(--accent);padding:15px;margin:15px 0;line-height:1.6}
-.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.tag{display:inline-block;padding:5px 9px;background:#efe3d7;border-radius:4px;font-size:11px}
-.ok{background:#e1e9dc;color:#527052}
-.warn{background:#f4ded8;color:#a14b42}
-.row{display:flex;align-items:center;gap:20px}
-.ring{width:140px;height:140px;border-radius:50%;background:conic-gradient(var(--accent) var(--pct),#eadfd3 0);display:grid;place-items:center;flex-shrink:0}
-.ring span{width:115px;height:115px;border-radius:50%;background:var(--paper);display:grid;place-items:center;font:30px Georgia}
-.bar{display:flex;height:14px;border-radius:5px;overflow:hidden;background:#eee5da;margin:16px 0}
-.legend{display:flex;justify-content:space-between;margin:12px 0;gap:10px}
-.alert{padding:14px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start}
-.alert .ico{flex-shrink:0;color:var(--accent)}
-.foot{border-top:1px solid #5d4c40;margin-top:30px;padding:20px 10px;color:#baa99a;font-size:11px;line-height:1.8}
-#toast{position:fixed;bottom:20px;right:20px;display:none;background:var(--ink);color:white;padding:15px 20px;border-radius:6px;z-index:99}
-#mobile{display:none}
-.servicephoto{width:64px;height:64px;border-radius:7px;object-fit:cover;background:#ead9c8}
-.servicehead{display:flex;align-items:center;gap:16px;margin:12px 0}
-.search{max-width:320px;margin-top:15px}
-.chartrow{margin:15px 0}
-.charttrack{height:10px;background:#eee3d7;border-radius:5px;overflow:hidden;margin-top:6px}
-.chartfill{height:100%;border-radius:5px;background:var(--green)}
+
+.ico{
+  width:23px;
+  height:23px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  flex-shrink:0;
+}
+
+aside{
+  position:fixed;
+  inset:0 auto 0 0;
+  width:245px;
+  background:linear-gradient(165deg,#923458,#60203c);
+  color:white;
+  padding:27px 17px;
+  overflow:auto;
+  z-index:90;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:24px;
+  font-weight:800;
+  letter-spacing:.4px;
+}
+
+.brand .ico{
+  width:35px;
+  height:35px;
+}
+
+.brand-sub{
+  font-size:10px;
+  letter-spacing:2px;
+  color:#e9bdce;
+  margin:8px 0 25px;
+}
+
+.navgroup{
+  margin:25px 12px 8px;
+  color:#e6bbcc;
+  font-size:10px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-weight:700;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  width:100%;
+  border:0;
+  background:none;
+  color:#f2dce5;
+  text-align:left;
+  padding:12px;
+  border-radius:9px;
+  margin:3px 0;
+}
+
+.nav.active,.nav:hover{
+  background:#ffffff25;
+  color:white;
+}
+
+.foot{
+  border-top:1px solid #ffffff30;
+  margin-top:30px;
+  padding:20px 10px;
+  font-size:11px;
+  line-height:1.9;
+  color:#e8c4d2;
+}
+
+main{
+  margin-left:245px;
+  padding:30px 35px;
+  max-width:1700px;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:23px;
+  padding-bottom:17px;
+  border-bottom:1px solid var(--line);
+}
+
+.page-heading{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.heading-icon{
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  background:var(--pink);
+  color:var(--wine);
+  display:grid;
+  place-items:center;
+}
+
+.heading-icon .ico{
+  width:27px;
+  height:27px;
+}
+
+.page-heading small{
+  display:block;
+  margin-top:3px;
+}
+
+.btn{
+  background:linear-gradient(120deg,#983b60,#742343);
+  border:1px solid transparent;
+  border-radius:9px;
+  color:white;
+  padding:12px 17px;
+  font-weight:700;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  transition:.15s;
+}
+
+.btn:hover{filter:brightness(1.07)}
+.btn:active{transform:scale(.98)}
+
+.secondary{
+  background:#fff9fb;
+  color:var(--wine);
+  border-color:#e6cbd6;
+}
+
+.danger{
+  background:#fff4f5;
+  color:var(--red);
+  border-color:#edccd4;
+}
+
+.small{
+  padding:7px 10px;
+  font-size:12px;
+}
+
+.full{width:100%}
+
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:20px;
+  box-shadow:var(--shadow);
+  margin-bottom:16px;
+}
+
+.card h3{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#432b36;
+  margin-bottom:10px;
+}
+
+.card h3 .ico{color:var(--wine)}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:14px;
+  margin:15px 0 22px;
+}
+
+.metric-card{
+  background:linear-gradient(120deg,#f8e8ed,#efd7df);
+  border:1px solid #edd2dc;
+  border-radius:13px;
+  padding:17px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-height:100px;
+}
+
+.metric-icon{
+  width:48px;
+  height:48px;
+  background:#eac3d1;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  color:var(--wine);
+  flex-shrink:0;
+}
+
+.metric-icon .ico{
+  width:26px;
+  height:26px;
+}
+
+.metric-label{
+  color:#62434f;
+  font-size:12px;
+  font-weight:700;
+}
+
+.metric-value{
+  color:var(--dark);
+  font-size:29px;
+  font-weight:800;
+  letter-spacing:-.7px;
+  margin-top:4px;
+}
+
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.actions{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.formgrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(175px,1fr));
+  gap:15px;
+  margin:16px 0;
+}
+
+label{
+  display:block;
+  font-size:12px;
+  color:#62434f;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+input,select,textarea{
+  width:100%;
+  min-height:44px;
+  padding:11px 12px;
+  border:1px solid #e8d3dc;
+  border-radius:9px;
+  background:#fdf9fa;
+  color:var(--ink);
+}
+
+input:focus,select:focus,textarea:focus{
+  outline:none;
+  border-color:var(--rose);
+  box-shadow:0 0 0 3px #f3dce5;
+}
+
+input[type=checkbox]{
+  width:auto;
+  min-height:auto;
+  accent-color:var(--wine);
+}
+
+input[type=file]{font-size:12px}
+
+.tablewrap{
+  overflow:auto;
+  margin-top:15px;
+  border-radius:8px;
+}
+
+table{
+  border-collapse:collapse;
+  width:100%;
+  min-width:470px;
+  font-size:13px;
+}
+
+td,th{
+  padding:12px 10px;
+  border-bottom:1px solid #f0e4e8;
+  text-align:left;
+}
+
+th{
+  background:#f8edf1;
+  color:var(--wine);
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+
+tr:hover td{background:#fdf6f8}
+
+.empty{
+  padding:28px 12px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.empty .ico{
+  display:block;
+  margin:0 auto 12px;
+  width:43px;
+  height:43px;
+  color:#c48da3;
+}
+
+.notice{
+  background:#f7e9ee;
+  border-left:3px solid var(--wine);
+  color:#754c5d;
+  padding:14px;
+  border-radius:0 8px 8px 0;
+  margin:15px 0;
+  font-size:13px;
+  line-height:1.65;
+}
+
+.tag{
+  display:inline-block;
+  background:#f3e0e7;
+  color:var(--wine);
+  padding:6px 9px;
+  border-radius:6px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.tag.ok{
+  background:#e5efe8;
+  color:#426b53;
+}
+
+.tag.warn{
+  background:#f7dce3;
+  color:#a03b50;
+}
+
+.finance-list{
+  display:grid;
+  gap:9px;
+  margin:15px 0;
+}
+
+.finance-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:#fcf4f6;
+  border:1px solid #f0e0e6;
+  border-radius:10px;
+  padding:14px;
+}
+
+.finance-icon{
+  width:39px;
+  height:39px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  background:#f0d5df;
+  color:var(--wine);
+  flex-shrink:0;
+}
+
+.description{flex:1;min-width:0}
+.description strong{display:block;font-size:13px}
+.description small{font-size:11px}
+
+.amount{
+  color:var(--dark);
+  font-weight:800;
+  font-size:15px;
+  white-space:nowrap;
+}
+
+.total-card{
+  background:linear-gradient(125deg,#9d4065,#762544);
+  color:white;
+  padding:22px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin:16px 0;
+}
+
+.total-card .ico{
+  width:37px;
+  height:37px;
+}
+
+.total-card small{color:#f4dce6}
+.total-card strong{display:block;font-size:30px;margin-top:4px}
+
+.compare-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:16px 0;
+}
+
+.compare-card{
+  background:#f5f0f1;
+  border:1px solid #e8dce0;
+  border-radius:12px;
+  padding:17px;
+}
+
+.compare-card.after{
+  background:#f3d6e0;
+  border-color:#dfafc1;
+}
+
+.compare-card h3{
+  justify-content:center;
+  color:var(--wine);
+}
+
+.compare-subtitle{
+  text-align:center;
+  font-size:11px;
+  color:var(--muted);
+  margin-bottom:15px;
+}
+
+.compare-line{
+  display:flex;
+  justify-content:space-between;
+  gap:7px;
+  border-top:1px solid #decbd3;
+  padding:11px 0;
+  font-size:12px;
+}
+
+.compare-line strong{color:var(--dark)}
+
+.chart{
+  margin:15px 0 5px;
+}
+
+.chart-body{
+  display:flex;
+  height:210px;
+  gap:8px;
+}
+
+.axis{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  font-size:10px;
+  color:var(--muted);
+  padding-bottom:3px;
+}
+
+.chart-columns{
+  flex:1;
+  display:flex;
+  justify-content:space-around;
+  gap:12px;
+  align-items:flex-end;
+  border-bottom:1px solid #e7d4dc;
+  background:repeating-linear-gradient(
+    to top,
+    transparent 0,
+    transparent calc(25% - 1px),
+    #eedfe5 calc(25% - 1px),
+    #eedfe5 25%
+  );
+}
+
+.chart-column{
+  flex:1;
+  max-width:90px;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:center;
+}
+
+.chart-column strong{
+  font-size:11px;
+  color:var(--wine);
+  margin-bottom:4px;
+}
+
+.column-fill{
+  width:75%;
+  border-radius:5px 5px 0 0;
+  background:linear-gradient(to top,#842b50,#ce96ab);
+}
+
+.column-labels{
+  display:flex;
+  justify-content:space-around;
+  gap:10px;
+  margin:9px 0 0 30px;
+}
+
+.column-labels span{
+  flex:1;
+  max-width:90px;
+  text-align:center;
+  font-size:10px;
+  color:var(--muted);
+  overflow-wrap:anywhere;
+}
+
+.progress{
+  height:13px;
+  background:#f1e1e7;
+  border-radius:20px;
+  overflow:hidden;
+  margin:14px 0;
+}
+
+.progress div{
+  height:100%;
+  background:linear-gradient(90deg,#d29aaf,#842b50);
+  border-radius:20px;
+}
+
+.legend{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin:10px 0;
+}
+
+.costbar{
+  display:flex;
+  height:15px;
+  border-radius:8px;
+  overflow:hidden;
+  background:#f2e4e9;
+  margin:16px 0;
+}
+
+.alert{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  border-bottom:1px solid var(--line);
+  padding:14px 0;
+}
+
+.alert .ico{color:var(--wine)}
+.alert p{font-size:12px}
+
+.servicehead{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.servicephoto{
+  width:58px;
+  height:58px;
+  border-radius:9px;
+  object-fit:cover;
+  background:var(--pink);
+}
+
+.service-avatar{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:var(--pink);
+  color:var(--wine);
+  flex-shrink:0;
+}
+
+.search{max-width:320px;margin:10px 0}
+
+.welcome{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  background:linear-gradient(120deg,#f7e5eb,#fff9fa);
+  border:1px solid var(--line);
+  padding:20px;
+  border-radius:14px;
+  margin-bottom:20px;
+}
+
+.welcome-text{flex:1}
+
+.welcome h2{
+  color:var(--dark);
+  font-size:23px;
+  margin:7px 0;
+}
+
+.welcome p{font-size:12px;color:#82616f}
+.welcome svg.art{width:150px;flex-shrink:0}
+
+#toast{
+  display:none;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:var(--dark);
+  color:white;
+  padding:15px 20px;
+  border-radius:10px;
+  z-index:150;
+  box-shadow:0 5px 25px #61203c30;
+}
+
+#mobile,.bottom-nav{display:none}
+
 @media(max-width:850px){
-aside{position:relative;width:100%;padding:18px}
-#mobile{display:block;float:right}
-#navs{display:none}
-#navs.open{display:block}
-.foot{display:none}
-main{margin:0;padding:18px}
-.split{grid-template-columns:1fr}
-.hero{padding:24px}
-.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.metric{font-size:27px}
-.card{padding:16px}
+
+  body{
+    padding-bottom:calc(75px + env(safe-area-inset-bottom));
+  }
+
+  aside{
+    position:sticky;
+    top:0;
+    width:100%;
+    padding:13px 18px;
+    overflow:visible;
+    background:linear-gradient(110deg,#923458,#742343);
+  }
+
+  .brand{
+    font-size:21px;
+    justify-content:center;
+  }
+
+  .brand .ico{
+    width:30px;
+    height:30px;
+  }
+
+  .brand-sub,.foot{display:none}
+
+  #mobile{
+    display:block;
+    float:right;
+    background:none;
+    color:white;
+    border:0;
+    padding:4px;
+  }
+
+  #navs{display:none}
+
+  #navs.open{
+    display:block;
+    max-height:70vh;
+    overflow:auto;
+    margin-top:15px;
+  }
+
+  main{
+    margin:0;
+    padding:15px 13px;
+  }
+
+  header{
+    padding-bottom:12px;
+    margin-bottom:14px;
+  }
+
+  header>.tag{display:none}
+  header h2{font-size:22px}
+
+  .heading-icon{
+    width:36px;
+    height:36px;
+    background:none;
+  }
+
+  .page-heading{gap:9px}
+  .page-heading small{font-size:11px}
+
+  .grid{
+    grid-template-columns:1fr;
+    gap:9px;
+    margin:12px 0 17px;
+  }
+
+  .metric-card{
+    min-height:78px;
+    padding:12px;
+  }
+
+  .metric-value{font-size:25px}
+  .metric-icon{width:45px;height:45px}
+
+  .split{grid-template-columns:1fr;gap:0}
+  .card{padding:15px;margin-bottom:12px}
+  .formgrid{grid-template-columns:1fr;gap:13px}
+  input,select,textarea{font-size:16px}
+
+  form .actions .btn{flex:1}
+
+  .finance-row{padding:11px;gap:9px}
+  .finance-icon{width:34px;height:34px}
+  .amount{font-size:13px}
+
+  .compare-card{padding:11px}
+  .compare-line{font-size:11px}
+  .total-card{padding:18px}
+  .total-card strong{font-size:27px}
+
+  .welcome{padding:15px}
+  .welcome h2{font-size:20px}
+  .welcome svg.art{width:105px}
+
+  .bottom-nav{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:100;
+    background:#fffafb;
+    border-top:1px solid var(--line);
+    padding:8px 5px;
+    padding-bottom:max(9px,env(safe-area-inset-bottom));
+  }
+
+  .bottom-nav button{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    border:0;
+    background:none;
+    color:#a58b97;
+    font-size:10px;
+    font-weight:700;
+    padding:7px 2px;
+    border-radius:9px;
+  }
+
+  .bottom-nav button.active{
+    background:#f5e3ea;
+    color:var(--wine);
+  }
+
+  #toast{
+    bottom:90px;
+    left:12px;
+    right:12px;
+    text-align:center;
+  }
 }
-@media(max-width:480px){
-.hero{grid-template-columns:1fr}
-.hero svg{max-height:200px}
-.ring{width:110px;height:110px}
-.ring span{width:90px;height:90px}
-}
+
 @media print{
-aside,header,.btn,#toast,.noprint{display:none!important}
-main{margin:0;padding:0}
-body{background:white}
-.card{break-inside:avoid;border:1px solid #ddd}
+  aside,header,.bottom-nav,.btn,.noprint,#toast{
+    display:none!important;
+  }
+
+  body{background:white;padding:0}
+  main{margin:0;padding:0}
+  .card{box-shadow:none;break-inside:avoid}
+  table{min-width:0}
 }
+
 </style>
 </head>
+
 <body>
 
 <aside>
-<button id="mobile" class="btn" onclick="document.getElementById('navs').classList.toggle('open')">Menú</button>
-<div class="brand">tati cost.</div>
-<div class="eyebrow">Studio Management</div>
-<nav id="navs"></nav>
-<div class="foot">
-TATI BEAUTY STUDIO<br>
-Curicó, Chile<br><br>
-Tu brújula financiera<br>
-Versión 3.0
-</div>
+  <button id="mobile" aria-label="Abrir menú"
+    onclick="document.getElementById('navs').classList.toggle('open')">
+    ☰
+  </button>
+
+  <div class="brand" id="brand">TATI COST</div>
+  <div class="brand-sub">BEAUTY & FINANCE</div>
+
+  <nav id="navs"></nav>
+
+  <div class="foot">
+    TATI BEAUTY STUDIO<br>
+    Curicó, Chile<br><br>
+    Tu brújula financiera<br>
+    Versión 4.0
+  </div>
 </aside>
 
 <main>
-<header>
-<div>
-<div class="eyebrow">Beauty Business Studio</div>
-<h2 id="heading"></h2>
-</div>
-<span class="tag">Mi estudio</span>
-</header>
-<div id="content"></div>
+  <header id="header"></header>
+  <div id="content"></div>
 </main>
 
+<nav class="bottom-nav" id="bottomNav"></nav>
 <div id="toast" role="status"></div>
 
 <script>
+
 'use strict';
 
 const $=id=>document.getElementById(id);
-const money=n=>Number(n).toLocaleString('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0});
-const dec=n=>Number(n).toLocaleString('es-CL',{maximumFractionDigits:2});
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,9);
-const date=()=>new Date().toISOString();
-const fmtdate=d=>d?new Date(d).toLocaleDateString('es-CL'):'Sin fecha';
+
+const money=n=>Number(n).toLocaleString('es-CL',{
+  style:'currency',
+  currency:'CLP',
+  maximumFractionDigits:0
+});
+
+const dec=n=>Number(n).toLocaleString('es-CL',{
+  maximumFractionDigits:2
+});
+
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({
+  '&':'&amp;',
+  '<':'&lt;',
+  '>':'&gt;',
+  '"':'&quot;',
+  "'":'&#39;'
+}[c]));
+
+const uid=()=>Date.now().toString(36)+
+  Math.random().toString(36).slice(2,9);
+
+const now=()=>new Date().toISOString();
+
+function fmtdate(d){
+  if(!d)return 'Sin fecha';
+  const v=new Date(
+    /^\d{4}-\d{2}-\d{2}$/.test(d)
+      ? d+'T12:00:00'
+      : d
+  );
+  return Number.isNaN(v.getTime())
+    ? 'Sin fecha'
+    : v.toLocaleDateString('es-CL');
+}
+
+const paths={
+  inicio:'<path d="M3 10l9-7 9 7v11H3zM9 21v-8h6v8"/>',
+  servicios:'<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8 8l13 13M8 16L21 3"/>',
+  insumos:'<path d="M3 7l9-4 9 4v13H3zM3 7l9 4 9-4M12 11v9"/>',
+  mano:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/>',
+  gastos:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+  fichas:'<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M7 6h10M7 11h2m6 0h2M7 15h2m6 0h2M7 19h2m6 0h2"/>',
+  simulador:'<path d="M3 3h9l9 9-9 9-9-9z"/><circle cx="8" cy="8" r="1.5"/>',
+  rentabilidad:'<path d="M3 3v18h18M6 17v-5h3v5M12 17V8h3v9M18 17V4h3v13"/>',
+  asistente:'<path d="M9 18h6M10 22h4M8 15c-6-6-2-13 4-13s10 7 4 13l-1 3H9z"/>',
+  informes:'<path d="M5 2h10l4 4v16H5zM14 2v6h5M8 12h8M8 16h8"/>',
+  historial:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2M2 3v6h6"/>',
+  config:'<circle cx="12" cy="12" r="4"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4M5 5l3 3m8 8l3 3M5 19l3-3m8-8l3-3"/>',
+  coins:'<ellipse cx="9" cy="5" rx="6" ry="3"/><path d="M3 5v5c0 4 12 4 12 0V5M3 10v5c0 4 12 4 12 0v-5"/><ellipse cx="17" cy="15" rx="5" ry="3"/><path d="M12 15v4c0 4 10 4 10 0v-4"/>',
+  percent:'<circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M20 4L4 20"/>',
+  person:'<circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/>',
+  save:'<path d="M3 3h15l3 3v15H3zM7 3v7h10V3M7 21v-7h10v7"/>',
+  menu:'<path d="M3 6h18M3 12h18M3 18h18"/>',
+  logo:'<path d="M3 21v-7h4v7M10 21V10h4v11M17 21V5h4v16M2 10l7-5 5 1 7-4M16 2h5v5"/>',
+  check:'<circle cx="12" cy="12" r="9"/><path d="M7 12l3 3 7-7"/>',
+  sparkle:'<path d="M12 2l2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/>'
+};
+
+const icon=k=>`
+  <svg class="ico" viewBox="0 0 24 24">
+    ${paths[k]||paths.fichas}
+  </svg>
+`;
+
+const names={
+  inicio:'Inicio',
+  servicios:'Mis servicios',
+  insumos:'Productos e insumos',
+  mano:'Mano de obra',
+  gastos:'Gastos indirectos',
+  fichas:'Calculadora de costos',
+  simulador:'Simulador de precios',
+  rentabilidad:'Rentabilidad',
+  asistente:'Asistente financiero',
+  informes:'Informes',
+  historial:'Historial',
+  config:'Configuración'
+};
+
+const subtitles={
+  inicio:'Resumen financiero del estudio',
+  servicios:'Administra tu catálogo de belleza',
+  insumos:'Productos, proveedores y costos',
+  mano:'Conoce el valor de tu tiempo',
+  gastos:'Controla los gastos del estudio',
+  fichas:'Calcula el costo de cada servicio',
+  simulador:'Evalúa precios y su rentabilidad',
+  rentabilidad:'Conoce el margen de tus servicios',
+  asistente:'Recomendaciones para tu negocio',
+  informes:'Seguimiento de tus resultados',
+  historial:'Registro de modificaciones',
+  config:'Personaliza tu estudio'
+};
+
+const illustration=`
+<svg class="art" viewBox="0 0 180 170">
+  <path d="M20 155V80a70 70 0 0 1 140 0v75Z"
+    fill="#e8bcca"/>
+  <ellipse cx="90" cy="155" rx="80" ry="8"
+    fill="#c78da3" opacity=".3"/>
+  <rect x="38" y="65" width="43" height="88"
+    rx="8" fill="#fff5f6" stroke="#a96781"/>
+  <rect x="48" y="47" width="23" height="20"
+    rx="3" fill="#842b50"/>
+  <path d="M58 47V37h25v6H65v4"
+    fill="#842b50"/>
+  <rect x="43" y="95" width="33" height="35"
+    rx="2" fill="#dca4b8"/>
+  <text x="59" y="110" text-anchor="middle"
+    font-size="10" fill="#842b50" font-weight="bold">
+    TATI
+  </text>
+  <text x="59" y="121" text-anchor="middle"
+    font-size="5" fill="#842b50">BEAUTY</text>
+  <rect x="96" y="113" width="48" height="40"
+    rx="5" fill="#bc738c"/>
+  <rect x="92" y="106" width="56" height="12"
+    rx="3" fill="#842b50"/>
+  <rect x="103" y="128" width="34" height="15"
+    rx="2" fill="#f8e5eb"/>
+  <g transform="translate(120 68) rotate(25)"
+    fill="none" stroke="#842b50" stroke-width="3.5">
+    <circle cx="-9" cy="16" r="7"/>
+    <circle cx="9" cy="16" r="7"/>
+    <path d="M-5 10L15-35M5 10L-15-35"/>
+  </g>
+  <g stroke="#fff" stroke-width="2">
+    <path d="M22 40v16M14 48h16M153 25v16M145 33h16"/>
+  </g>
+</svg>
+`;
 
 const fresh=()=>({
- servicios:[],
- insumos:[],
- gastos:[],
- mano:{mensual:0,horas:0},
- baseHoras:0,
- fichas:{},
- config:{margen:30,meta:80,inicio:'',revision:30},
- historial:[]
+  servicios:[],
+  insumos:[],
+  gastos:[],
+  mano:{mensual:0,horas:0},
+  baseHoras:0,
+  fichas:{},
+  config:{
+    margen:30,
+    meta:80,
+    inicio:'',
+    revision:30
+  },
+  historial:[],
+  simulaciones:[]
 });
 
 let db=fresh();
@@ -171,778 +1024,2646 @@ let edit='';
 let selected='';
 let simId='';
 let pendingPhoto=null;
+let photoLoading=false;
 let storageError=false;
 
 function migrate(d){
- if(!d||!Array.isArray(d.servicios)||!Array.isArray(d.insumos)||!Array.isArray(d.gastos)||!d.mano||!d.fichas)throw Error('Formato inválido');
- d.config={...fresh().config,...d.config};
- d.historial=Array.isArray(d.historial)?d.historial:[];
- d.servicios=d.servicios.map(s=>({
-  activo:true,
-  preparacion:0,
-  limpieza:0,
-  foto:'',
-  ...s,
-  atencion:s.atencion??Math.max(0,s.tiempo-(s.preparacion||0)-(s.limpieza||0))
- }));
- d.insumos=d.insumos.map(i=>({
-  proveedor:'',
-  stock:null,
-  minimo:null,
-  historial:[],
-  ...i
- }));
- return d;
+
+  if(!d||
+    !Array.isArray(d.servicios)||
+    !Array.isArray(d.insumos)||
+    !Array.isArray(d.gastos)||
+    !d.mano||
+    !d.fichas
+  )throw Error('Formato inválido');
+
+  d.config={...fresh().config,...d.config};
+
+  d.historial=Array.isArray(d.historial)
+    ?d.historial:[];
+
+  d.simulaciones=Array.isArray(d.simulaciones)
+    ?d.simulaciones:[];
+
+  d.servicios=d.servicios.map(s=>({
+    activo:true,
+    preparacion:0,
+    limpieza:0,
+    foto:'',
+    ...s,
+    atencion:s.atencion??Math.max(
+      0,
+      s.tiempo-(s.preparacion||0)-(s.limpieza||0)
+    )
+  }));
+
+  d.insumos=d.insumos.map(i=>({
+    proveedor:'',
+    stock:null,
+    minimo:null,
+    historial:[],
+    ...i
+  }));
+
+  return d;
 }
 
 function valid(d){
- const nn=x=>typeof x==='number'&&Number.isFinite(x)&&x>=0;
- const ids=a=>Array.isArray(a)&&a.every(x=>x&&typeof x.nombre==='string'&&typeof x.id==='string'&&/^[a-zA-Z0-9_-]+$/.test(x.id))&&new Set(a.map(x=>x.id)).size===a.length;
- return d&&ids(d.servicios)&&ids(d.insumos)&&ids(d.gastos)&&
- d.servicios.every(s=>nn(s.precio)&&nn(s.tiempo)&&s.tiempo>0&&nn(s.preparacion)&&nn(s.atencion)&&nn(s.limpieza)&&typeof s.activo==='boolean'&&Math.abs(s.tiempo-s.preparacion-s.atencion-s.limpieza)<0.001)&&
- d.insumos.every(i=>nn(i.precio)&&nn(i.cantidad)&&i.cantidad>0&&['ml','g','unidad'].includes(i.unidad)&&(i.stock===null||nn(i.stock))&&(i.minimo===null||nn(i.minimo))&&Array.isArray(i.historial))&&
- d.gastos.every(g=>nn(g.monto))&&
- nn(d.mano.mensual)&&nn(d.mano.horas)&&nn(d.baseHoras)&&
- nn(d.config.margen)&&d.config.margen<100&&nn(d.config.meta)&&d.config.meta>0&&d.config.meta<=100&&nn(d.config.revision)&&d.config.revision>0&&
- Object.entries(d.fichas).every(([id,f])=>d.servicios.some(s=>s.id===id)&&f&&Array.isArray(f.materiales)&&typeof f.confirmados==='boolean'&&['En desarrollo','Revisado','Validado'].includes(f.estado)&&['Estimados','Parcialmente comprobados','Comprobados'].includes(f.calidad)&&f.materiales.every(m=>nn(m.cantidad)&&m.cantidad>0&&d.insumos.some(i=>i.id===m.insumo)));
+
+  const nn=x=>typeof x==='number'&&
+    Number.isFinite(x)&&x>=0;
+
+  const ids=a=>Array.isArray(a)&&
+    a.every(x=>x&&
+      typeof x.nombre==='string'&&
+      typeof x.id==='string'&&
+      /^[a-zA-Z0-9_-]+$/.test(x.id)
+    )&&new Set(a.map(x=>x.id)).size===a.length;
+
+  return d&&
+    ids(d.servicios)&&
+    ids(d.insumos)&&
+    ids(d.gastos)&&
+
+    d.servicios.every(s=>
+      nn(s.precio)&&
+      nn(s.tiempo)&&s.tiempo>0&&
+      nn(s.preparacion)&&
+      nn(s.atencion)&&
+      nn(s.limpieza)&&
+      typeof s.activo==='boolean'&&
+      Math.abs(
+        s.tiempo-s.preparacion-s.atencion-s.limpieza
+      )<.001
+    )&&
+
+    d.insumos.every(i=>
+      nn(i.precio)&&
+      nn(i.cantidad)&&i.cantidad>0&&
+      ['ml','g','unidad'].includes(i.unidad)&&
+      (i.stock===null||nn(i.stock))&&
+      (i.minimo===null||nn(i.minimo))&&
+      Array.isArray(i.historial)&&
+      i.historial.every(h=>
+        h&&nn(h.anterior)&&nn(h.nuevo)
+      )
+    )&&
+
+    d.gastos.every(g=>nn(g.monto))&&
+
+    nn(d.mano.mensual)&&
+    nn(d.mano.horas)&&
+    nn(d.baseHoras)&&
+
+    nn(d.config.margen)&&
+    d.config.margen<100&&
+    nn(d.config.meta)&&
+    d.config.meta>0&&
+    d.config.meta<=100&&
+    nn(d.config.revision)&&
+    d.config.revision>0&&
+
+    d.fichas&&
+    typeof d.fichas==='object'&&
+    !Array.isArray(d.fichas)&&
+
+    Object.entries(d.fichas).every(([id,f])=>
+      d.servicios.some(s=>s.id===id)&&
+      f&&Array.isArray(f.materiales)&&
+      typeof f.confirmados==='boolean'&&
+      ['En desarrollo','Revisado','Validado']
+        .includes(f.estado)&&
+      ['Estimados','Parcialmente comprobados','Comprobados']
+        .includes(f.calidad)&&
+      f.materiales.every(m=>
+        m&&nn(m.cantidad)&&m.cantidad>0&&
+        d.insumos.some(i=>i.id===m.insumo)
+      )
+    )&&
+
+    Array.isArray(d.historial)&&
+    d.historial.every(h=>
+      h&&typeof h.texto==='string'
+    )&&
+
+    Array.isArray(d.simulaciones)&&
+    d.simulaciones.every(s=>
+      s&&typeof s.servicio==='string'&&
+      nn(s.precioSimulado)&&
+      nn(s.costoSimulado)&&
+      (s.margen===null||Number.isFinite(s.margen))
+    );
 }
 
 try{
- const raw=localStorage.getItem('tatiCostV1');
- if(raw){
-  const data=migrate(JSON.parse(raw));
-  if(!valid(data))throw Error('Datos inválidos');
-  db=data;
- }
+  const raw=localStorage.getItem('tatiCostV1');
+
+  if(raw){
+    const data=migrate(JSON.parse(raw));
+    if(!valid(data))throw Error('Datos inválidos');
+    db=data;
+  }
 }catch(e){
- storageError=true;
- console.error(e);
+  storageError=true;
+  console.error(e);
 }
 
-const paths={
- inicio:'<path d="M3 10l9-7 9 7v11H3zM9 21v-8h6v8"/>',
- servicios:'<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8 8l13 13M8 16L21 3"/>',
- insumos:'<path d="M3 7l9-4 9 4v13H3zM3 7l9 4 9-4M12 11v9"/>',
- mano:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/>',
- gastos:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
- fichas:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M8 12l3 3 5-6"/>',
- simulador:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2m4 0h2M8 16h2m4 0h2"/>',
- rentabilidad:'<path d="M3 3v18h18M6 16l5-6 4 3 6-8"/>',
- asistente:'<path d="M9 18h6M10 22h4M8 15c-6-6-2-13 4-13s10 7 4 13l-1 3H9z"/>',
- informes:'<path d="M5 2h10l4 4v16H5zM14 2v6h5M8 12h8M8 16h8"/>',
- historial:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2M2 3v6h6"/>',
- config:'<circle cx="12" cy="12" r="4"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4M5 5l3 3m8 8l3 3M5 19l3-3m8-8l3-3"/>'
-};
+function toast(text){
+  $('toast').textContent=text;
+  $('toast').style.display='block';
 
-const icon=k=>`<svg class="ico" viewBox="0 0 24 24">${paths[k]||paths.fichas}</svg>`;
+  clearTimeout(window.tt);
 
-const names={
- inicio:'Vista general',
- servicios:'Mis servicios',
- insumos:'Productos e insumos',
- mano:'Mano de obra',
- gastos:'Gastos indirectos',
- fichas:'Fichas de costos',
- simulador:'Simulador financiero',
- rentabilidad:'Rentabilidad',
- asistente:'Asistente financiero',
- informes:'Informes',
- historial:'Historial',
- config:'Configuración'
-};
-
-const illustration=`
-<svg viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
-<path d="M100 270V140a115 115 0 0 1 230 0v130Z" fill="#cda58d"/>
-<ellipse cx="215" cy="274" rx="190" ry="13" fill="#a67b65" opacity=".25"/>
-<rect x="116" y="116" width="72" height="155" rx="13" fill="#fff0dc" stroke="#98745d"/>
-<rect x="132" y="90" width="40" height="30" rx="4" fill="#795646"/>
-<path d="M147 90V70h42v8h-28v12" fill="#795646"/>
-<rect x="126" y="160" width="52" height="69" fill="#d8b49e"/>
-<text x="152" y="186" text-anchor="middle" font-family="Georgia" font-size="20" fill="#62493b">tati.</text>
-<text x="152" y="203" text-anchor="middle" font-size="7" fill="#62493b">HAIR CARE</text>
-<rect x="207" y="198" width="96" height="74" rx="8" fill="#a06c53"/>
-<rect x="202" y="187" width="106" height="17" rx="4" fill="#65473a"/>
-<rect x="219" y="222" width="72" height="30" fill="#ead5bb"/>
-<text x="255" y="241" text-anchor="middle" font-family="Georgia" font-size="10" fill="#65473a">BEAUTY</text>
-<g transform="translate(259 113) rotate(25)" fill="none" stroke="#6e5040" stroke-width="5" stroke-linecap="round">
-<circle cx="-15" cy="29" r="12"/>
-<circle cx="15" cy="29" r="12"/>
-<path d="M-8 20L24-55M8 20L-24-55"/>
-<circle cx="0" cy="0" r="3" fill="#6e5040"/>
-</g>
-<g fill="#9da489" stroke="#718064" stroke-width="1.5">
-<path d="M85 270Q42 150 67 60" fill="none" stroke-width="2"/>
-<path d="M60 110Q25 98 30 75Q56 81 60 110"/>
-<path d="M58 146Q90 120 88 102Q61 109 58 146"/>
-<path d="M64 181Q25 161 30 138Q59 145 64 181"/>
-<path d="M74 217Q105 189 102 171Q78 178 74 217"/>
-</g>
-<g transform="translate(326 216) rotate(15)">
-<rect width="30" height="58" rx="3" fill="#b88d72"/>
-<path d="M5 0v-38M12 0v-38M19 0v-38M26 0v-38" stroke="#765544" stroke-width="3" stroke-linecap="round"/>
-</g>
-<g stroke="#fff6e8" stroke-width="2" fill="none">
-<path d="M330 55v24M318 67h24M95 35v16M87 43h16M365 120v18M356 129h18"/>
-</g>
-</svg>`;
-
-function toast(s){
- $('toast').textContent=s;
- $('toast').style.display='block';
- clearTimeout(window.tt);
- window.tt=setTimeout(()=>$('toast').style.display='none',2600);
+  window.tt=setTimeout(()=>{
+    $('toast').style.display='none';
+  },2800);
 }
 
 function save(msg){
- if(storageError){
-  alert('Existe un problema con los datos anteriores. Importa un respaldo válido antes de guardar.');
-  return false;
- }
- try{
-  localStorage.setItem('tatiCostV1',JSON.stringify(db));
-  if(msg)toast(msg);
-  return true;
- }catch(e){
-  alert('No fue posible guardar. Revisa el espacio del navegador y descarga un respaldo.');
-  return false;
- }
+
+  if(storageError){
+    alert('Importa un respaldo válido antes de guardar.');
+    return false;
+  }
+
+  try{
+    localStorage.setItem('tatiCostV1',JSON.stringify(db));
+
+    if(msg)toast(msg);
+
+    return true;
+
+  }catch(e){
+    alert('No se pudieron guardar los cambios. Descarga un respaldo antes de cerrar la aplicación.');
+    return false;
+  }
 }
 
 function log(text){
- db.historial.unshift({fecha:date(),texto:text});
- db.historial=db.historial.slice(0,500);
+  db.historial.unshift({
+    fecha:now(),
+    texto:text
+  });
+
+  db.historial=db.historial.slice(0,500);
 }
 
 function go(p){
- page=p;
- edit='';
- pendingPhoto=null;
- render();
- $('navs').classList.remove('open');
- window.scrollTo(0,0);
+  page=p;
+  edit='';
+  pendingPhoto=null;
+  photoLoading=false;
+
+  render();
+
+  $('navs').classList.remove('open');
+
+  window.scrollTo(0,0);
 }
 
 function invalidate(id){
- Object.entries(db.fichas).forEach(([k,f])=>{
-  if(!id||id===k)f.estado='En desarrollo';
- });
+
+  Object.entries(db.fichas).forEach(([k,f])=>{
+    if(!id||id===k)f.estado='En desarrollo';
+  });
 }
 
 function invalidateInput(id){
- Object.entries(db.fichas).forEach(([k,f])=>{
-  if(f.materiales.some(m=>m.insumo===id))f.estado='En desarrollo';
- });
+
+  Object.values(db.fichas).forEach(f=>{
+    if(f.materiales.some(m=>m.insumo===id)){
+      f.estado='En desarrollo';
+    }
+  });
 }
 
-const labor=()=>db.mano.horas?db.mano.mensual/(60*db.mano.horas):0;
-const totalG=()=>db.gastos.reduce((a,g)=>a+g.monto,0);
-const indirect=()=>db.baseHoras?totalG()/(60*db.baseHoras):0;
+const labor=()=>db.mano.horas
+  ?db.mano.mensual/(60*db.mano.horas)
+  :0;
+
+const totalG=()=>db.gastos.reduce(
+  (a,g)=>a+g.monto,0
+);
+
+const indirect=()=>db.baseHoras
+  ?totalG()/(60*db.baseHoras)
+  :0;
+
 const active=()=>db.servicios.filter(s=>s.activo);
-const ficha=id=>db.fichas[id]||{materiales:[],calidad:'Estimados',estado:'En desarrollo',confirmados:false};
+
+const ficha=id=>db.fichas[id]||{
+  materiales:[],
+  calidad:'Estimados',
+  estado:'En desarrollo',
+  confirmados:false
+};
 
 function calc(s){
- const f=ficha(s.id);
- const m=f.materiales.reduce((a,r)=>{
-  const i=db.insumos.find(i=>i.id===r.insumo);
-  return a+(i?i.precio/i.cantidad*r.cantidad:0);
- },0);
- const l=labor()*s.tiempo;
- const g=indirect()*s.tiempo;
- const t=m+l+g;
- return{
-  m,l,g,t,
-  r:s.precio-t,
-  margin:s.precio>0?(s.precio-t)/s.precio*100:null,
-  complete:!!(f.confirmados&&db.mano.horas>0&&db.baseHoras>0&&f.materiales.every(r=>db.insumos.some(i=>i.id===r.insumo))&&['Revisado','Validado'].includes(f.estado))
- };
+
+  const f=ficha(s.id);
+
+  const m=f.materiales.reduce((a,r)=>{
+
+    const i=db.insumos.find(
+      i=>i.id===r.insumo
+    );
+
+    return a+(i
+      ?i.precio/i.cantidad*r.cantidad
+      :0);
+
+  },0);
+
+  const l=labor()*s.tiempo;
+  const g=indirect()*s.tiempo;
+  const t=m+l+g;
+
+  return{
+    m,l,g,t,
+    r:s.precio-t,
+
+    margin:s.precio>0
+      ?(s.precio-t)/s.precio*100
+      :null,
+
+    complete:!!(
+      f.confirmados&&
+      db.mano.horas>0&&
+      db.baseHoras>0&&
+      f.materiales.every(r=>
+        db.insumos.some(i=>i.id===r.insumo)
+      )&&
+      ['Revisado','Validado'].includes(f.estado)
+    )
+  };
 }
 
-const completed=()=>active().filter(s=>calc(s).complete);
+const completed=()=>active().filter(
+  s=>calc(s).complete
+);
 
-function card(title,body){
- return `<section class="card"><h3>${title}</h3>${body}</section>`;
+function card(title,body,k=''){
+
+  return`
+    <section class="card">
+      <h3>${k?icon(k):''}${title}</h3>
+      ${body}
+    </section>
+  `;
 }
 
 function metric(label,value,k){
- return `<div class="card">${icon(k)}<div class="metric">${value}</div><small>${label}</small></div>`;
+
+  return`
+    <div class="metric-card">
+      <div class="metric-icon">${icon(k)}</div>
+      <div>
+        <div class="metric-label">${label}</div>
+        <div class="metric-value">${value}</div>
+      </div>
+    </div>
+  `;
+}
+
+function empty(text){
+
+  return`
+    <div class="empty">
+      ${icon('fichas')}
+      ${text}
+    </div>
+  `;
+}
+
+function financeRow(k,title,subtitle,amount){
+
+  return`
+    <div class="finance-row">
+
+      <div class="finance-icon">
+        ${icon(k)}
+      </div>
+
+      <div class="description">
+        <strong>${title}</strong>
+        <small>${subtitle}</small>
+      </div>
+
+      <div class="amount">${amount}</div>
+
+    </div>
+  `;
+}
+
+function totalCard(title,amount,k='coins'){
+
+  return`
+    <div class="total-card">
+      ${icon(k)}
+      <div>
+        <small>${title}</small>
+        <strong>${amount}</strong>
+      </div>
+    </div>
+  `;
 }
 
 function table(heads,rows){
- return rows.length?`<div class="tablewrap"><table><thead><tr>${heads.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:`<div class="empty">${icon('fichas')}Aún no hay registros disponibles.</div>`;
+
+  return rows.length?`
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            ${heads.map(h=>`<th>${h}</th>`).join('')}
+          </tr>
+        </thead>
+
+        <tbody>
+          ${rows.map(r=>`
+            <tr>
+              ${r.map(c=>`<td>${c}</td>`).join('')}
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+  `:empty('Aún no hay registros disponibles.');
 }
 
 function field(label,id,type='text',v='',attrs=''){
- return `<div><label for="${id}">${label}</label><input id="${id}" type="${type}" value="${esc(v)}" ${attrs}></div>`;
+
+  return`
+    <div>
+      <label for="${id}">${label}</label>
+      <input id="${id}" type="${type}"
+        value="${esc(v)}" ${attrs}>
+    </div>
+  `;
 }
 
 function select(label,id,opts,v=''){
- return `<div><label for="${id}">${label}</label><select id="${id}">${opts.map(o=>{
- const [k,t]=Array.isArray(o)?o:[o,o];
- return `<option value="${esc(k)}" ${String(k)===String(v)?'selected':''}>${esc(t)}</option>`;
- }).join('')}</select></div>`;
+
+  return`
+    <div>
+      <label for="${id}">${label}</label>
+      <select id="${id}">
+        ${opts.map(o=>{
+
+          const [k,t]=Array.isArray(o)?o:[o,o];
+
+          return`
+            <option value="${esc(k)}"
+              ${String(k)===String(v)?'selected':''}>
+              ${esc(t)}
+            </option>
+          `;
+
+        }).join('')}
+      </select>
+    </div>
+  `;
 }
 
 function form(body,action,label='Guardar'){
- return `<form onsubmit="event.preventDefault();${esc(action)}"><div class="formgrid">${body}</div><div class="actions"><button class="btn">${label}</button><button type="button" class="btn secondary" onclick="edit='';pendingPhoto=null;render()">Cancelar</button></div></form>`;
+
+  return`
+    <form onsubmit="event.preventDefault();${esc(action)}">
+
+      <div class="formgrid">${body}</div>
+
+      <div class="actions">
+
+        <button class="btn">
+          ${icon('save')}${label}
+        </button>
+
+        <button type="button" class="btn secondary"
+          onclick="edit='';pendingPhoto=null;photoLoading=false;render()">
+          Cancelar
+        </button>
+
+      </div>
+    </form>
+  `;
 }
 
 const val=id=>$(id).value;
 const n=id=>Number(val(id));
-const serviceOpts=()=>[['','Seleccionar servicio'],...active().map(s=>[s.id,s.nombre])];
+
+const serviceOpts=()=>[
+  ['','Seleccionar servicio'],
+  ...active().map(s=>[s.id,s.nombre])
+];
 
 function buttons(id){
- return `<button class="btn secondary small" onclick="edit='${id}';pendingPhoto=null;render();window.scrollTo(0,0)">Editar</button> <button class="btn danger small" onclick="remove('${id}')">Eliminar</button>`;
+
+  return`
+    <button class="btn secondary small"
+      onclick="edit='${id}';pendingPhoto=null;render();window.scrollTo(0,0)">
+      Editar
+    </button>
+
+    <button class="btn danger small"
+      onclick="remove('${id}')">
+      Eliminar
+    </button>
+  `;
 }
 
 function nav(){
- const groups=[
- ['Mi estudio',['inicio']],
- ['Administración',['servicios','insumos','mano','gastos']],
- ['Finanzas',['fichas','simulador','rentabilidad','asistente']],
- ['Seguimiento',['informes','historial','config']]
- ];
- $('navs').innerHTML=groups.map(([title,items])=>`<div class="navgroup eyebrow">${title}</div>${items.map(k=>`<button class="nav ${page===k?'active':''}" onclick="go('${k}')">${icon(k)}${names[k]}</button>`).join('')}`).join('');
-}
 
-function costChart(ss){
- const a=ss.reduce((a,s)=>{
-  const c=calc(s);
-  return[a[0]+c.m,a[1]+c.l,a[2]+c.g];
- },[0,0,0]);
- const t=a.reduce((x,y)=>x+y,0);
- const colors=['#a86c55','#d6ad91','#66816d'];
- if(!t)return `<div class="empty">${icon('rentabilidad')}Sin costos disponibles.</div>`;
- return `<div class="bar">${a.map((v,j)=>`<div style="width:${v/t*100}%;background:${colors[j]}"></div>`).join('')}</div>${a.map((v,j)=>`<div class="legend"><span><span style="color:${colors[j]}">●</span> ${['Materiales','Mano de obra','Indirectos'][j]}</span><strong>${money(v)}</strong></div>`).join('')}`;
-}
+  const groups=[
+    ['Mi estudio',['inicio']],
+    ['Administración',['servicios','insumos','mano','gastos']],
+    ['Finanzas',['fichas','simulador','rentabilidad','asistente']],
+    ['Seguimiento',['informes','historial','config']]
+  ];
 
-function alerts(){
- const a=[];
- active().forEach(s=>{
-  const c=calc(s);
-  const f=ficha(s.id);
-  if(!c.complete){
-   a.push({title:'Ficha pendiente',text:s.nombre+' necesita completar o revisar sus costos.',page:'fichas',id:s.id});
-  }else{
-   if(c.r<0)a.push({title:'Servicio con pérdida estimada',text:s.nombre+': resultado '+money(c.r)+'.',page:'fichas',id:s.id});
-   else if(c.margin!==null&&c.margin<db.config.margen)a.push({title:'Margen inferior al objetivo',text:s.nombre+': '+dec(c.margin)+'%. Precio sugerido: '+money(Math.ceil(c.t/(1-db.config.margen/100)))+'.',page:'fichas',id:s.id});
-   if(f.actualizado&&Date.now()-new Date(f.actualizado).getTime()>db.config.revision*86400000)a.push({title:'Revisión de costos pendiente',text:s.nombre+' supera el intervalo de revisión configurado.',page:'fichas',id:s.id});
-  }
- });
- db.insumos.forEach(i=>{
-  if(i.stock!==null&&i.minimo!==null&&i.stock<=i.minimo)a.push({title:'Stock bajo',text:i.nombre+': '+dec(i.stock)+' '+i.unidad+' disponibles.',page:'insumos',id:i.id});
-  const last=i.historial[0];
-  if(last&&last.nuevo>last.anterior)a.push({title:'Aumento de costo unitario',text:i.nombre+': '+(last.anterior>0?dec((last.nuevo/last.anterior-1)*100)+'% de aumento.':'nuevo costo superior al anterior.'),page:'insumos',id:i.id});
- });
- return a;
-}
+  $('navs').innerHTML=groups.map(([title,items])=>`
 
-function openAlert(p,id){
- go(p);
- if(p==='fichas')selected=id;
- if(p==='insumos')edit=id;
- render();
-}
+    <div class="navgroup">${title}</div>
 
-function alertList(a){
- return a.length?a.map(x=>`<div class="alert">${icon('asistente')}<div style="flex:1"><strong>${esc(x.title)}</strong><p class="muted">${esc(x.text)}</p></div><button class="btn secondary small" onclick="openAlert('${x.page}','${x.id}')">Ver</button></div>`).join(''):`<div class="empty">${icon('asistente')}No hay alertas detectadas con los datos disponibles.</div>`;
-}
+    ${items.map(k=>`
+      <button class="nav ${page===k?'active':''}"
+        onclick="go('${k}')">
+        ${icon(k)}${names[k]}
+      </button>
+    `).join('')}
 
-function rank(){
- const ss=completed().filter(s=>calc(s).margin!==null).sort((a,b)=>calc(b).margin-calc(a).margin).slice(0,5);
- return ss.length?ss.map(s=>{
-  const c=calc(s);
-  return `<div class="chartrow"><div class="legend"><span>${esc(s.nombre)}</span><strong class="${c.margin<0?'red':'green'}">${dec(c.margin)}%</strong></div><div class="charttrack"><div class="chartfill" style="width:${Math.max(0,Math.min(100,c.margin))}%"></div></div></div>`;
- }).join(''):`<div class="empty">${icon('rentabilidad')}Completa fichas para comparar márgenes.</div>`;
+  `).join('');
+
+  $('bottomNav').innerHTML=[
+    ['inicio','Inicio'],
+    ['fichas','Costos'],
+    ['simulador','Precios'],
+    ['rentabilidad','Márgenes']
+  ].map(([k,label])=>`
+
+    <button class="${page===k?'active':''}"
+      onclick="go('${k}')">
+      ${icon(k)}
+      <span>${label}</span>
+    </button>
+
+  `).join('');
+
+  $('header').innerHTML=`
+
+    <div class="page-heading">
+
+      <div class="heading-icon">
+        ${icon(page)}
+      </div>
+
+      <div>
+        <h2>${names[page]}</h2>
+        <small>${subtitles[page]}</small>
+      </div>
+
+    </div>
+
+    <span class="tag">Tati Beauty Studio</span>
+
+  `;
 }
 
 function safePhoto(s){
- return typeof s==='string'&&/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(s)?s:'';
+
+  return typeof s==='string'&&
+    /^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(s)
+    ?s:'';
+}
+
+function servicePhoto(s){
+
+  return safePhoto(s.foto)
+    ?`<img class="servicephoto" src="${safePhoto(s.foto)}" alt="">`
+    :`<div class="service-avatar">${icon('servicios')}</div>`;
+}
+
+function verticalChart(){
+
+  const ss=completed()
+    .filter(s=>calc(s).margin!==null)
+    .sort((a,b)=>calc(b).margin-calc(a).margin)
+    .slice(0,5);
+
+  if(!ss.length){
+    return empty('Completa las fichas para visualizar la rentabilidad.');
+  }
+
+  const max=Math.max(
+    60,
+    Math.ceil(Math.max(...ss.map(s=>
+      Math.max(0,calc(s).margin)
+    ))/20)*20
+  );
+
+  return`
+    <div class="chart">
+
+      <div class="chart-body">
+
+        <div class="axis">
+          ${[1,.75,.5,.25,0].map(v=>`
+            <span>${dec(max*v)}%</span>
+          `).join('')}
+        </div>
+
+        <div class="chart-columns">
+
+          ${ss.map((s,j)=>{
+
+            const m=calc(s).margin;
+
+            return`
+              <div class="chart-column"
+                title="${esc(s.nombre)}: ${dec(m)}%">
+
+                <strong style="color:${m<0?'#b83e56':'#842b50'}">
+                  ${dec(m)}%
+                </strong>
+
+                <div class="column-fill"
+                  style="height:${Math.max(0,m/max*100)}%;
+                  opacity:${.6+j*.1}">
+                </div>
+
+              </div>
+            `;
+
+          }).join('')}
+
+        </div>
+
+      </div>
+
+      <div class="column-labels">
+        ${ss.map(s=>`<span>${esc(s.nombre)}</span>`).join('')}
+      </div>
+
+      <br>
+      <small>Hasta cinco servicios con mayor margen estimado.
+      Los márgenes negativos se indican en rojo.</small>
+
+    </div>
+  `;
+}
+
+function costChart(ss){
+
+  const a=ss.reduce((a,s)=>{
+    const c=calc(s);
+    return[a[0]+c.m,a[1]+c.l,a[2]+c.g];
+  },[0,0,0]);
+
+  const t=a.reduce((x,y)=>x+y,0);
+
+  const colors=['#842b50','#d69bad','#b7a0aa'];
+
+  if(!t)return empty('Sin costos disponibles.');
+
+  return`
+    <div class="costbar">
+      ${a.map((v,j)=>`
+        <div style="width:${v/t*100}%;
+          background:${colors[j]}">
+        </div>
+      `).join('')}
+    </div>
+
+    ${a.map((v,j)=>`
+      <div class="legend">
+        <span>
+          <span style="color:${colors[j]}">●</span>
+          ${['Materiales','Mano de obra','Indirectos'][j]}
+        </span>
+        <strong>${money(v)}</strong>
+      </div>
+    `).join('')}
+  `;
+}
+
+function alerts(){
+
+  const a=[];
+
+  active().forEach(s=>{
+
+    const c=calc(s);
+    const f=ficha(s.id);
+
+    if(!c.complete){
+
+      a.push({
+        title:'Ficha pendiente',
+        text:s.nombre+' necesita completar o revisar sus costos.',
+        page:'fichas',
+        id:s.id
+      });
+
+    }else{
+
+      if(c.r<0){
+
+        a.push({
+          title:'Pérdida estimada',
+          text:s.nombre+': '+money(c.r)+' por servicio.',
+          page:'fichas',
+          id:s.id
+        });
+
+      }else if(c.margin!==null&&c.margin<db.config.margen){
+
+        a.push({
+          title:'Margen inferior al objetivo',
+          text:s.nombre+': '+dec(c.margin)+'%. Precio sugerido: '+
+            money(Math.ceil(c.t/(1-db.config.margen/100))),
+          page:'fichas',
+          id:s.id
+        });
+      }
+
+      if(f.actualizado&&
+        Date.now()-new Date(f.actualizado).getTime()>
+        db.config.revision*86400000
+      ){
+
+        a.push({
+          title:'Revisión de costos pendiente',
+          text:s.nombre+' requiere actualizar su ficha.',
+          page:'fichas',
+          id:s.id
+        });
+      }
+    }
+  });
+
+  db.insumos.forEach(i=>{
+
+    if(i.stock!==null&&i.minimo!==null&&i.stock<=i.minimo){
+
+      a.push({
+        title:'Stock bajo',
+        text:i.nombre+': '+dec(i.stock)+' '+i.unidad+' disponibles.',
+        page:'insumos',
+        id:i.id
+      });
+    }
+
+    const last=i.historial[0];
+
+    if(last&&last.nuevo>last.anterior){
+
+      a.push({
+        title:'Aumento del costo unitario',
+        text:i.nombre+': '+(
+          last.anterior>0
+            ?dec((last.nuevo/last.anterior-1)*100)+'% de aumento.'
+            :'Nuevo costo superior al anterior.'
+        ),
+        page:'insumos',
+        id:i.id
+      });
+    }
+  });
+
+  return a;
+}
+
+function openAlert(p,id){
+
+  go(p);
+
+  if(p==='fichas')selected=id;
+  if(p==='insumos')edit=id;
+
+  render();
+}
+
+function alertList(a){
+
+  return a.length?a.map(x=>`
+
+    <div class="alert">
+
+      ${icon('asistente')}
+
+      <div style="flex:1">
+        <strong>${esc(x.title)}</strong>
+        <p class="muted">${esc(x.text)}</p>
+      </div>
+
+      <button class="btn secondary small"
+        onclick="openAlert('${x.page}','${x.id}')">
+        Ver
+      </button>
+
+    </div>
+
+  `).join(''):empty(
+    'No hay alertas detectadas con los datos disponibles.'
+  );
+}
+
+function dashboard(){
+
+  const ss=active();
+  const cc=completed();
+
+  const coverage=ss.length
+    ?cc.length/ss.length*100
+    :0;
+
+  const margins=cc.map(s=>calc(s).margin)
+    .filter(m=>m!==null);
+
+  const avg=margins.length
+    ?margins.reduce((a,b)=>a+b,0)/margins.length
+    :null;
+
+  const remaining=Math.max(
+    0,
+    Math.ceil(ss.length*db.config.meta/100)-cc.length
+  );
+
+  const aa=alerts();
+
+  return`
+
+    <div class="grid">
+
+      ${metric(
+        'Servicios costeados',
+        cc.length+' / '+ss.length,
+        'servicios'
+      )}
+
+      ${metric(
+        'Margen promedio estimado',
+        avg===null?'—':dec(avg)+'%',
+        'percent'
+      )}
+
+      ${metric(
+        'Cobertura de servicios',
+        dec(coverage)+'%',
+        'check'
+      )}
+
+    </div>
+
+    ${card(
+      'Rentabilidad de servicios',
+      verticalChart(),
+      'rentabilidad'
+    )}
+
+    <div class="split">
+
+      ${card('Meta de cobertura',`
+
+        <div class="legend">
+          <strong>${dec(coverage)}% completado</strong>
+          <span class="tag">Meta ${db.config.meta}%</span>
+        </div>
+
+        <div class="progress">
+          <div style="width:${coverage}%"></div>
+        </div>
+
+        <p class="muted">
+          ${!ss.length
+            ?'Registra tus servicios para comenzar.'
+            :remaining
+            ?'Faltan '+remaining+' servicios por costear.'
+            :'Meta de cobertura alcanzada.'}
+        </p>
+
+        <br>
+
+        <small>
+          Inicio: ${db.config.inicio?fmtdate(db.config.inicio):'Por configurar'}
+          · Plazo: tres meses.
+        </small>
+
+      `,'fichas')}
+
+      ${card(
+        'Composición de costos',
+        costChart(cc),
+        'coins'
+      )}
+
+    </div>
+
+    <div class="welcome">
+
+      <div class="welcome-text">
+
+        <small>BEAUTY & FINANCE</small>
+
+        <h2>Tu belleza, tus números.</h2>
+
+        <p>Conoce tus costos y toma mejores decisiones para tu estudio.</p>
+
+        <br>
+
+        <button class="btn"
+          onclick="go('fichas')">
+          ${icon('fichas')}Calcular costos
+        </button>
+
+      </div>
+
+      ${illustration}
+
+    </div>
+
+    ${card('Accesos rápidos',`
+
+      <div class="actions">
+
+        <button class="btn secondary"
+          onclick="go('servicios')">
+          ${icon('servicios')}Nuevo servicio
+        </button>
+
+        <button class="btn secondary"
+          onclick="go('insumos')">
+          ${icon('insumos')}Nuevo producto
+        </button>
+
+        <button class="btn secondary"
+          onclick="go('simulador')">
+          ${icon('simulador')}Simular precios
+        </button>
+
+      </div>
+
+    `)}
+
+    ${card(
+      'Alertas y recomendaciones ('+aa.length+')',
+      alertList(aa.slice(0,4))+`
+        <br>
+        <button class="btn secondary full"
+          onclick="go('asistente')">
+          Ver todas las recomendaciones
+        </button>
+      `,
+      'asistente'
+    )}
+
+    <div style="text-align:center;padding:20px;color:#a48291;font-size:11px">
+      TATI COST · BEAUTY & FINANCE<br>
+      Tu brújula financiera
+    </div>
+
+  `;
 }
 
 function render(){
- nav();
- $('heading').textContent=names[page];
- let html='';
- const s=db.servicios.find(x=>x.id===edit);
- const i=db.insumos.find(x=>x.id===edit);
- const g=db.gastos.find(x=>x.id===edit);
 
- if(page==='inicio'){
-  const ss=active();
-  const cc=completed();
-  const coverage=ss.length?cc.length/ss.length*100:0;
-  const margins=cc.map(s=>calc(s).margin).filter(m=>m!==null);
-  const avg=margins.length?margins.reduce((a,b)=>a+b,0)/margins.length:null;
-  const remaining=Math.max(0,Math.ceil(ss.length*db.config.meta/100)-cc.length);
-  const aa=alerts();
+  nav();
 
-  html=`<section class="hero"><div><div class="eyebrow">Tu brújula financiera</div><h1>La belleza de conocer tus números.</h1><p>Gestiona tus servicios, controla tus costos y descubre nuevas oportunidades para tu negocio.</p><div class="actions"><button class="btn" onclick="go('fichas')">Costear servicios</button><button class="btn secondary" onclick="go('asistente')">Ver recomendaciones</button></div></div>${illustration}</section>
-  <h3>Resumen de tu estudio</h3>
-  <div class="grid">
-  ${metric('Servicios activos',ss.length,'servicios')}
-  ${metric('Servicios costeados',cc.length,'fichas')}
-  ${metric('Margen promedio estimado',avg===null?'—':dec(avg)+'%','rentabilidad')}
-  ${metric('Alertas detectadas',aa.length,'asistente')}
-  </div>
-  <div class="split">
-  ${card('Avance de tu objetivo',`<br><div class="row"><div class="ring" style="--pct:${coverage}%"><span>${dec(coverage)}%</span></div><div><strong>Meta: ${db.config.meta}%</strong><p class="muted">${ss.length?remaining?'Faltan '+remaining+' servicios costeados.':'Meta de cobertura alcanzada.':'Registra tus servicios para comenzar.'}</p><small>${db.config.inicio?'Inicio: '+fmtdate(db.config.inicio):'Fecha de inicio por configurar'}</small></div></div>`)}
-  ${card('Composición de costos',costChart(cc))}
-  </div>
-  <div class="split">
-  ${card('Servicios con mayor margen estimado',rank())}
-  ${card('Atención financiera',alertList(aa.slice(0,4))+`<br><button class="btn secondary" onclick="go('asistente')">Ver todas las alertas</button>`)}
-  </div>
-  ${card('Accesos rápidos',`<br><div class="actions"><button class="btn secondary" onclick="go('servicios')">Nuevo servicio</button><button class="btn secondary" onclick="go('insumos')">Registrar producto</button><button class="btn secondary" onclick="go('simulador')">Simular precios</button><button class="btn secondary" onclick="go('informes')">Generar informe</button></div>`)}
-  `;
- }
+  let html='';
 
- if(page==='servicios'){
-  html=card(s?'Editar servicio':'Nuevo servicio',form(
-   field('Nombre del servicio','nombre','text',s?.nombre,'required')+
-   select('Categoría','categoria',['Peluquería','Manicure','Pedicure','Masajes','Depilación','Otros'],s?.categoria)+
-   field('Precio de venta ($)','precio','number',s?.precio,'min="0" required')+
-   field('Preparación (min)','preparacion','number',s?.preparacion??0,'min="0" step="any" required')+
-   field('Atención (min)','atencion','number',s?.atencion,'min="0" step="any" required')+
-   field('Limpieza (min)','limpieza','number',s?.limpieza??0,'min="0" step="any" required')+
-   select('Estado','activo',[['true','Activo'],['false','Inactivo']],String(s?.activo??true))+
-   `<div><label>Fotografía opcional</label><input type="file" accept="image/jpeg,image/png,image/webp" onchange="readPhoto(event)"><small id="photoStatus">Máximo 3 MB. Se reducirá automáticamente.</small><br><button type="button" class="btn secondary small" onclick="pendingPhoto='';$('photoStatus').textContent='Fotografía eliminada al guardar'">Quitar fotografía</button></div>`,
-   'store()','Guardar servicio'
-  ))+card('Catálogo de servicios',`<input class="search" placeholder="Buscar servicio..." oninput="filterRows(this.value,'serviceTable')"><div id="serviceTable">${table(['Servicio','Categoría','Precio','Tiempo','Estado','Acciones'],db.servicios.map(s=>[
-   `<div class="servicehead">${safePhoto(s.foto)?`<img class="servicephoto" src="${safePhoto(s.foto)}" alt="">`:icon('servicios')}<strong>${esc(s.nombre)}</strong></div>`,
-   esc(s.categoria),money(s.precio),dec(s.tiempo)+' min',
-   `<span class="tag ${s.activo?'ok':''}">${s.activo?'Activo':'Inactivo'}</span>`,
-   buttons(s.id)
-  ]))}</div>`);
- }
+  const s=db.servicios.find(x=>x.id===edit);
+  const i=db.insumos.find(x=>x.id===edit);
+  const g=db.gastos.find(x=>x.id===edit);
 
- if(page==='insumos'){
-  html=card(i?'Editar producto':'Nuevo producto',form(
-   field('Nombre','nombre','text',i?.nombre,'required')+
-   field('Proveedor','proveedor','text',i?.proveedor)+
-   field('Precio de compra ($)','precio','number',i?.precio,'min="0" required')+
-   field('Contenido del envase','cantidad','number',i?.cantidad,'min="0.01" step="any" required')+
-   select('Unidad','unidad',[['ml','Mililitros'],['g','Gramos'],['unidad','Unidades']],i?.unidad)+
-   field('Stock disponible (unidad indicada)','stock','number',i?.stock??'','min="0" step="any"')+
-   field('Stock mínimo','minimo','number',i?.minimo??'','min="0" step="any"'),
-   'store()','Guardar producto'
-  ))+card('Inventario',`<input class="search" placeholder="Buscar producto..." oninput="filterRows(this.value,'inputTable')"><div id="inputTable">${table(['Producto','Proveedor','Compra','Costo unitario','Stock','Acciones'],db.insumos.map(i=>[
-   esc(i.nombre),esc(i.proveedor||'—'),money(i.precio),
-   '$'+dec(i.precio/i.cantidad)+' / '+esc(i.unidad),
-   i.stock===null?'Sin registrar':`<span class="tag ${i.minimo!==null&&i.stock<=i.minimo?'warn':'ok'}">${dec(i.stock)} ${esc(i.unidad)}</span>`,
-   buttons(i.id)
-  ]))}</div>`)+card('Historial de precios',table(['Fecha','Producto','Costo anterior','Costo nuevo'],db.insumos.flatMap(i=>i.historial.map(h=>[fmtdate(h.fecha),esc(i.nombre),'$'+dec(h.anterior),'$'+dec(h.nuevo)]))))+`<div class="notice">El stock se actualiza manualmente. Elaborar una ficha de costos no descuenta inventario, porque no representa una venta realizada.</div>`;
- }
-
- if(page==='mano'){
-  html=card('Costo del tiempo de trabajo',form(
-   field('Costo mensual de mano de obra ($)','mensual','number',db.mano.horas?db.mano.mensual:'','min="0" required')+
-   field('Horas productivas mensuales','horas','number',db.mano.horas||'','min="0.01" step="any" required'),
-   'saveLabor()'
-  ))+`<div class="grid">${metric('Costo por hora',db.mano.horas?money(labor()*60):'—','mano')}${metric('Costo por minuto',db.mano.horas?'$'+dec(labor()):'—','mano')}</div><div class="notice">Se utiliza una tarifa promedio de mano de obra. El costo de cada servicio considera preparación, atención y limpieza.</div>`;
- }
-
- if(page==='gastos'){
-  html=card(g?'Editar gasto':'Nuevo gasto mensual',form(
-   field('Nombre','nombre','text',g?.nombre,'required')+
-   field('Monto mensual ($)','monto','number',g?.monto,'min="0" required')+
-   select('Tipo','tipo',['Fijo','Variable'],g?.tipo),'store()'
-  ))+card('Base de distribución',form(
-   field('Horas productivas mensuales del salón','horas','number',db.baseHoras||'','min="0.01" step="any" required'),'saveBase()'
-  ))+`<div class="grid">${metric('Gastos mensuales',money(totalG()),'gastos')}${metric('Gasto por minuto',db.baseHoras?'$'+dec(indirect()):'—','mano')}</div>`+card('Gastos registrados',table(['Gasto','Tipo','Monto','Acciones'],db.gastos.map(g=>[esc(g.nombre),esc(g.tipo),money(g.monto),buttons(g.id)])))+`<div class="notice">Los gastos indirectos se distribuyen proporcionalmente al tiempo productivo de cada servicio. Evita registrar dos veces los mismos costos.</div>`;
- }
-
- if(page==='fichas'){
-  html=card('Selecciona un servicio',`<div class="formgrid">${select('Servicio','pick',serviceOpts(),selected)}</div>`);
-  const s=active().find(s=>s.id===selected);
-  if(s){
-   const f=ficha(s.id);
-   const c=calc(s);
-   html+=card('Ficha de '+esc(s.nombre),`<div class="servicehead">${safePhoto(s.foto)?`<img class="servicephoto" src="${safePhoto(s.foto)}" alt="">`:icon('servicios')}<div><strong>${esc(s.categoria)}</strong><p>${dec(s.tiempo)} minutos · ${money(s.precio)}</p><span class="tag ${c.complete?'ok':''}">${esc(f.estado)}</span></div></div><small>Preparación: ${dec(s.preparacion)} min · Atención: ${dec(s.atencion)} min · Limpieza: ${dec(s.limpieza)} min</small>`);
-   html+=card('Materiales utilizados',form(
-    select('Producto','material',[['','Seleccionar'],...db.insumos.map(i=>[i.id,i.nombre+' ('+i.unidad+')'])])+
-    field('Cantidad utilizada','cantidad','number','','min="0.01" step="any" required'),
-    'addMaterial()','Agregar material'
-   )+table(['Material','Cantidad','Costo','Acción'],f.materiales.map((m,j)=>{
-    const i=db.insumos.find(i=>i.id===m.insumo);
-    return[esc(i?.nombre),dec(m.cantidad)+' '+esc(i?.unidad),money(i?i.precio/i.cantidad*m.cantidad:0),`<button class="btn danger small" onclick="dropMaterial(${j})">Quitar</button>`];
-   })));
-   html+=`<div class="grid">${metric('Costo total estimado',money(c.t),'fichas')}${metric('Resultado estimado',money(c.r),'rentabilidad')}${metric('Margen sobre venta',c.margin===null?'—':dec(c.margin)+'%','rentabilidad')}</div>`;
-   html+=card('Desglose de costos',costChart([s])+table(['Concepto','Monto'],[
-    ['Materiales',money(c.m)],['Mano de obra',money(c.l)],['Indirectos',money(c.g)],['Costo total',money(c.t)],['Precio actual',money(s.precio)]
-   ])+(!c.complete?'<div class="notice">Ficha pendiente: los costos pueden estar incompletos.</div>':''));
-   html+=card('Revisión y validación',`<div class="formgrid">${select('Calidad de los datos','calidad',['Estimados','Parcialmente comprobados','Comprobados'],f.calidad)}${select('Estado','estado',['En desarrollo','Revisado','Validado'],f.estado)}</div><label><input type="checkbox" id="confirmed" ${f.confirmados?'checked':''}> Revisé todos los materiales del servicio, incluso si no requiere insumos.</label><br><div class="actions"><button class="btn" onclick="review()">Guardar ficha</button><button class="btn secondary" onclick="printFicha()">Imprimir ficha</button></div><br><small>Última revisión: ${fmtdate(f.actualizado)}</small>`);
+  if(page==='inicio'){
+    html=dashboard();
   }
- }
 
- if(page==='simulador'){
-  const s=active().find(s=>s.id===simId);
-  html=card('Laboratorio de precios',`<p class="muted">Compara escenarios sin modificar los precios reales del catálogo.</p><div class="formgrid">${select('Servicio','simPick',serviceOpts(),simId)}${field('Precio simulado ($)','simPrecio','number',s?.precio,'min="0"')}${field('Margen deseado (%)','simMargen','number',db.config.margen,'min="0" max="99.99" step="any"')}${field('Variación del costo de materiales (%)','simCosto','number',0,'min="-100" step="any"')}</div>`)+`<div id="simResult"></div>`;
- }
+  if(page==='servicios'){
 
- if(page==='rentabilidad'){
-  html=card('Rentabilidad por servicio',table(['Servicio','Precio','Costo','Resultado','Margen','Estado'],active().map(s=>{
-   const c=calc(s);
-   return[esc(s.nombre),money(s.precio),c.complete?money(c.t):'Pendiente',c.complete?money(c.r):'—',c.complete&&c.margin!==null?`<strong class="${c.margin<0?'red':'green'}">${dec(c.margin)}%</strong>`:'—',esc(ficha(s.id).estado)];
-  })))+card('Comparación de márgenes',rank())+`<div class="notice">Los resultados corresponden a estimaciones por servicio. No representan utilidad neta mensual ni consideran volúmenes reales de ventas.</div>`;
- }
+    html=card(
+      s?'Editar servicio':'Nuevo servicio',
 
- if(page==='asistente'){
-  html=`<section class="hero"><div><div class="eyebrow">Inteligencia financiera</div><h1>Pequeños ajustes. Mejores decisiones.</h1><p>Recomendaciones automáticas basadas en los datos de tu estudio.</p></div>${illustration}</section>`+card('Recomendaciones y alertas',alertList(alerts()))+`<div class="notice">Este asistente utiliza reglas de cálculo, no inteligencia artificial generativa. Las recomendaciones deben revisarse antes de modificar precios.</div>`;
- }
+      form(
 
- if(page==='informes'){
-  const ss=active();
-  const cc=completed();
-  html=card('Informe de seguimiento',`<div class="grid">${metric('Servicios activos',ss.length,'servicios')}${metric('Servicios costeados',cc.length,'fichas')}${metric('Cobertura',ss.length?dec(cc.length/ss.length*100)+'%':'0%','rentabilidad')}</div><p>Meta de cobertura: ${db.config.meta}%.</p><p>Fecha de inicio: ${db.config.inicio?fmtdate(db.config.inicio):'No configurada'}.</p><p>Plazo del proyecto: tres meses.</p><br><div class="actions"><button class="btn" onclick="window.print()">Imprimir informe / PDF</button><button class="btn secondary" onclick="exportCSV()">Exportar a Excel (CSV)</button></div>`)+card('Detalle de servicios',table(['Servicio','Precio','Costo estimado','Margen','Estado'],ss.map(s=>{
-   const c=calc(s);
-   return[esc(s.nombre),money(s.precio),c.complete?money(c.t):'Pendiente',c.complete&&c.margin!==null?dec(c.margin)+'%':'—',esc(ficha(s.id).estado)];
-  })));
- }
+        field('Nombre del servicio','nombre','text',s?.nombre,'required')+
 
- if(page==='historial'){
-  html=card('Registro de modificaciones',table(['Fecha','Actividad'],db.historial.map(h=>[esc(new Date(h.fecha).toLocaleString('es-CL')),esc(h.texto)])));
- }
+        select('Categoría','categoria',[
+          'Peluquería',
+          'Manicure',
+          'Pedicure',
+          'Pestañas',
+          'Cejas',
+          'Masajes',
+          'Depilación',
+          'Otros'
+        ],s?.categoria)+
 
- if(page==='config'){
-  html=card('Objetivos del negocio',form(
-   field('Margen objetivo (%)','margen','number',db.config.margen,'min="0" max="99.99" step="any" required')+
-   field('Meta de cobertura (%)','meta','number',db.config.meta,'min="1" max="100" required')+
-   field('Inicio del proyecto','inicioFecha','date',db.config.inicio)+
-   field('Revisar costos cada (días)','revision','number',db.config.revision,'min="1" required'),
-   'saveConfig()'
-  ))+card('Respaldo de información',`<br><p>La información se guarda en este navegador. Descarga respaldos para trasladarla a otro dispositivo.</p><br><div class="actions"><button class="btn" onclick="backup()">Descargar respaldo</button><button class="btn secondary" onclick="$('import').click()">Importar respaldo</button><input type="file" id="import" accept=".json" style="display:none" onchange="restore(event)"></div>`)+card('Reiniciar aplicación',`<br><p>Elimina todos los registros locales.</p><br><button class="btn danger" onclick="resetData()">Eliminar datos</button>`)+card('Acerca de TATI COST',`<br><h2>Tu brújula financiera.</h2><p>Proyecto académico desarrollado para Tati Beauty Studio.</p><small>Innovación y Emprendimiento III · INACAP Curicó.</small>`);
- }
+        field('Precio de venta ($)','precio','number',s?.precio,'min="0" required')+
 
- if(storageError)html=`<div class="notice"><strong>Advertencia:</strong> no se pudieron leer los datos anteriores. No se sobrescribirán automáticamente. Utiliza Configuración para importar un respaldo válido.</div>`+html;
+        field('Preparación (min)','preparacion','number',s?.preparacion??0,'min="0" step="any" required')+
 
- $('content').innerHTML=html;
+        field('Atención (min)','atencion','number',s?.atencion,'min="0" step="any" required')+
 
- if($('pick'))$('pick').onchange=()=>{selected=val('pick');render()};
+        field('Limpieza (min)','limpieza','number',s?.limpieza??0,'min="0" step="any" required')+
 
- if($('simPick')){
-  $('simPick').onchange=()=>{simId=val('simPick');render()};
-  ['simPrecio','simMargen','simCosto'].forEach(id=>$(id).oninput=simulate);
-  simulate();
- }
+        select('Estado','activo',[
+          ['true','Activo'],
+          ['false','Inactivo']
+        ],String(s?.activo??true))+
+
+        `<div>
+          <label>Fotografía opcional</label>
+          <input type="file"
+            accept="image/jpeg,image/png,image/webp"
+            onchange="readPhoto(event)">
+
+          <small id="photoStatus">
+            Máximo 3 MB.
+          </small>
+
+          <br>
+
+          <button type="button"
+            class="btn secondary small"
+            onclick="pendingPhoto='';$('photoStatus').textContent='Se eliminará al guardar'">
+            Quitar fotografía
+          </button>
+        </div>`,
+
+        'store()',
+        'Guardar servicio'
+
+      ),
+
+      'servicios'
+
+    )+card('Catálogo de servicios',`
+
+      <input class="search"
+        placeholder="Buscar servicio..."
+        oninput="filterRows(this.value,'serviceTable')">
+
+      <div id="serviceTable">
+
+        ${table(
+          ['Servicio','Categoría','Precio','Tiempo','Estado','Acciones'],
+
+          db.servicios.map(s=>[
+
+            `<div class="servicehead">
+              ${servicePhoto(s)}
+              <strong>${esc(s.nombre)}</strong>
+            </div>`,
+
+            esc(s.categoria),
+            money(s.precio),
+            dec(s.tiempo)+' min',
+
+            `<span class="tag ${s.activo?'ok':''}">
+              ${s.activo?'Activo':'Inactivo'}
+            </span>`,
+
+            buttons(s.id)
+
+          ])
+        )}
+
+      </div>
+
+    `);
+  }
+
+  if(page==='insumos'){
+
+    html=card(
+      i?'Editar producto':'Nuevo producto',
+
+      form(
+
+        field('Nombre','nombre','text',i?.nombre,'required')+
+
+        field('Proveedor','proveedor','text',i?.proveedor)+
+
+        field('Precio de compra ($)','precio','number',i?.precio,'min="0" required')+
+
+        field('Contenido del envase','cantidad','number',i?.cantidad,'min="0.01" step="any" required')+
+
+        select('Unidad','unidad',[
+          ['ml','Mililitros'],
+          ['g','Gramos'],
+          ['unidad','Unidades']
+        ],i?.unidad)+
+
+        field('Stock disponible','stock','number',i?.stock??'','min="0" step="any"')+
+
+        field('Stock mínimo','minimo','number',i?.minimo??'','min="0" step="any"'),
+
+        'store()',
+        'Guardar producto'
+
+      ),
+
+      'insumos'
+
+    )+card('Inventario',`
+
+      <input class="search"
+        placeholder="Buscar producto..."
+        oninput="filterRows(this.value,'inputTable')">
+
+      <div id="inputTable">
+
+        ${table(
+          ['Producto','Proveedor','Compra','Costo unitario','Stock','Acciones'],
+
+          db.insumos.map(i=>[
+
+            esc(i.nombre),
+            esc(i.proveedor||'—'),
+            money(i.precio),
+
+            '$'+dec(i.precio/i.cantidad)+' / '+esc(i.unidad),
+
+            i.stock===null
+              ?'Sin registrar'
+              :`<span class="tag ${
+                i.minimo!==null&&i.stock<=i.minimo?'warn':'ok'
+              }">
+                ${dec(i.stock)} ${esc(i.unidad)}
+              </span>`,
+
+            buttons(i.id)
+
+          ])
+        )}
+
+      </div>
+
+    `)+card(
+
+      'Historial de precios',
+
+      table(
+        ['Fecha','Producto','Costo anterior','Costo nuevo'],
+
+        db.insumos.flatMap(i=>i.historial.map(h=>[
+          fmtdate(h.fecha),
+          esc(i.nombre),
+          '$'+dec(h.anterior),
+          '$'+dec(h.nuevo)
+        ]))
+      ),
+
+      'historial'
+
+    )+`
+
+      <div class="notice">
+        El stock se actualiza manualmente.
+        Crear una ficha de costos no descuenta inventario.
+      </div>
+
+    `;
+  }
+
+  if(page==='mano'){
+
+    html=card(
+
+      'Costo del tiempo de trabajo',
+
+      form(
+
+        field(
+          'Costo mensual de mano de obra ($)',
+          'mensual','number',
+          db.mano.horas?db.mano.mensual:'',
+          'min="0" required'
+        )+
+
+        field(
+          'Horas productivas mensuales',
+          'horas','number',
+          db.mano.horas||'',
+          'min="0.01" step="any" required'
+        ),
+
+        'saveLabor()'
+
+      ),
+
+      'person'
+
+    )+`
+
+      <div class="grid">
+
+        ${metric(
+          'Costo por hora',
+          db.mano.horas?money(labor()*60):'—',
+          'mano'
+        )}
+
+        ${metric(
+          'Costo por minuto',
+          db.mano.horas?'$'+dec(labor()):'—',
+          'coins'
+        )}
+
+      </div>
+
+      <div class="notice">
+        Se utiliza una tarifa promedio de mano de obra.
+        El costo del servicio incluye preparación,
+        atención y limpieza.
+      </div>
+
+    `;
+  }
+
+  if(page==='gastos'){
+
+    html=card(
+
+      g?'Editar gasto':'Nuevo gasto mensual',
+
+      form(
+
+        field('Nombre','nombre','text',g?.nombre,'required')+
+
+        field('Monto mensual ($)','monto','number',g?.monto,'min="0" required')+
+
+        select('Tipo','tipo',['Fijo','Variable'],g?.tipo),
+
+        'store()'
+
+      ),
+
+      'gastos'
+
+    )+card(
+
+      'Base de distribución',
+
+      form(
+
+        field(
+          'Horas productivas mensuales del salón',
+          'horas','number',
+          db.baseHoras||'',
+          'min="0.01" step="any" required'
+        ),
+
+        'saveBase()'
+
+      )
+
+    )+`
+
+      <div class="grid">
+
+        ${metric('Gastos mensuales',money(totalG()),'gastos')}
+
+        ${metric(
+          'Gasto por minuto',
+          db.baseHoras?'$'+dec(indirect()):'—',
+          'mano'
+        )}
+
+      </div>
+
+    `+card(
+
+      'Gastos registrados',
+
+      table(
+        ['Gasto','Tipo','Monto','Acciones'],
+
+        db.gastos.map(g=>[
+          esc(g.nombre),
+          esc(g.tipo),
+          money(g.monto),
+          buttons(g.id)
+        ])
+      )
+
+    )+`
+
+      <div class="notice">
+        Los gastos indirectos se distribuyen según
+        el tiempo productivo de cada servicio.
+        Evita registrar dos veces los mismos costos.
+      </div>
+
+    `;
+  }
+
+  if(page==='fichas'){
+
+    html=card('Servicio',`
+
+      ${select(
+        'Selecciona un servicio',
+        'pick',
+        serviceOpts(),
+        selected
+      )}
+
+    `);
+
+    const s=active().find(s=>s.id===selected);
+
+    if(s){
+
+      const f=ficha(s.id);
+      const c=calc(s);
+
+      html+=card(esc(s.nombre),`
+
+        <div class="servicehead">
+
+          ${servicePhoto(s)}
+
+          <div>
+            <strong>${esc(s.categoria)}</strong>
+            <p>${dec(s.tiempo)} min · ${money(s.precio)}</p>
+
+            <span class="tag ${c.complete?'ok':''}">
+              ${esc(f.estado)}
+            </span>
+          </div>
+
+        </div>
+
+        <br>
+
+        <small>
+          Preparación: ${dec(s.preparacion)} min ·
+          Atención: ${dec(s.atencion)} min ·
+          Limpieza: ${dec(s.limpieza)} min
+        </small>
+
+      `);
+
+      html+=card('Resumen del costo',`
+
+        <div class="finance-list">
+
+          ${financeRow(
+            'insumos',
+            'Materiales',
+            'Productos e insumos',
+            money(c.m)
+          )}
+
+          ${financeRow(
+            'person',
+            'Mano de obra',
+            dec(s.tiempo)+' minutos de trabajo',
+            money(c.l)
+          )}
+
+          ${financeRow(
+            'config',
+            'Gastos indirectos',
+            'Gastos asignados al servicio',
+            money(c.g)
+          )}
+
+        </div>
+
+        ${totalCard('Costo total del servicio',money(c.t))}
+
+        ${financeRow(
+          'simulador',
+          'Precio actual',
+          'Precio de venta registrado',
+          money(s.precio)
+        )}
+
+        <br>
+
+        ${financeRow(
+          'coins',
+          'Resultado estimado',
+          'Precio menos costo total',
+          money(c.r)
+        )}
+
+        <br>
+
+        ${financeRow(
+          'percent',
+          'Margen estimado',
+          'Sobre el precio de venta',
+          c.margin===null?'—':dec(c.margin)+'%'
+        )}
+
+        ${!c.complete?`
+          <div class="notice">
+            Ficha pendiente de revisión.
+            Los costos podrían estar incompletos.
+          </div>
+        `:''}
+
+      `,'fichas');
+
+      html+=card(
+
+        'Materiales utilizados',
+
+        form(
+
+          select('Producto','material',[
+            ['','Seleccionar'],
+            ...db.insumos.map(i=>[
+              i.id,
+              i.nombre+' ('+i.unidad+')'
+            ])
+          ])+
+
+          field(
+            'Cantidad utilizada',
+            'cantidad','number','',
+            'min="0.01" step="any" required'
+          ),
+
+          'addMaterial()',
+          'Agregar material'
+
+        )+
+
+        table(
+          ['Material','Cantidad','Costo','Acción'],
+
+          f.materiales.map((m,j)=>{
+
+            const i=db.insumos.find(
+              i=>i.id===m.insumo
+            );
+
+            return[
+              esc(i?.nombre),
+              dec(m.cantidad)+' '+esc(i?.unidad),
+              money(i?i.precio/i.cantidad*m.cantidad:0),
+
+              `<button class="btn danger small"
+                onclick="dropMaterial(${j})">
+                Quitar
+              </button>`
+            ];
+          })
+        ),
+
+        'insumos'
+
+      );
+
+      html+=card(
+        'Distribución de costos',
+        costChart([s]),
+        'rentabilidad'
+      );
+
+      html+=card('Revisión y validación',`
+
+        <div class="formgrid">
+
+          ${select('Calidad de datos','calidad',[
+            'Estimados',
+            'Parcialmente comprobados',
+            'Comprobados'
+          ],f.calidad)}
+
+          ${select('Estado','estado',[
+            'En desarrollo',
+            'Revisado',
+            'Validado'
+          ],f.estado)}
+
+        </div>
+
+        <label>
+          <input type="checkbox"
+            id="confirmed"
+            ${f.confirmados?'checked':''}>
+
+          Revisé todos los materiales,
+          incluso si el servicio no requiere insumos.
+        </label>
+
+        <br>
+
+        <button class="btn full"
+          onclick="review()">
+          ${icon('save')}Guardar ficha
+        </button>
+
+        <br><br>
+
+        <div class="actions">
+
+          <button class="btn secondary"
+            onclick="window.print()">
+            Imprimir ficha
+          </button>
+
+          <button class="btn secondary"
+            onclick="simId='${s.id}';go('simulador')">
+            Simular precio
+          </button>
+
+        </div>
+
+        <br>
+
+        <small>
+          Última revisión: ${fmtdate(f.actualizado)}
+        </small>
+
+      `,'check');
+
+    }else{
+
+      html+=card(
+        'Calculadora de costos',
+        empty('Selecciona un servicio para comenzar.')
+      );
+    }
+  }
+
+  if(page==='simulador'){
+
+    const s=active().find(s=>s.id===simId);
+
+    html=card('Configura tu simulación',`
+
+      <div class="formgrid">
+
+        ${select('Servicio','simPick',serviceOpts(),simId)}
+
+        ${field(
+          'Precio simulado ($)',
+          'simPrecio','number',
+          s?.precio,
+          'min="0"'
+        )}
+
+        ${field(
+          'Margen deseado (%)',
+          'simMargen','number',
+          db.config.margen,
+          'min="0" max="99.99" step="any"'
+        )}
+
+        ${field(
+          'Variación del costo de materiales (%)',
+          'simCosto','number',
+          0,
+          'min="-100" step="any"'
+        )}
+
+      </div>
+
+      <small>
+        Prueba diferentes precios sin modificar tu catálogo.
+      </small>
+
+    `,'simulador')+`
+
+      <div id="simResult"></div>
+
+    `;
+  }
+
+  if(page==='rentabilidad'){
+
+    html=card(
+      'Rentabilidad de servicios',
+      verticalChart(),
+      'rentabilidad'
+    )+card(
+
+      'Detalle por servicio',
+
+      table(
+        ['Servicio','Precio','Costo','Resultado','Margen','Estado'],
+
+        active().map(s=>{
+
+          const c=calc(s);
+
+          return[
+            esc(s.nombre),
+            money(s.precio),
+            c.complete?money(c.t):'Pendiente',
+            c.complete?money(c.r):'—',
+
+            c.complete&&c.margin!==null
+              ?`<strong class="${c.margin<0?'red':'green'}">
+                ${dec(c.margin)}%
+              </strong>`
+              :'—',
+
+            esc(ficha(s.id).estado)
+          ];
+        })
+      )
+
+    )+`
+
+      <div class="notice">
+        Los resultados corresponden a estimaciones por servicio.
+        No representan la utilidad neta mensual del negocio.
+      </div>
+
+    `;
+  }
+
+  if(page==='asistente'){
+
+    html=`
+
+      <div class="welcome">
+
+        <div class="welcome-text">
+          <small>ASISTENTE FINANCIERO</small>
+          <h2>Mejores decisiones.</h2>
+          <p>Identifica oportunidades para mejorar tus costos y márgenes.</p>
+        </div>
+
+        ${illustration}
+
+      </div>
+
+    `+card(
+      'Recomendaciones y alertas',
+      alertList(alerts()),
+      'asistente'
+    )+`
+
+      <div class="notice">
+        Las recomendaciones se generan mediante reglas de cálculo,
+        no inteligencia artificial generativa.
+        Revisa los resultados antes de cambiar precios.
+      </div>
+
+    `;
+  }
+
+  if(page==='informes'){
+
+    const ss=active();
+    const cc=completed();
+
+    html=card('Informe de seguimiento',`
+
+      <p>TATI BEAUTY STUDIO · Curicó</p>
+
+      <div class="grid">
+
+        ${metric('Servicios activos',ss.length,'servicios')}
+
+        ${metric('Servicios costeados',cc.length,'fichas')}
+
+        ${metric(
+          'Cobertura',
+          ss.length?dec(cc.length/ss.length*100)+'%':'0%',
+          'percent'
+        )}
+
+      </div>
+
+      <p>Meta de cobertura: ${db.config.meta}%.</p>
+      <p>Inicio: ${fmtdate(db.config.inicio)}.</p>
+      <p>Plazo del proyecto: tres meses.</p>
+
+      <br>
+
+      <div class="actions">
+
+        <button class="btn" onclick="window.print()">
+          Imprimir / PDF
+        </button>
+
+        <button class="btn secondary"
+          onclick="exportCSV()">
+          Exportar a Excel (CSV)
+        </button>
+
+      </div>
+
+    `,'informes')+card(
+
+      'Detalle de servicios',
+
+      table(
+        ['Servicio','Precio','Costo estimado','Margen','Estado'],
+
+        ss.map(s=>{
+
+          const c=calc(s);
+
+          return[
+            esc(s.nombre),
+            money(s.precio),
+            c.complete?money(c.t):'Pendiente',
+            c.complete&&c.margin!==null?dec(c.margin)+'%':'—',
+            esc(ficha(s.id).estado)
+          ];
+        })
+      )
+
+    );
+  }
+
+  if(page==='historial'){
+
+    html=card(
+
+      'Simulaciones guardadas',
+
+      table(
+        ['Fecha','Servicio','Precio simulado','Costo','Margen'],
+
+        db.simulaciones.map(r=>[
+          fmtdate(r.fecha),
+          esc(r.servicio),
+          money(r.precioSimulado),
+          money(r.costoSimulado),
+          r.margen===null?'—':dec(r.margen)+'%'
+        ])
+      ),
+
+      'simulador'
+
+    )+card(
+
+      'Registro de modificaciones',
+
+      table(
+        ['Fecha','Actividad'],
+
+        db.historial.map(h=>[
+          esc(new Date(h.fecha).toLocaleString('es-CL')),
+          esc(h.texto)
+        ])
+      ),
+
+      'historial'
+
+    );
+  }
+
+  if(page==='config'){
+
+    html=card(
+
+      'Objetivos del negocio',
+
+      form(
+
+        field(
+          'Margen objetivo (%)',
+          'margen','number',
+          db.config.margen,
+          'min="0" max="99.99" step="any" required'
+        )+
+
+        field(
+          'Meta de cobertura (%)',
+          'meta','number',
+          db.config.meta,
+          'min="1" max="100" required'
+        )+
+
+        field(
+          'Inicio del proyecto',
+          'inicioFecha','date',
+          db.config.inicio
+        )+
+
+        field(
+          'Revisar costos cada (días)',
+          'revision','number',
+          db.config.revision,
+          'min="1" required'
+        ),
+
+        'saveConfig()'
+
+      ),
+
+      'config'
+
+    )+card('Respaldo de información',`
+
+      <p>
+        Los datos se guardan en este navegador.
+        Descarga respaldos para conservarlos
+        o trasladarlos a otro dispositivo.
+      </p>
+
+      <br>
+
+      <div class="actions">
+
+        <button class="btn" onclick="backup()">
+          Descargar respaldo
+        </button>
+
+        <button class="btn secondary"
+          onclick="$('import').click()">
+          Importar respaldo
+        </button>
+
+        <input type="file" id="import"
+          accept=".json"
+          style="display:none"
+          onchange="restore(event)">
+
+      </div>
+
+    `,'save')+card('Acerca de TATI COST',`
+
+      <div class="welcome">
+
+        <div class="welcome-text">
+          <h2>Tu brújula financiera.</h2>
+          <p>
+            Herramienta desarrollada para apoyar
+            la gestión de costos y márgenes
+            de Tati Beauty Studio.
+          </p>
+        </div>
+
+        ${illustration}
+
+      </div>
+
+      <small>
+        Innovación y Emprendimiento III · INACAP Curicó.
+        <br>Versión 4.0
+      </small>
+
+    `)+card('Reiniciar aplicación',`
+
+      <p>Elimina permanentemente los registros locales.</p>
+
+      <br>
+
+      <button class="btn danger"
+        onclick="resetData()">
+        Eliminar datos
+      </button>
+
+    `);
+  }
+
+  if(storageError){
+
+    html=`
+
+      <div class="notice">
+        <strong>Advertencia:</strong>
+        no se pudieron leer los datos anteriores.
+        No se sobrescribirán automáticamente.
+        Descarga el respaldo original o importa
+        un respaldo válido desde Configuración.
+      </div>
+
+    `+html;
+  }
+
+  $('content').innerHTML=html;
+
+  if($('pick')){
+
+    $('pick').onchange=()=>{
+      selected=val('pick');
+      render();
+    };
+  }
+
+  if($('simPick')){
+
+    $('simPick').onchange=()=>{
+      simId=val('simPick');
+      render();
+    };
+
+    ['simPrecio','simMargen','simCosto'].forEach(id=>{
+      $(id).oninput=simulate;
+    });
+
+    simulate();
+  }
 }
 
 function filterRows(q,id){
- $(id).querySelectorAll('tbody tr').forEach(tr=>{
-  tr.style.display=tr.textContent.toLowerCase().includes(q.toLowerCase())?'':'none';
- });
+
+  $(id).querySelectorAll('tbody tr').forEach(tr=>{
+
+    tr.style.display=tr.textContent
+      .toLowerCase()
+      .includes(q.toLowerCase())
+      ?'':'none';
+  });
 }
 
 async function readPhoto(e){
- const file=e.target.files[0];
- if(!file)return;
- if(file.size>3*1024*1024||!['image/jpeg','image/png','image/webp'].includes(file.type)){
-  alert('Selecciona una imagen JPG, PNG o WebP de hasta 3 MB.');
-  return;
- }
- const status=$('photoStatus');
- status.textContent='Procesando fotografía...';
- try{
-  const url=URL.createObjectURL(file);
-  const img=new Image();
-  await new Promise((resolve,reject)=>{
-   img.onload=resolve;
-   img.onerror=reject;
-   img.src=url;
-  });
-  URL.revokeObjectURL(url);
-  const canvas=document.createElement('canvas');
-  const scale=Math.min(1,500/Math.max(img.width,img.height));
-  canvas.width=Math.max(1,Math.round(img.width*scale));
-  canvas.height=Math.max(1,Math.round(img.height*scale));
-  const ctx=canvas.getContext('2d');
-  ctx.fillStyle='#fff';
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-  ctx.drawImage(img,0,0,canvas.width,canvas.height);
-  if(status.isConnected){
-   pendingPhoto=canvas.toDataURL('image/jpeg',.75);
-   status.textContent='Fotografía preparada. Guarda el servicio.';
+
+  const file=e.target.files[0];
+
+  if(!file)return;
+
+  if(file.size>3*1024*1024||
+    !['image/jpeg','image/png','image/webp'].includes(file.type)
+  ){
+    alert('Selecciona una imagen JPG, PNG o WebP de hasta 3 MB.');
+    return;
   }
- }catch(err){
-  status.textContent='No fue posible procesar la imagen.';
- }
+
+  const status=$('photoStatus');
+
+  status.textContent='Procesando fotografía...';
+  photoLoading=true;
+
+  let url='';
+
+  try{
+
+    url=URL.createObjectURL(file);
+
+    const img=new Image();
+
+    await new Promise((resolve,reject)=>{
+      img.onload=resolve;
+      img.onerror=reject;
+      img.src=url;
+    });
+
+    const canvas=document.createElement('canvas');
+
+    const scale=Math.min(
+      1,500/Math.max(img.width,img.height)
+    );
+
+    canvas.width=Math.max(
+      1,Math.round(img.width*scale)
+    );
+
+    canvas.height=Math.max(
+      1,Math.round(img.height*scale)
+    );
+
+    const ctx=canvas.getContext('2d');
+
+    ctx.fillStyle='#fff';
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.drawImage(
+      img,0,0,canvas.width,canvas.height
+    );
+
+    if(status.isConnected){
+
+      pendingPhoto=canvas.toDataURL('image/jpeg',.75);
+
+      status.textContent='Fotografía preparada. Guarda el servicio.';
+    }
+
+  }catch(err){
+
+    if(status.isConnected){
+      status.textContent='No fue posible procesar la imagen.';
+    }
+
+  }finally{
+
+    if(url)URL.revokeObjectURL(url);
+
+    if(status.isConnected)photoLoading=false;
+  }
 }
 
 function store(){
- const id=edit||uid();
- const name=val('nombre').trim();
- if(!name){alert('Ingresa un nombre válido.');return}
- const old=db[page].find(x=>x.id===id);
- let x={...old,id,nombre:name};
 
- if(page==='servicios'){
-  const prep=n('preparacion');
-  const att=n('atencion');
-  const clean=n('limpieza');
-  if(prep+att+clean<=0){alert('La duración total debe ser mayor que cero.');return}
-  Object.assign(x,{
-   categoria:val('categoria'),
-   precio:n('precio'),
-   preparacion:prep,
-   atencion:att,
-   limpieza:clean,
-   tiempo:prep+att+clean,
-   activo:val('activo')==='true',
-   foto:pendingPhoto!==null?pendingPhoto:old?.foto||''
-  });
-  if(old&&(old.precio!==x.precio||old.tiempo!==x.tiempo))invalidate(id);
- }
+  if(storageError)return alert('Importa un respaldo válido.');
+  if(photoLoading)return alert('Espera que se procese la fotografía.');
 
- if(page==='insumos'){
-  Object.assign(x,{
-   proveedor:val('proveedor').trim(),
-   precio:n('precio'),
-   cantidad:n('cantidad'),
-   unidad:val('unidad'),
-   stock:val('stock')===''?null:n('stock'),
-   minimo:val('minimo')===''?null:n('minimo'),
-   historial:old?.historial||[]
-  });
-  if(old&&old.unidad!==x.unidad&&Object.values(db.fichas).some(f=>f.materiales.some(m=>m.insumo===id))){
-   alert('Retira el producto de las fichas antes de cambiar su unidad.');
-   return;
+  const id=edit||uid();
+  const name=val('nombre').trim();
+
+  if(!name){
+    alert('Ingresa un nombre válido.');
+    return;
   }
-  if(old){
-   const anterior=old.precio/old.cantidad;
-   const nuevo=x.precio/x.cantidad;
-   if(old.unidad===x.unidad&&anterior!==nuevo){
-    x.historial.unshift({fecha:date(),anterior,nuevo});
-    invalidateInput(id);
-   }
-   if(old.unidad!==x.unidad)x.historial=[];
+
+  const old=db[page].find(x=>x.id===id);
+
+  let x={...old,id,nombre:name};
+
+  if(page==='servicios'){
+
+    const prep=n('preparacion');
+    const att=n('atencion');
+    const clean=n('limpieza');
+
+    if(prep+att+clean<=0){
+      alert('La duración total debe ser mayor que cero.');
+      return;
+    }
+
+    Object.assign(x,{
+
+      categoria:val('categoria'),
+      precio:n('precio'),
+      preparacion:prep,
+      atencion:att,
+      limpieza:clean,
+      tiempo:prep+att+clean,
+      activo:val('activo')==='true',
+
+      foto:pendingPhoto!==null
+        ?pendingPhoto
+        :old?.foto||''
+
+    });
+
+    if(old&&(
+      old.precio!==x.precio||
+      old.tiempo!==x.tiempo
+    )){
+      invalidate(id);
+    }
   }
- }
 
- if(page==='gastos'){
-  Object.assign(x,{monto:n('monto'),tipo:val('tipo')});
-  invalidate();
- }
+  if(page==='insumos'){
 
- const j=db[page].findIndex(x=>x.id===id);
- if(j<0)db[page].push(x);
- else db[page][j]=x;
- log((old?'Actualización: ':'Nuevo registro: ')+name);
- edit='';
- pendingPhoto=null;
- save('Registro guardado');
- render();
+    Object.assign(x,{
+
+      proveedor:val('proveedor').trim(),
+      precio:n('precio'),
+      cantidad:n('cantidad'),
+      unidad:val('unidad'),
+
+      stock:val('stock')===''
+        ?null:n('stock'),
+
+      minimo:val('minimo')===''
+        ?null:n('minimo'),
+
+      historial:old?.historial||[]
+
+    });
+
+    if(old&&old.unidad!==x.unidad&&
+      Object.values(db.fichas).some(f=>
+        f.materiales.some(m=>m.insumo===id)
+      )
+    ){
+      alert('Retira el producto de sus fichas antes de cambiar la unidad.');
+      return;
+    }
+
+    if(old){
+
+      const anterior=old.precio/old.cantidad;
+      const nuevo=x.precio/x.cantidad;
+
+      if(old.unidad===x.unidad&&anterior!==nuevo){
+
+        x.historial.unshift({
+          fecha:now(),
+          anterior,
+          nuevo
+        });
+
+        invalidateInput(id);
+      }
+
+      if(old.unidad!==x.unidad)x.historial=[];
+    }
+  }
+
+  if(page==='gastos'){
+
+    Object.assign(x,{
+      monto:n('monto'),
+      tipo:val('tipo')
+    });
+
+    invalidate();
+  }
+
+  const j=db[page].findIndex(x=>x.id===id);
+
+  if(j<0)db[page].push(x);
+  else db[page][j]=x;
+
+  log((old?'Actualización: ':'Nuevo registro: ')+name);
+
+  edit='';
+  pendingPhoto=null;
+
+  save('Registro guardado');
+  render();
 }
 
 function remove(id){
- if(page==='insumos'&&Object.values(db.fichas).some(f=>f.materiales.some(m=>m.insumo===id))){
-  alert('Este producto está asociado a una ficha de costos.');
-  return;
- }
- const x=db[page].find(x=>x.id===id);
- if(!x||!confirm('¿Eliminar '+x.nombre+'?'))return;
- db[page]=db[page].filter(x=>x.id!==id);
- if(page==='servicios'){
-  delete db.fichas[id];
-  if(selected===id)selected='';
-  if(simId===id)simId='';
- }
- if(page==='gastos')invalidate();
- log('Registro eliminado: '+x.nombre);
- edit='';
- save('Registro eliminado');
- render();
+
+  if(storageError)return;
+
+  if(page==='insumos'&&
+    Object.values(db.fichas).some(f=>
+      f.materiales.some(m=>m.insumo===id)
+    )
+  ){
+    alert('Este producto está asociado a una ficha de costos.');
+    return;
+  }
+
+  const x=db[page].find(x=>x.id===id);
+
+  if(!x||!confirm('¿Eliminar '+x.nombre+'?'))return;
+
+  db[page]=db[page].filter(x=>x.id!==id);
+
+  if(page==='servicios'){
+
+    delete db.fichas[id];
+
+    if(selected===id)selected='';
+    if(simId===id)simId='';
+  }
+
+  if(page==='gastos')invalidate();
+
+  log('Registro eliminado: '+x.nombre);
+
+  edit='';
+
+  save('Registro eliminado');
+  render();
 }
 
 function saveLabor(){
- db.mano={mensual:n('mensual'),horas:n('horas')};
- invalidate();
- log('Actualización del costo de mano de obra');
- save('Mano de obra guardada');
- render();
+
+  if(storageError)return;
+
+  db.mano={
+    mensual:n('mensual'),
+    horas:n('horas')
+  };
+
+  invalidate();
+
+  log('Actualización del costo de mano de obra');
+
+  save('Mano de obra guardada');
+  render();
 }
 
 function saveBase(){
- db.baseHoras=n('horas');
- invalidate();
- log('Actualización de la base de gastos indirectos');
- save('Base guardada');
- render();
+
+  if(storageError)return;
+
+  db.baseHoras=n('horas');
+
+  invalidate();
+
+  log('Actualización de la base de gastos indirectos');
+
+  save('Base guardada');
+  render();
 }
 
 function addMaterial(){
- const id=val('material');
- const q=n('cantidad');
- if(!id||!Number.isFinite(q)||q<=0){
-  alert('Selecciona un producto y una cantidad válida.');
-  return;
- }
- const f=ficha(selected);
- const m=f.materiales.find(m=>m.insumo===id);
- if(m)m.cantidad+=q;
- else f.materiales.push({insumo:id,cantidad:q});
- f.confirmados=false;
- f.estado='En desarrollo';
- db.fichas[selected]=f;
- log('Material agregado a ficha de '+db.servicios.find(s=>s.id===selected).nombre);
- save('Material agregado');
- render();
+
+  if(storageError)return;
+
+  const id=val('material');
+  const q=n('cantidad');
+
+  if(!id||!Number.isFinite(q)||q<=0){
+    alert('Selecciona un producto y una cantidad válida.');
+    return;
+  }
+
+  const f=ficha(selected);
+
+  const m=f.materiales.find(m=>m.insumo===id);
+
+  if(m)m.cantidad+=q;
+  else f.materiales.push({
+    insumo:id,
+    cantidad:q
+  });
+
+  f.confirmados=false;
+  f.estado='En desarrollo';
+
+  db.fichas[selected]=f;
+
+  log('Material agregado a ficha de '+
+    db.servicios.find(s=>s.id===selected).nombre
+  );
+
+  save('Material agregado');
+  render();
 }
 
 function dropMaterial(j){
- const f=ficha(selected);
- f.materiales.splice(j,1);
- f.confirmados=false;
- f.estado='En desarrollo';
- db.fichas[selected]=f;
- log('Material retirado de una ficha');
- save();
- render();
+
+  if(storageError)return;
+
+  const f=ficha(selected);
+
+  f.materiales.splice(j,1);
+  f.confirmados=false;
+  f.estado='En desarrollo';
+
+  db.fichas[selected]=f;
+
+  log('Material retirado de una ficha');
+
+  save('Material retirado');
+  render();
 }
 
 function review(){
- const f=ficha(selected);
- const estado=val('estado');
- const calidad=val('calidad');
- const confirmados=$('confirmed').checked;
- if(estado!=='En desarrollo'&&(!confirmados||!db.mano.horas||!db.baseHoras)){
-  alert('Completa la revisión de materiales, mano de obra y base de gastos.');
-  return;
- }
- if(estado==='Validado'&&calidad!=='Comprobados'){
-  alert('La validación requiere datos comprobados.');
-  return;
- }
- Object.assign(f,{estado,calidad,confirmados,actualizado:date()});
- db.fichas[selected]=f;
- log('Ficha '+estado.toLowerCase()+': '+db.servicios.find(s=>s.id===selected).nombre);
- save('Ficha guardada');
- render();
+
+  if(storageError)return;
+
+  const f=ficha(selected);
+
+  const estado=val('estado');
+  const calidad=val('calidad');
+  const confirmados=$('confirmed').checked;
+
+  if(estado!=='En desarrollo'&&
+    (!confirmados||!db.mano.horas||!db.baseHoras)
+  ){
+    alert('Completa la revisión de materiales, mano de obra y gastos indirectos.');
+    return;
+  }
+
+  if(estado==='Validado'&&calidad!=='Comprobados'){
+    alert('La validación requiere datos comprobados.');
+    return;
+  }
+
+  Object.assign(f,{
+    estado,
+    calidad,
+    confirmados,
+    actualizado:now()
+  });
+
+  db.fichas[selected]=f;
+
+  log('Ficha '+estado.toLowerCase()+': '+
+    db.servicios.find(s=>s.id===selected).nombre
+  );
+
+  save('Ficha guardada');
+  render();
+}
+
+function simulationData(){
+
+  const s=active().find(s=>s.id===simId);
+
+  if(!s||!calc(s).complete)return null;
+
+  const c=calc(s);
+
+  const p=n('simPrecio');
+  const m=n('simMargen');
+  const variation=n('simCosto');
+
+  if(
+    ['simPrecio','simMargen','simCosto']
+      .some(id=>val(id)==='')||
+
+    ![p,m,variation].every(Number.isFinite)||
+
+    p<0||
+    m<0||
+    m>=100||
+    variation<-100
+  )return null;
+
+  const cost=c.m*(1+variation/100)+c.l+c.g;
+
+  if(!Number.isFinite(cost))return null;
+
+  return{
+    s,c,p,m,variation,cost,
+    result:p-cost,
+    margin:p>0?(p-cost)/p*100:null,
+    suggested:Math.ceil(cost/(1-m/100))
+  };
 }
 
 function simulate(){
- const s=active().find(s=>s.id===simId);
- const out=$('simResult');
- if(!s){
-  out.innerHTML='<div class="notice">Selecciona un servicio.</div>';
-  return;
- }
- const c=calc(s);
- if(!c.complete){
-  out.innerHTML='<div class="notice">Completa y revisa la ficha antes de simular precios.</div>';
-  return;
- }
- const p=n('simPrecio');
- const m=n('simMargen');
- const variation=n('simCosto');
- if(['simPrecio','simMargen','simCosto'].some(id=>val(id)==='')||![p,m,variation].every(Number.isFinite)||p<0||m<0||m>=100||variation<-100){
-  out.innerHTML='<div class="notice">Ingresa valores válidos.</div>';
-  return;
- }
- const newCost=c.m*(1+variation/100)+c.l+c.g;
- const newMargin=p>0?(p-newCost)/p*100:null;
- const suggested=Math.ceil(newCost/(1-m/100));
 
- out.innerHTML=`<div class="grid">${metric('Costo simulado',money(newCost),'fichas')}${metric('Resultado simulado',money(p-newCost),'rentabilidad')}${metric('Margen simulado',newMargin===null?'—':dec(newMargin)+'%','rentabilidad')}${metric('Precio para margen deseado',money(suggested),'simulador')}</div>`+
- card('Comparación de escenarios',table(['Concepto','Actual','Simulado'],[
-  ['Precio',money(s.precio),money(p)],
-  ['Materiales',money(c.m),money(c.m*(1+variation/100))],
-  ['Costo total',money(c.t),money(newCost)],
-  ['Resultado',money(c.r),money(p-newCost)],
-  ['Margen',c.margin===null?'—':dec(c.margin)+'%',newMargin===null?'—':dec(newMargin)+'%']
- ]))+card('Interpretación',`<br><p>${p<newCost?'El escenario genera una pérdida estimada.':p===newCost?'El escenario cubre los costos sin margen positivo.':'El escenario genera un resultado positivo estimado.'}</p><br><small>La variación aplicada afecta únicamente los materiales. No modifica los datos registrados.</small>`);
+  const s=active().find(s=>s.id===simId);
+  const out=$('simResult');
+
+  if(!s){
+
+    out.innerHTML=`
+      <div class="notice">
+        Selecciona un servicio para comenzar.
+      </div>
+    `;
+
+    return;
+  }
+
+  if(!calc(s).complete){
+
+    out.innerHTML=`
+      <div class="notice">
+        Completa y revisa la ficha de costos
+        antes de simular precios.
+      </div>
+
+      <button class="btn full"
+        onclick="selected='${s.id}';go('fichas')">
+        Completar ficha
+      </button>
+    `;
+
+    return;
+  }
+
+  const d=simulationData();
+
+  if(!d){
+
+    out.innerHTML=`
+      <div class="notice">Ingresa valores válidos.</div>
+    `;
+
+    return;
+  }
+
+  const {c,p,m,cost,result,margin,suggested}=d;
+
+  out.innerHTML=card('Resultado de la simulación',`
+
+    <div class="finance-list">
+
+      ${financeRow(
+        'simulador',
+        'Precio actual',
+        'Registrado en el catálogo',
+        money(s.precio)
+      )}
+
+      ${financeRow(
+        'sparkle',
+        'Precio sugerido',
+        'Para un margen de '+dec(m)+'%',
+        money(suggested)
+      )}
+
+      ${financeRow(
+        'coins',
+        'Resultado estimado',
+        'Con el precio simulado',
+        money(result)
+      )}
+
+      ${financeRow(
+        'percent',
+        'Margen simulado',
+        'Sobre el precio de venta',
+        margin===null?'—':dec(margin)+'%'
+      )}
+
+    </div>
+
+    ${totalCard(
+      'Precio recomendado',
+      money(suggested),
+      'simulador'
+    )}
+
+    <button class="btn secondary full"
+      onclick="$('simPrecio').value=${suggested};simulate()">
+      Probar precio sugerido
+    </button>
+
+  `,'simulador')+card('Antes y después',`
+
+    <div class="compare-grid">
+
+      <div class="compare-card">
+
+        <h3>Antes</h3>
+
+        <div class="compare-subtitle">
+          Precio actual
+        </div>
+
+        <div class="compare-line">
+          <span>Precio</span>
+          <strong>${money(s.precio)}</strong>
+        </div>
+
+        <div class="compare-line">
+          <span>Costo</span>
+          <strong>${money(c.t)}</strong>
+        </div>
+
+        <div class="compare-line">
+          <span>Resultado</span>
+          <strong>${money(c.r)}</strong>
+        </div>
+
+        <div class="compare-line">
+          <span>Margen</span>
+          <strong>
+            ${c.margin===null?'—':dec(c.margin)+'%'}
+          </strong>
+        </div>
+
+      </div>
+
+      <div class="compare-card after">
+
+        <h3>Después</h3>
+
+        <div class="compare-subtitle">
+          Precio simulado
+        </div>
+
+        <div class="compare-line">
+          <span>Precio</span>
+          <strong>${money(p)}</strong>
+        </div>
+
+        <div class="compare-line">
+          <span>Costo</span>
+          <strong>${money(cost)}</strong>
+        </div>
+
+        <div class="compare-line">
+          <span>Resultado</span>
+          <strong>${money(result)}</strong>
+        </div>
+
+        <div class="compare-line">
+          <span>Margen</span>
+          <strong>
+            ${margin===null?'—':dec(margin)+'%'}
+          </strong>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="notice">
+
+      ${result<0
+        ?'El escenario genera una pérdida estimada.'
+        :result===0
+        ?'El precio cubre los costos sin margen positivo.'
+        :'El escenario genera un resultado positivo estimado.'}
+
+      <br>
+
+      La variación de costos afecta únicamente los materiales.
+      La simulación no modifica el precio real.
+
+    </div>
+
+    <button class="btn full"
+      onclick="savePriceSimulation()">
+      ${icon('save')}Guardar simulación
+    </button>
+
+  `);
+}
+
+function savePriceSimulation(){
+
+  if(storageError)return;
+
+  const d=simulationData();
+
+  if(!d)return;
+
+  db.simulaciones.unshift({
+
+    id:uid(),
+    fecha:now(),
+    servicioId:d.s.id,
+    servicio:d.s.nombre,
+    precioActual:d.s.precio,
+    precioSimulado:d.p,
+    costoSimulado:d.cost,
+    resultado:d.result,
+    margen:d.margin,
+    margenObjetivo:d.m,
+    variacionMateriales:d.variation,
+    precioSugerido:d.suggested
+
+  });
+
+  log('Simulación guardada: '+d.s.nombre);
+
+  save('Simulación guardada correctamente');
 }
 
 function saveConfig(){
- db.config={
-  margen:n('margen'),
-  meta:n('meta'),
-  inicio:val('inicioFecha'),
-  revision:n('revision')
- };
- log('Actualización de objetivos financieros');
- save('Objetivos guardados');
- render();
+
+  if(storageError)return;
+
+  db.config={
+
+    margen:n('margen'),
+    meta:n('meta'),
+    inicio:val('inicioFecha'),
+    revision:n('revision')
+
+  };
+
+  log('Actualización de objetivos financieros');
+
+  save('Objetivos guardados');
+  render();
 }
 
 function downloadFile(content,name,type){
- const a=document.createElement('a');
- const url=URL.createObjectURL(new Blob([content],{type}));
- a.href=url;
- a.download=name;
- a.click();
- setTimeout(()=>URL.revokeObjectURL(url),1000);
+
+  const a=document.createElement('a');
+
+  const url=URL.createObjectURL(
+    new Blob([content],{type})
+  );
+
+  a.href=url;
+  a.download=name;
+
+  document.body.appendChild(a);
+
+  a.click();
+  a.remove();
+
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 
 function backup(){
- if(storageError){
-  const raw=localStorage.getItem('tatiCostV1');
-  if(raw)downloadFile(raw,'TATI_COST_Respaldo_Original.json','application/json');
-  return;
- }
- downloadFile(JSON.stringify(db,null,2),'TATI_COST_Respaldo.json','application/json');
+
+  if(storageError){
+
+    const raw=localStorage.getItem('tatiCostV1');
+
+    if(raw){
+
+      downloadFile(
+        raw,
+        'TATI_COST_Respaldo_Original.json',
+        'application/json'
+      );
+    }
+
+    return;
+  }
+
+  downloadFile(
+    JSON.stringify(db,null,2),
+    'TATI_COST_Respaldo.json',
+    'application/json'
+  );
 }
 
 function exportCSV(){
- const rows=[['Servicio','Categoria','Precio','Duracion','Materiales','Mano de obra','Indirectos','Costo total','Resultado','Margen (%)','Estado']];
- active().forEach(s=>{
-  const c=calc(s);
-  rows.push([
-   s.nombre,s.categoria,s.precio,s.tiempo,
-   c.complete?Math.round(c.m):'',
-   c.complete?Math.round(c.l):'',
-   c.complete?Math.round(c.g):'',
-   c.complete?Math.round(c.t):'',
-   c.complete?Math.round(c.r):'',
-   c.complete&&c.margin!==null?c.margin.toFixed(2).replace('.',','):'',
-   ficha(s.id).estado
-  ]);
- });
- const csv=rows.map(r=>r.map(v=>{
-  let text=String(v);
-  if(typeof v==='string'&&/^[=+\-@\t\r]/.test(text))text="'"+text;
-  return '"'+text.replace(/"/g,'""')+'"';
- }).join(';')).join('\r\n');
- downloadFile('\uFEFF'+csv,'TATI_COST_Informe.csv','text/csv;charset=utf-8');
-}
 
-function printFicha(){
- window.print();
+  const rows=[[
+    'Servicio',
+    'Categoria',
+    'Precio',
+    'Duracion',
+    'Materiales',
+    'Mano de obra',
+    'Indirectos',
+    'Costo total',
+    'Resultado',
+    'Margen (%)',
+    'Estado'
+  ]];
+
+  active().forEach(s=>{
+
+    const c=calc(s);
+
+    rows.push([
+
+      s.nombre,
+      s.categoria,
+      s.precio,
+      s.tiempo,
+
+      c.complete?Math.round(c.m):'',
+      c.complete?Math.round(c.l):'',
+      c.complete?Math.round(c.g):'',
+      c.complete?Math.round(c.t):'',
+      c.complete?Math.round(c.r):'',
+
+      c.complete&&c.margin!==null
+        ?c.margin.toFixed(2).replace('.',',')
+        :'',
+
+      ficha(s.id).estado
+
+    ]);
+  });
+
+  const csv=rows.map(r=>r.map(v=>{
+
+    let text=String(v);
+
+    if(typeof v==='string'&&
+      /^[=+\-@\t\r]/.test(text)
+    ){
+      text="'"+text;
+    }
+
+    return '"'+text.replace(/"/g,'""')+'"';
+
+  }).join(';')).join('\r\n');
+
+  downloadFile(
+    '\uFEFF'+csv,
+    'TATI_COST_Informe.csv',
+    'text/csv;charset=utf-8'
+  );
 }
 
 async function restore(e){
- try{
-  if(!e.target.files.length)return;
-  const d=migrate(JSON.parse(await e.target.files[0].text()));
-  if(!valid(d))throw Error();
-  if(confirm('¿Reemplazar los datos actuales con este respaldo?')){
-   db=d;
-   storageError=false;
-   edit='';
-   selected='';
-   simId='';
-   pendingPhoto=null;
-   save('Respaldo importado');
-   render();
+
+  try{
+
+    if(!e.target.files.length)return;
+
+    const d=migrate(
+      JSON.parse(await e.target.files[0].text())
+    );
+
+    if(!valid(d))throw Error();
+
+    if(confirm('¿Reemplazar los datos actuales con este respaldo?')){
+
+      db=d;
+      storageError=false;
+      edit='';
+      selected='';
+      simId='';
+      pendingPhoto=null;
+
+      save('Respaldo importado');
+      render();
+    }
+
+  }catch(err){
+
+    alert('El respaldo no es válido o es incompatible.');
+
+  }finally{
+
+    e.target.value='';
   }
- }catch(err){
-  alert('El respaldo no es válido o es incompatible.');
- }
 }
 
 function resetData(){
- if(!confirm('¿Eliminar permanentemente todos los datos locales?'))return;
- if(!confirm('Esta acción no se puede deshacer sin un respaldo. ¿Continuar?'))return;
- db=fresh();
- storageError=false;
- edit='';
- selected='';
- simId='';
- pendingPhoto=null;
- save('Datos eliminados');
- render();
+
+  if(!confirm('¿Eliminar permanentemente todos los datos locales?'))return;
+
+  if(!confirm('Esta acción no se puede deshacer sin un respaldo. ¿Continuar?'))return;
+
+  db=fresh();
+  storageError=false;
+  edit='';
+  selected='';
+  simId='';
+  pendingPhoto=null;
+
+  save('Datos eliminados');
+  render();
 }
 
+$('brand').innerHTML=icon('logo')+'<span>TATI COST</span>';
+$('mobile').innerHTML=icon('menu');
+
 render();
+
 </script>
 </body>
 </html>
