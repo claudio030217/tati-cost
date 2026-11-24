@@ -3,840 +3,459 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TATI COST | Tu brújula financiera</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TATI COST — Beauty Business Studio</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
+
 :root {
-  --primary: #9c5d79;
-  --dark: #352831;
-  --pink: #ead2dc;
-  --background: #f8f5f3;
-  --white: #ffffff;
-  --green: #398368;
-  --red: #c45460;
-  --muted: #857780;
-  --border: #eadfe5;
+  --ink: #49382f;
+  --muted: #796c62;
+  --paper: #f7f3ed;
+  --white: #fffdf8;
+  --line: #e5d9cc;
+  --accent: #a5654d;
+  --rose: #e9c8ba;
+  --green: #667c61;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: var(--background);
-  color: var(--dark);
+  background: var(--paper);
+  color: var(--ink);
+  font: 14px 'DM Sans', Arial, sans-serif;
 }
 
-button, input, select {
-  font: inherit;
-}
-
+button, input, select { font: inherit; }
 button { cursor: pointer; }
+h1, h2, h3, p { margin: 0; }
 
-.sidebar {
-  width: 245px;
+h1, h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 26px; }
+h3 { font-size: 16px; }
+p { line-height: 1.65; }
+
+aside {
   position: fixed;
+  width: 245px;
   inset: 0 auto 0 0;
-  background: var(--dark);
-  color: white;
-  padding: 30px 18px;
-  overflow-y: auto;
+  background: #efe7dc;
+  padding: 30px 20px;
+  overflow: auto;
+  border-right: 1px solid var(--line);
 }
 
 .brand {
-  padding: 10px 12px 35px;
+  font: 36px 'Playfair Display', Georgia, serif;
+  letter-spacing: -2px;
 }
 
-.brand h1 {
-  margin: 0;
-  font-size: 29px;
-  letter-spacing: 3px;
-}
-
-.brand p {
-  font-size: 12px;
-  color: var(--pink);
-  margin: 8px 0;
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .nav {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   width: 100%;
+  padding: 12px;
   border: 0;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 6px;
+  background: none;
+  color: var(--muted);
   text-align: left;
-  background: transparent;
-  color: #e7dce2;
+  border-radius: 6px;
+  margin: 4px 0;
 }
 
-.nav:hover, .nav.active {
-  background: var(--primary);
-  color: white;
+.nav.active, .nav:hover {
+  background: #e0cbb9;
+  color: var(--ink);
 }
 
-.sidebar-footer {
+.nav svg, .icon {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.navgroup { margin: 28px 0 10px; }
+
+.foot {
+  margin-top: 35px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  color: var(--muted);
   font-size: 12px;
-  color: #bdaab5;
-  margin: 40px 12px;
 }
 
 main {
   margin-left: 245px;
-  padding: 35px;
+  padding: 32px 40px;
   max-width: 1600px;
 }
 
 header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 15px;
-  margin-bottom: 25px;
-}
-
-h1, h2, h3 { margin-top: 0; }
-
-h2 { font-size: 28px; }
-
-.subtitle {
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.tag {
-  background: var(--pink);
-  padding: 9px 15px;
-  border-radius: 30px;
-  font-size: 12px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 22px;
+  margin-bottom: 28px;
 }
 
 .hero {
-  background: linear-gradient(120deg, #8c506d, #bb8da2);
-  padding: 35px;
-  border-radius: 20px;
-  color: white;
-  margin-bottom: 25px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+  background: #ead9c9;
+  border: 1px solid #dfc9b6;
+  min-height: 260px;
+  padding: 30px 36px;
+  overflow: hidden;
+  margin-bottom: 30px;
 }
 
-.hero h2 { font-size: 32px; }
+.hero h1 {
+  font-size: clamp(30px, 4vw, 54px);
+  line-height: 1.12;
+  margin: 12px 0;
+}
 
 .hero p {
-  max-width: 650px;
-  line-height: 1.7;
+  max-width: 420px;
+  color: #725c4f;
+  margin-bottom: 20px;
+}
+
+.hero svg {
+  width: 100%;
+  max-height: 260px;
+}
+
+.btn {
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: white;
+  padding: 11px 17px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.btn:hover { opacity: .85; }
+
+.secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.danger {
+  color: #a3443d;
+  background: transparent;
+  border-color: #e5c4bd;
+}
+
+.smallbtn {
+  padding: 6px 9px;
+  font-size: 12px;
+  margin: 2px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 18px;
-  margin-bottom: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+  gap: 15px;
+  margin: 18px 0 25px;
 }
 
 .card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 16px;
+  background: var(--white);
+  border: 1px solid var(--line);
   padding: 23px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 18px #35283106;
+  margin-bottom: 18px;
+  border-radius: 7px;
 }
+
+.grid .card { margin: 0; }
 
 .metric {
-  font-size: 30px;
-  font-weight: 700;
-  margin: 14px 0;
+  font: 34px 'Playfair Display', Georgia, serif;
+  margin: 10px 0;
 }
 
-.small {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
+.muted, small { color: var(--muted); }
 .green { color: var(--green); }
-.red { color: var(--red); }
+.red { color: #a3443d; }
 
-.progress {
-  height: 15px;
-  background: #f0e6eb;
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 18px 0;
-}
-
-.progress div {
-  height: 100%;
-  background: var(--primary);
-  transition: width .3s;
-}
-
-.page { display: none; }
-.page.active { display: block; }
-
-.form-grid {
+.formgrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 15px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 16px;
+  margin: 18px 0;
 }
 
 label {
   display: block;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  margin-bottom: 7px;
+  margin-bottom: 6px;
 }
 
 input, select {
   width: 100%;
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  background: #fdfbfc;
-  color: var(--dark);
-  outline: none;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fffefa;
+  padding: 11px;
+  color: var(--ink);
 }
 
 input:focus, select:focus {
-  border-color: var(--primary);
+  outline: 2px solid var(--rose);
 }
 
-.btn {
-  border: 0;
-  background: var(--primary);
-  color: white;
-  padding: 12px 19px;
-  border-radius: 9px;
-  font-weight: 600;
+.tablewrap {
+  overflow: auto;
+  margin-top: 15px;
 }
-
-.btn:hover { opacity: .88; }
-
-.btn-secondary {
-  background: #f0e5eb;
-  color: var(--dark);
-}
-
-.btn-danger {
-  background: #fae8eb;
-  color: var(--red);
-}
-
-.btn-small {
-  padding: 8px 12px;
-  font-size: 12px;
-  margin: 3px;
-}
-
-.table-wrap { overflow-x: auto; }
 
 table {
   border-collapse: collapse;
   width: 100%;
-  min-width: 550px;
+  min-width: 470px;
 }
 
-th, td {
-  padding: 14px 10px;
+td, th {
   text-align: left;
-  border-bottom: 1px solid var(--border);
-  font-size: 14px;
+  padding: 13px 9px;
+  border-bottom: 1px solid var(--line);
 }
 
 th {
-  background: #faf5f7;
+  font-size: 11px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
   color: var(--muted);
-  font-size: 12px;
 }
 
 .empty {
-  padding: 30px;
   text-align: center;
+  padding: 30px;
   color: var(--muted);
 }
 
+.empty svg {
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 12px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.3;
+}
+
 .notice {
-  background: #f5edf1;
-  border-left: 4px solid var(--primary);
-  padding: 15px;
-  border-radius: 8px;
+  padding: 14px 18px;
+  background: #f0e6d9;
+  border-left: 3px solid var(--accent);
+  margin: 15px 0;
   line-height: 1.6;
-  font-size: 13px;
-  margin-bottom: 20px;
 }
 
-.status {
-  padding: 6px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  background: #f0e5eb;
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.ring {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(var(--accent) var(--pct), #eadfd2 0);
+  flex-shrink: 0;
+}
+
+.ring span {
+  background: var(--white);
+  width: 106px;
+  height: 106px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font: 28px Georgia;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.bar {
+  height: 12px;
+  background: #eee3d7;
+  display: flex;
+  overflow: hidden;
+  border-radius: 3px;
+  margin: 15px 0;
+}
+
+.tag {
   display: inline-block;
+  padding: 5px 9px;
+  background: #eee3d7;
+  font-size: 11px;
+  border-radius: 3px;
 }
 
-.status-ok {
-  background: #e1f2e8;
-  color: var(--green);
-}
-
-.result {
-  background: #f8f2f5;
-  border-radius: 12px;
-  padding: 20px;
+.ok {
+  background: #e0e9da;
+  color: #50684b;
 }
 
 .actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 #toast {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: var(--dark);
+  bottom: 20px;
+  right: 20px;
+  background: var(--ink);
   color: white;
-  padding: 15px 22px;
-  border-radius: 10px;
+  padding: 15px;
+  z-index: 9;
   display: none;
-  z-index: 100;
-  max-width: 85vw;
 }
 
-@media (max-width: 760px) {
-  .sidebar {
+#mobile { display: none; }
+
+@media(max-width:800px) {
+  aside {
     position: relative;
     width: 100%;
-    padding: 15px;
-  }
-
-  .brand { padding: 5px 8px 15px; }
-
-  .brand h1 { font-size: 24px; }
-
-  .navigation {
-    display: flex;
-    overflow-x: auto;
-    gap: 5px;
-  }
-
-  .nav {
-    width: auto;
-    white-space: nowrap;
-    font-size: 13px;
-    padding: 12px;
-  }
-
-  .sidebar-footer { display: none; }
-
-  main {
-    margin-left: 0;
     padding: 18px;
   }
 
-  header { align-items: flex-start; }
-  header .tag { display: none; }
-  .hero { padding: 24px; }
-  .hero h2 { font-size: 25px; }
-  .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .card { padding: 16px; }
-  .metric { font-size: 24px; }
-  .form-grid { grid-template-columns: 1fr; }
+  #mobile {
+    display: block;
+    float: right;
+  }
+
+  #navs { display: none; }
+  #navs.open { display: block; }
+  .foot { display: none; }
+
+  main {
+    margin: 0;
+    padding: 20px;
+  }
+
+  header { margin-bottom: 18px; }
+
+  .hero {
+    padding: 22px;
+    grid-template-columns: 1.3fr 1fr;
+  }
+
+  .split { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .card { padding: 17px; }
+  .metric { font-size: 28px; }
+}
+
+@media(max-width:420px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero svg { max-height: 170px; }
+  .row { gap: 12px; }
+  .ring { width: 100px; height: 100px; }
+  .ring span { width: 80px; height: 80px; }
 }
 </style>
 </head>
 
 <body>
 
-<aside class="sidebar">
-  <div class="brand">
-    <h1>✧ TATI COST</h1>
-    <p>TU BRÚJULA FINANCIERA</p>
-  </div>
+<aside>
+  <button id="mobile" class="btn secondary"
+    onclick="document.querySelector('#navs').classList.toggle('open')">
+    Menú
+  </button>
 
-  <div class="navigation">
-    <button class="nav active" onclick="go('inicio',this)">⌂ Inicio</button>
-    <button class="nav" onclick="go('servicios',this)">✂ Servicios</button>
-    <button class="nav" onclick="go('insumos',this)">▣ Insumos</button>
-    <button class="nav" onclick="go('mano',this)">◷ Mano de obra</button>
-    <button class="nav" onclick="go('gastos',this)">▤ Gastos indirectos</button>
-    <button class="nav" onclick="go('fichas',this)">▧ Fichas de costos</button>
-    <button class="nav" onclick="go('simulador',this)">◇ Simulador</button>
-    <button class="nav" onclick="go('rentabilidad',this)">↗ Rentabilidad</button>
-    <button class="nav" onclick="go('config',this)">⚙ Configuración</button>
-  </div>
+  <div class="brand">tati cost.</div>
+  <div class="eyebrow">Beauty Business Studio</div>
 
-  <div class="sidebar-footer">
-    Tati Beauty Studio<br><br>
-    Proyecto de Innovación y Emprendimiento III<br>
-    INACAP Curicó
+  <nav id="navs"></nav>
+
+  <div class="foot">
+    Tati Beauty Studio · Curicó<br>
+    Tu brújula financiera<br><br>
+    Innovación y Emprendimiento III<br>
+    INACAP
   </div>
 </aside>
 
 <main>
-
-<header>
-  <div>
-    <h2 id="pageTitle">Panel principal</h2>
-    <div class="subtitle">Gestión de costos y rentabilidad</div>
-  </div>
-  <span class="tag">Tati Beauty Studio</span>
-</header>
-
-<!-- INICIO -->
-
-<section id="inicio" class="page active">
-
-  <div class="hero">
-    <h2>Tu brújula financiera</h2>
-    <p>Conoce tus costos, analiza tus márgenes y toma mejores decisiones sobre los precios de tus servicios.</p>
-    <button class="btn btn-secondary" onclick="openPage('servicios')">
-      Gestionar servicios
-    </button>
-  </div>
-
-  <div class="grid">
-    <div class="card">
-      <div class="small">Servicios activos</div>
-      <div class="metric" id="totalServicios">0</div>
+  <header>
+    <div>
+      <div class="eyebrow">Tati Beauty Studio</div>
+      <h2 id="heading"></h2>
     </div>
+    <span class="tag">Mi estudio</span>
+  </header>
 
-    <div class="card">
-      <div class="small">Servicios costeados</div>
-      <div class="metric" id="totalCosteados">0</div>
-    </div>
-
-    <div class="card">
-      <div class="small">Margen promedio estimado</div>
-      <div class="metric green" id="margenPromedio">—</div>
-    </div>
-
-    <div class="card">
-      <div class="small">Insumos registrados</div>
-      <div class="metric" id="totalInsumos">0</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Avance del proyecto</h3>
-    <p class="subtitle">Meta: costear al menos el 80% de los servicios activos en tres meses.</p>
-
-    <div class="metric" id="cobertura">0%</div>
-    <div class="progress">
-      <div id="barra" style="width:0%"></div>
-    </div>
-    <div id="metaTexto" class="small"></div>
-  </div>
-
-  <div class="card">
-    <h3>Estado de los servicios</h3>
-    <div id="resumenServicios"></div>
-  </div>
-
-</section>
-
-<!-- SERVICIOS -->
-
-<section id="servicios" class="page">
-
-  <div class="card">
-    <h3>Registrar servicio</h3>
-
-    <form id="formServicio">
-      <input type="hidden" id="servicioId">
-
-      <div class="form-grid">
-        <div>
-          <label>Nombre del servicio</label>
-          <input id="servicioNombre" required placeholder="Nombre del servicio">
-        </div>
-
-        <div>
-          <label>Categoría</label>
-          <select id="servicioCategoria">
-            <option>Peluquería</option>
-            <option>Manicure</option>
-            <option>Pedicure</option>
-            <option>Masajes</option>
-            <option>Depilación</option>
-            <option>Otros</option>
-          </select>
-        </div>
-
-        <div>
-          <label>Precio de venta ($)</label>
-          <input id="servicioPrecio" type="number" min="0" required>
-        </div>
-
-        <div>
-          <label>Duración estimada (minutos)</label>
-          <input id="servicioTiempo" type="number" min="1" required>
-        </div>
-      </div>
-
-      <button class="btn" type="submit">Guardar servicio</button>
-      <button class="btn btn-secondary" type="button" onclick="resetServicio()">Cancelar</button>
-    </form>
-  </div>
-
-  <div class="card">
-    <h3>Servicios registrados</h3>
-    <div id="tablaServicios"></div>
-  </div>
-
-</section>
-
-<!-- INSUMOS -->
-
-<section id="insumos" class="page">
-
-  <div class="card">
-    <h3>Registrar insumo</h3>
-
-    <form id="formInsumo">
-      <input type="hidden" id="insumoId">
-
-      <div class="form-grid">
-        <div>
-          <label>Nombre del producto</label>
-          <input id="insumoNombre" required>
-        </div>
-
-        <div>
-          <label>Precio de compra ($)</label>
-          <input id="insumoPrecio" type="number" min="0" required>
-        </div>
-
-        <div>
-          <label>Contenido total</label>
-          <input id="insumoCantidad" type="number" min="0.01" step="any" required>
-        </div>
-
-        <div>
-          <label>Unidad de medida</label>
-          <select id="insumoUnidad">
-            <option value="ml">Mililitros</option>
-            <option value="g">Gramos</option>
-            <option value="unidad">Unidades</option>
-          </select>
-        </div>
-      </div>
-
-      <button class="btn" type="submit">Guardar insumo</button>
-      <button class="btn btn-secondary" type="button" onclick="resetInsumo()">Cancelar</button>
-    </form>
-  </div>
-
-  <div class="notice">
-    El costo por unidad se calcula dividiendo el precio de compra por el contenido total del producto.
-  </div>
-
-  <div class="card">
-    <h3>Catálogo de insumos</h3>
-    <div id="tablaInsumos"></div>
-  </div>
-
-</section>
-
-<!-- MANO DE OBRA -->
-
-<section id="mano" class="page">
-
-  <div class="card">
-    <h3>Costo del tiempo de trabajo</h3>
-
-    <p class="subtitle">Determina cuánto cuesta cada minuto de trabajo profesional.</p>
-
-    <form id="formMano">
-
-      <div class="form-grid">
-        <div>
-          <label>Costo mensual de mano de obra ($)</label>
-          <input id="manoMensual" type="number" min="0" required>
-        </div>
-
-        <div>
-          <label>Horas productivas mensuales</label>
-          <input id="manoHoras" type="number" min="0.01" step="any" required>
-        </div>
-      </div>
-
-      <button class="btn" type="submit">Guardar configuración</button>
-    </form>
-  </div>
-
-  <div class="grid">
-    <div class="card">
-      <div class="small">Costo por hora</div>
-      <div class="metric" id="costoHora">—</div>
-    </div>
-
-    <div class="card">
-      <div class="small">Costo por minuto</div>
-      <div class="metric" id="costoMinuto">—</div>
-    </div>
-  </div>
-
-  <div class="notice">
-    Esta primera versión utiliza una tarifa promedio de mano de obra. Las horas productivas deben corresponder al tiempo efectivamente destinado a prestar servicios.
-  </div>
-
-</section>
-
-<!-- GASTOS INDIRECTOS -->
-
-<section id="gastos" class="page">
-
-  <div class="card">
-    <h3>Registrar gasto indirecto mensual</h3>
-
-    <form id="formGasto">
-
-      <input type="hidden" id="gastoId">
-
-      <div class="form-grid">
-        <div>
-          <label>Nombre del gasto</label>
-          <input id="gastoNombre" required placeholder="Arriendo, electricidad...">
-        </div>
-
-        <div>
-          <label>Monto mensual ($)</label>
-          <input id="gastoMonto" type="number" min="0" required>
-        </div>
-
-        <div>
-          <label>Tipo de gasto</label>
-          <select id="gastoTipo">
-            <option>Fijo</option>
-            <option>Variable</option>
-          </select>
-        </div>
-      </div>
-
-      <button class="btn" type="submit">Guardar gasto</button>
-      <button class="btn btn-secondary" type="button" onclick="resetGasto()">Cancelar</button>
-    </form>
-  </div>
-
-  <div class="card">
-    <h3>Base de distribución</h3>
-
-    <form id="formBase">
-      <div class="form-grid">
-        <div>
-          <label>Horas productivas mensuales del salón</label>
-          <input id="baseHoras" type="number" min="0.01" step="any" required>
-        </div>
-      </div>
-
-      <button class="btn" type="submit">Guardar base de distribución</button>
-    </form>
-
-    <p class="small">
-      Los gastos indirectos se distribuyen proporcionalmente según los minutos de duración de cada servicio.
-    </p>
-  </div>
-
-  <div class="grid">
-    <div class="card">
-      <div class="small">Gastos indirectos mensuales</div>
-      <div class="metric" id="totalGastos">$0</div>
-    </div>
-
-    <div class="card">
-      <div class="small">Gasto indirecto por minuto</div>
-      <div class="metric" id="gastoMinuto">—</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Gastos registrados</h3>
-    <div id="tablaGastos"></div>
-  </div>
-
-</section>
-
-<!-- FICHAS -->
-
-<section id="fichas" class="page">
-
-  <div class="card">
-    <h3>Ficha de costos por servicio</h3>
-
-    <label>Seleccionar servicio</label>
-    <select id="fichaServicio" onchange="cargarFicha()"></select>
-  </div>
-
-  <div id="fichaContenido" style="display:none">
-
-    <div class="card">
-      <h3>Materiales utilizados</h3>
-
-      <form id="formMaterial">
-
-        <div class="form-grid">
-          <div>
-            <label>Insumo</label>
-            <select id="fichaInsumo"></select>
-          </div>
-
-          <div>
-            <label>Cantidad utilizada</label>
-            <input id="fichaCantidad" type="number" min="0.01" step="any" required>
-          </div>
-        </div>
-
-        <button class="btn" type="submit">Agregar material</button>
-      </form>
-
-      <br>
-      <div id="tablaMateriales"></div>
-    </div>
-
-    <div class="card">
-      <h3>Resumen del costo</h3>
-      <div id="detalleFicha"></div>
-    </div>
-
-    <div class="card">
-      <h3>Estado de la información</h3>
-
-      <div class="form-grid">
-        <div>
-          <label>Calidad de los datos</label>
-          <select id="fichaCalidad">
-            <option>Estimados</option>
-            <option>Parcialmente comprobados</option>
-            <option>Comprobados</option>
-          </select>
-        </div>
-
-        <div>
-          <label>Estado de revisión</label>
-          <select id="fichaEstado">
-            <option>En desarrollo</option>
-            <option>Revisado</option>
-            <option>Validado</option>
-          </select>
-        </div>
-      </div>
-
-      <label>
-        <input id="materialesConfirmados" type="checkbox" style="width:auto">
-        Revisé todos los materiales utilizados, incluso si el servicio no requiere insumos.
-      </label>
-
-      <br>
-
-      <button class="btn" onclick="guardarFicha()">Guardar ficha de costos</button>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- SIMULADOR -->
-
-<section id="simulador" class="page">
-
-  <div class="card">
-    <h3>Simulador de precios</h3>
-    <p class="subtitle">Evalúa distintos precios sin modificar el precio real del servicio.</p>
-
-    <div class="form-grid">
-      <div>
-        <label>Servicio</label>
-        <select id="simServicio" onchange="cargarSimulador()"></select>
-      </div>
-
-      <div>
-        <label>Precio de venta simulado ($)</label>
-        <input id="simPrecio" type="number" min="0" oninput="simular()">
-      </div>
-
-      <div>
-        <label>Margen deseado (%)</label>
-        <input id="simMargen" type="number" min="0" max="99" value="30" oninput="simular()">
-      </div>
-    </div>
-  </div>
-
-  <div id="resultadoSimulador"></div>
-
-</section>
-
-<!-- RENTABILIDAD -->
-
-<section id="rentabilidad" class="page">
-
-  <div class="notice">
-    Los márgenes corresponden a estimaciones por servicio. No representan la utilidad neta mensual de la empresa.
-  </div>
-
-  <div class="card">
-    <h3>Análisis de rentabilidad por servicio</h3>
-    <div id="tablaRentabilidad"></div>
-  </div>
-
-</section>
-
-<!-- CONFIGURACIÓN -->
-
-<section id="config" class="page">
-
-  <div class="card">
-    <h3>Información del proyecto</h3>
-
-    <p><strong>Empresa:</strong> Tati Beauty Studio</p>
-    <p><strong>Proyecto:</strong> TATI COST</p>
-    <p><strong>Metáfora:</strong> Una brújula financiera</p>
-
-    <p class="subtitle">
-      Mejorar el cálculo y seguimiento de costos y márgenes de al menos el 80% de los servicios activos en un plazo de tres meses.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>Respaldo de información</h3>
-
-    <p class="subtitle">
-      Los datos se guardan en este navegador. Descarga un respaldo para conservarlos o trasladarlos a otro dispositivo.
-    </p>
-
-    <div class="actions">
-      <button class="btn" onclick="exportar()">Descargar respaldo</button>
-
-      <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">
-        Importar respaldo
-      </button>
-
-      <input id="importFile" type="file" accept=".json" style="display:none" onchange="importar(event)">
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Reiniciar aplicación</h3>
-
-    <p class="subtitle">Elimina los registros almacenados en este navegador.</p>
-
-    <button class="btn btn-danger" onclick="reiniciar()">Eliminar todos los datos</button>
-  </div>
-
-</section>
-
+  <div id="content"></div>
 </main>
 
-<div id="toast"></div>
+<div id="toast" role="status"></div>
 
 <script>
 
 const $ = id => document.getElementById(id);
 
-const inicial = () => ({
+const money = n => new Intl.NumberFormat('es-CL', {
+  style: 'currency',
+  currency: 'CLP',
+  maximumFractionDigits: 0
+}).format(n);
+
+const dec = n => Number(n).toLocaleString('es-CL', {
+  maximumFractionDigits: 2
+});
+
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;'
+}[c]));
+
+const uid = () => Date.now().toString(36) +
+  Math.random().toString(36).slice(2);
+
+const fresh = () => ({
   servicios: [],
   insumos: [],
   gastos: [],
@@ -845,828 +464,1508 @@ const inicial = () => ({
   fichas: {}
 });
 
-let db = inicial();
+let db = fresh();
+let page = 'inicio';
+let edit = '';
+let selected = '';
+let simId = '';
 
 try {
-  const saved = localStorage.getItem("tatiCostV1");
-  if (saved) db = JSON.parse(saved);
-} catch (e) {
+  let x = localStorage.getItem('tatiCostV1');
+  if (x) {
+    const parsed = JSON.parse(x);
+    if (valid(parsed)) db = parsed;
+  }
+} catch(e) {
   console.error(e);
 }
 
-const money = n => new Intl.NumberFormat("es-CL", {
-  style: "currency",
-  currency: "CLP",
-  maximumFractionDigits: 0
-}).format(n);
-
-const decimal = n => Number(n).toLocaleString("es-CL", {
-  maximumFractionDigits: 2
-});
-
-const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2);
-
-const num = id => Number($(id).value);
-
-function esc(value) {
-  return String(value ?? "").replace(/[&<>"']/g, c => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  }[c]));
-}
-
-function guardar() {
-  try {
-    localStorage.setItem("tatiCostV1", JSON.stringify(db));
-  } catch (e) {
-    alert("No fue posible guardar los datos en el navegador.");
-  }
-}
-
-function toast(text) {
-  $("toast").textContent = text;
-  $("toast").style.display = "block";
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer = setTimeout(() => {
-    $("toast").style.display = "none";
-  }, 3000);
-}
-
-const titulos = {
-  inicio: "Panel principal",
-  servicios: "Gestión de servicios",
-  insumos: "Gestión de insumos",
-  mano: "Mano de obra",
-  gastos: "Gastos indirectos",
-  fichas: "Fichas de costos",
-  simulador: "Simulador de precios",
-  rentabilidad: "Análisis de rentabilidad",
-  config: "Configuración"
+const paths = {
+  inicio: '<path d="M3 10l9-7 9 7v11H3zM9 21v-8h6v8"/>',
+  servicios: '<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8 8l13 13M8 16L21 3"/>',
+  insumos: '<path d="M3 7l9-4 9 4v13H3zM3 7l9 4 9-4M12 11v9"/>',
+  mano: '<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/>',
+  gastos: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+  fichas: '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M8 12l3 3 5-6"/>',
+  simulador: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2m4 0h2M8 16h2m4 0h2"/>',
+  rentabilidad: '<path d="M3 3v18h18M6 16l5-6 4 3 6-8"/>',
+  config: '<circle cx="12" cy="12" r="4"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4M5 5l3 3m8 8l3 3M5 19l3-3m8-8l3-3"/>'
 };
 
-function go(page, btn) {
-  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  document.querySelectorAll(".nav").forEach(n => n.classList.remove("active"));
+const icon = k => `
+  <svg class="icon" viewBox="0 0 24 24">
+    ${paths[k] || paths.fichas}
+  </svg>
+`;
 
-  $(page).classList.add("active");
-  if (btn) btn.classList.add("active");
+const names = {
+  inicio: 'Vista general',
+  servicios: 'Servicios',
+  insumos: 'Insumos',
+  mano: 'Mano de obra',
+  gastos: 'Gastos indirectos',
+  fichas: 'Fichas de costos',
+  simulador: 'Simulador de precios',
+  rentabilidad: 'Rentabilidad',
+  config: 'Configuración'
+};
 
-  $("pageTitle").textContent = titulos[page];
+const illustration = `
+<svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg">
 
-  render();
-  window.scrollTo(0, 0);
-}
+  <path d="M75 263V125a115 115 0 0 1 230 0v138Z"
+    fill="#d7b39d"/>
 
-function openPage(page) {
-  const btn = [...document.querySelectorAll(".nav")]
-    .find(b => b.getAttribute("onclick").includes("'" + page + "'"));
+  <ellipse cx="190" cy="263" rx="170" ry="12"
+    fill="#b78c76" opacity=".25"/>
 
-  go(page, btn);
-}
+  <rect x="110" y="125" width="70" height="137"
+    rx="12" fill="#f7ecdc" stroke="#96745e"/>
 
-function tabla(headers, rows) {
-  if (!rows.length) {
-    return '<div class="empty">Todavía no hay registros.</div>';
+  <rect x="125" y="99" width="40" height="30"
+    rx="4" fill="#775344"/>
+
+  <path d="M140 99V79h42v8h-28v12"
+    fill="#775344"/>
+
+  <rect x="119" y="164" width="52" height="62"
+    fill="#d8b29a"/>
+
+  <text x="145" y="187" text-anchor="middle"
+    font-family="Georgia" font-size="15" fill="#604638">
+    tati.
+  </text>
+
+  <text x="145" y="202" text-anchor="middle"
+    font-size="6" letter-spacing="1" fill="#604638">
+    BEAUTY STUDIO
+  </text>
+
+  <path d="M194 187h83v75h-83z"
+    fill="#a16b53"/>
+
+  <rect x="188" y="177" width="95" height="17"
+    rx="4" fill="#664b3d"/>
+
+  <rect x="204" y="211" width="63" height="32"
+    fill="#ead7c1"/>
+
+  <text x="235" y="230" text-anchor="middle"
+    font-family="Georgia" font-size="11" fill="#604638">
+    HAIR CARE
+  </text>
+
+  <g transform="translate(250 107) rotate(28)"
+    stroke="#705145" stroke-width="5"
+    fill="none" stroke-linecap="round">
+
+    <circle cx="-15" cy="28" r="12"/>
+    <circle cx="15" cy="28" r="12"/>
+
+    <path d="M-8 19L23-55M8 19L-23-55"/>
+
+    <circle cx="0" cy="0" r="3" fill="#705145"/>
+  </g>
+
+  <g fill="#9da387" stroke="#748066" stroke-width="1.5">
+
+    <path d="M77 260Q40 150 65 60"
+      fill="none" stroke-width="2"/>
+
+    <path d="M59 112Q24 100 30 76Q57 81 59 112"/>
+
+    <path d="M57 142Q88 121 88 101Q60 108 57 142"/>
+
+    <path d="M62 176Q23 159 28 136Q57 142 62 176"/>
+
+    <path d="M69 205Q101 182 98 165Q74 171 69 205"/>
+
+  </g>
+
+  <g transform="translate(298 207) rotate(14)">
+    <rect width="28" height="56" rx="3"
+      fill="#b58b71"/>
+    <path d="M5 0V-32M11 0V-32M17 0V-32M23 0V-32"
+      stroke="#775344" stroke-width="3"
+      stroke-linecap="round"/>
+  </g>
+
+  <g stroke="#fff5e8" stroke-width="2" fill="none">
+    <path d="M310 55v24M298 67h24"/>
+    <path d="M90 36v16M82 44h16"/>
+    <path d="M335 115v14M328 122h14"/>
+  </g>
+
+</svg>
+`;
+
+function save(msg) {
+  try {
+    localStorage.setItem('tatiCostV1', JSON.stringify(db));
+    if (msg) toast(msg);
+  } catch(e) {
+    alert('No se pudieron guardar los datos.');
   }
-
-  return `<div class="table-wrap"><table>
-    <thead><tr>${headers.map(h => `<th>${h}</th>`).join("")}</tr></thead>
-    <tbody>${rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody>
-    </table></div>`;
 }
 
-function costoLaboral() {
-  return db.mano.horas > 0
-    ? db.mano.mensual / (db.mano.horas * 60)
-    : 0;
+function toast(s) {
+  $('toast').textContent = s;
+  $('toast').style.display = 'block';
+
+  clearTimeout(window.tt);
+
+  window.tt = setTimeout(() => {
+    $('toast').style.display = 'none';
+  }, 2500);
 }
 
-function totalIndirectos() {
-  return db.gastos.reduce((a, g) => a + g.monto, 0);
+function go(p) {
+  page = p;
+  edit = '';
+  render();
+  $('navs').classList.remove('open');
+  window.scrollTo(0,0);
 }
 
-function costoIndirecto() {
-  return db.baseHoras > 0
-    ? totalIndirectos() / (db.baseHoras * 60)
-    : 0;
+function invalidate() {
+  Object.values(db.fichas).forEach(f => {
+    f.estado = 'En desarrollo';
+  });
 }
 
-function obtenerFicha(id) {
+const labor = () => db.mano.horas
+  ? db.mano.mensual / (60 * db.mano.horas)
+  : 0;
+
+const totalG = () => db.gastos.reduce(
+  (a,g) => a + g.monto, 0
+);
+
+const ind = () => db.baseHoras
+  ? totalG() / (60 * db.baseHoras)
+  : 0;
+
+function ficha(id) {
   return db.fichas[id] || {
     materiales: [],
-    calidad: "Estimados",
-    estado: "En desarrollo",
+    calidad: 'Estimados',
+    estado: 'En desarrollo',
     confirmados: false
   };
 }
 
-function calcular(id) {
-  const s = db.servicios.find(x => x.id === id);
-  if (!s) return null;
+function calc(s) {
+  let f = ficha(s.id);
 
-  const f = obtenerFicha(id);
+  let m = f.materiales.reduce((a,r) => {
+    let i = db.insumos.find(i => i.id === r.insumo);
 
-  const materiales = f.materiales.reduce((total, m) => {
-    const i = db.insumos.find(x => x.id === m.insumo);
-    return total + (i ? i.precio / i.cantidad * m.cantidad : 0);
+    return a + (i
+      ? i.precio / i.cantidad * r.cantidad
+      : 0);
   }, 0);
 
-  const mano = s.tiempo * costoLaboral();
-  const indirectos = s.tiempo * costoIndirecto();
+  let l = labor() * s.tiempo;
+  let g = ind() * s.tiempo;
+  let t = m + l + g;
+  let r = s.precio - t;
 
-  const total = materiales + mano + indirectos;
-  const resultado = s.precio - total;
+  return {
+    m, l, g, t, r,
 
-  const margen = s.precio > 0
-    ? resultado / s.precio * 100
-    : null;
+    margin: s.precio > 0
+      ? r / s.precio * 100
+      : null,
 
-  const completo = Boolean(
-    f.confirmados &&
-    db.mano.horas > 0 &&
-    db.baseHoras > 0 &&
-    f.materiales.every(m => db.insumos.some(i => i.id === m.insumo)) &&
-    (f.estado === "Revisado" || f.estado === "Validado")
-  );
-
-  return { materiales, mano, indirectos, total, resultado, margen, completo };
-}
-
-function invalidarFichas() {
-  Object.values(db.fichas).forEach(f => {
-    f.estado = "En desarrollo";
-  });
-}
-
-function actualizar() {
-  guardar();
-  render();
-}
-
-function resetServicio() {
-  $("formServicio").reset();
-  $("servicioId").value = "";
-}
-
-$("formServicio").addEventListener("submit", e => {
-  e.preventDefault();
-
-  const id = $("servicioId").value || uid();
-
-  const servicio = {
-    id,
-    nombre: $("servicioNombre").value.trim(),
-    categoria: $("servicioCategoria").value,
-    precio: num("servicioPrecio"),
-    tiempo: num("servicioTiempo")
+    complete: !!(
+      f.confirmados &&
+      db.mano.horas > 0 &&
+      db.baseHoras > 0 &&
+      f.materiales.every(r =>
+        db.insumos.some(i => i.id === r.insumo)
+      ) &&
+      ['Revisado','Validado'].includes(f.estado)
+    )
   };
-
-  if (!servicio.nombre) return;
-
-  const index = db.servicios.findIndex(s => s.id === id);
-
-  if (index >= 0) {
-    db.servicios[index] = servicio;
-    if (db.fichas[id]) db.fichas[id].estado = "En desarrollo";
-  } else {
-    db.servicios.push(servicio);
-  }
-
-  resetServicio();
-  actualizar();
-  toast("Servicio guardado correctamente");
-});
-
-function editarServicio(id) {
-  const s = db.servicios.find(x => x.id === id);
-
-  $("servicioId").value = s.id;
-  $("servicioNombre").value = s.nombre;
-  $("servicioCategoria").value = s.categoria;
-  $("servicioPrecio").value = s.precio;
-  $("servicioTiempo").value = s.tiempo;
-
-  window.scrollTo(0, 0);
 }
 
-function eliminarServicio(id) {
-  if (!confirm("¿Eliminar este servicio y su ficha de costos?")) return;
+const card = (title,body) => `
+  <section class="card">
+    <h3>${title}</h3>
+    ${body}
+  </section>
+`;
 
-  db.servicios = db.servicios.filter(s => s.id !== id);
-  delete db.fichas[id];
+const metric = (label,value,k) => `
+  <div class="card">
+    ${icon(k)}
+    <div class="metric">${value}</div>
+    <small>${label}</small>
+  </div>
+`;
 
-  actualizar();
-  toast("Servicio eliminado");
-}
-
-function resetInsumo() {
-  $("formInsumo").reset();
-  $("insumoId").value = "";
-}
-
-$("formInsumo").addEventListener("submit", e => {
-  e.preventDefault();
-
-  const id = $("insumoId").value || uid();
-
-  const insumo = {
-    id,
-    nombre: $("insumoNombre").value.trim(),
-    precio: num("insumoPrecio"),
-    cantidad: num("insumoCantidad"),
-    unidad: $("insumoUnidad").value
-  };
-
-  if (!insumo.nombre || insumo.cantidad <= 0) return;
-
-  const index = db.insumos.findIndex(i => i.id === id);
-
-  if (index >= 0) {
-    const anterior = db.insumos[index];
-
-    if (anterior.unidad !== insumo.unidad &&
-      Object.values(db.fichas).some(f => f.materiales.some(m => m.insumo === id))) {
-      alert("No puedes cambiar la unidad de un insumo utilizado en una ficha. Retíralo primero de las fichas correspondientes.");
-      return;
-    }
-
-    db.insumos[index] = insumo;
-    invalidarFichas();
-  } else {
-    db.insumos.push(insumo);
-  }
-
-  resetInsumo();
-  actualizar();
-  toast("Insumo guardado correctamente");
-});
-
-function editarInsumo(id) {
-  const i = db.insumos.find(x => x.id === id);
-
-  $("insumoId").value = i.id;
-  $("insumoNombre").value = i.nombre;
-  $("insumoPrecio").value = i.precio;
-  $("insumoCantidad").value = i.cantidad;
-  $("insumoUnidad").value = i.unidad;
-
-  window.scrollTo(0, 0);
-}
-
-function eliminarInsumo(id) {
-  if (Object.values(db.fichas).some(f => f.materiales.some(m => m.insumo === id))) {
-    alert("Este insumo está asociado a una ficha de costos. Retíralo de la ficha antes de eliminarlo.");
-    return;
-  }
-
-  if (!confirm("¿Eliminar este insumo?")) return;
-
-  db.insumos = db.insumos.filter(i => i.id !== id);
-
-  actualizar();
-  toast("Insumo eliminado");
-}
-
-$("formMano").addEventListener("submit", e => {
-  e.preventDefault();
-
-  db.mano = {
-    mensual: num("manoMensual"),
-    horas: num("manoHoras")
-  };
-
-  invalidarFichas();
-  actualizar();
-  toast("Mano de obra actualizada");
-});
-
-function resetGasto() {
-  $("formGasto").reset();
-  $("gastoId").value = "";
-}
-
-$("formGasto").addEventListener("submit", e => {
-  e.preventDefault();
-
-  const id = $("gastoId").value || uid();
-
-  const gasto = {
-    id,
-    nombre: $("gastoNombre").value.trim(),
-    monto: num("gastoMonto"),
-    tipo: $("gastoTipo").value
-  };
-
-  if (!gasto.nombre) return;
-
-  const index = db.gastos.findIndex(g => g.id === id);
-
-  if (index >= 0) db.gastos[index] = gasto;
-  else db.gastos.push(gasto);
-
-  invalidarFichas();
-  resetGasto();
-  actualizar();
-  toast("Gasto guardado correctamente");
-});
-
-function editarGasto(id) {
-  const g = db.gastos.find(x => x.id === id);
-
-  $("gastoId").value = g.id;
-  $("gastoNombre").value = g.nombre;
-  $("gastoMonto").value = g.monto;
-  $("gastoTipo").value = g.tipo;
-
-  window.scrollTo(0, 0);
-}
-
-function eliminarGasto(id) {
-  if (!confirm("¿Eliminar este gasto?")) return;
-
-  db.gastos = db.gastos.filter(g => g.id !== id);
-
-  invalidarFichas();
-  actualizar();
-  toast("Gasto eliminado");
-}
-
-$("formBase").addEventListener("submit", e => {
-  e.preventDefault();
-
-  db.baseHoras = num("baseHoras");
-
-  invalidarFichas();
-  actualizar();
-  toast("Base de distribución guardada");
-});
-
-function opcionesServicios(id) {
-  const anterior = $(id).value;
-
-  $(id).innerHTML = '<option value="">Seleccionar servicio</option>' +
-    db.servicios.map(s =>
-      `<option value="${esc(s.id)}">${esc(s.nombre)}</option>`
-    ).join("");
-
-  if (db.servicios.some(s => s.id === anterior)) {
-    $(id).value = anterior;
-  }
-}
-
-function cargarFicha() {
-  const id = $("fichaServicio").value;
-
-  $("fichaContenido").style.display = id ? "block" : "none";
-
-  if (!id) return;
-
-  const f = obtenerFicha(id);
-  const c = calcular(id);
-
-  $("fichaInsumo").innerHTML =
-    '<option value="">Seleccionar insumo</option>' +
-    db.insumos.map(i =>
-      `<option value="${esc(i.id)}">${esc(i.nombre)} (${esc(i.unidad)})</option>`
-    ).join("");
-
-  $("fichaCalidad").value = f.calidad;
-  $("fichaEstado").value = f.estado;
-  $("materialesConfirmados").checked = f.confirmados;
-
-  $("tablaMateriales").innerHTML = tabla(
-    ["Material", "Cantidad", "Costo", "Acción"],
-    f.materiales.map((m, index) => {
-      const i = db.insumos.find(x => x.id === m.insumo);
-
-      return [
-        esc(i?.nombre || "Insumo no disponible"),
-        decimal(m.cantidad) + " " + esc(i?.unidad || ""),
-        money(i ? i.precio / i.cantidad * m.cantidad : 0),
-        `<button class="btn btn-danger btn-small" onclick="quitarMaterial(${index})">Quitar</button>`
-      ];
-    })
-  );
-
-  const s = db.servicios.find(x => x.id === id);
-
-  $("detalleFicha").innerHTML = `
-    <div class="notice">
-      ${db.mano.horas <= 0 || db.baseHoras <= 0
-        ? "Falta configurar la mano de obra o la distribución de gastos indirectos. El cálculo todavía es parcial."
-        : "Costo estimado según los datos registrados."}
+const table = (heads,rows) => rows.length
+  ? `
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            ${heads.map(h => `<th>${h}</th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map(r => `
+            <tr>
+              ${r.map(c => `<td>${c}</td>`).join('')}
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
     </div>
-
-    ${tabla(["Concepto", "Monto"], [
-      ["Materiales", money(c.materiales)],
-      ["Mano de obra", money(c.mano)],
-      ["Gastos indirectos", money(c.indirectos)],
-      ["<strong>Costo total estimado</strong>", "<strong>" + money(c.total) + "</strong>"],
-      ["Precio de venta", money(s.precio)],
-      ["Resultado estimado", money(c.resultado)],
-      ["Margen sobre venta", c.margen === null ? "No disponible" : decimal(c.margen) + "%"]
-    ])}
+  `
+  : `
+    <div class="empty">
+      ${icon('fichas')}
+      Aún no hay registros. Agrega el primero para comenzar.
+    </div>
   `;
+
+const field = (label,id,type='text',v='',attrs='') => `
+  <div>
+    <label for="${id}">${label}</label>
+    <input id="${id}" type="${type}"
+      value="${esc(v)}" ${attrs} required>
+  </div>
+`;
+
+const select = (label,id,opts,v='') => `
+  <div>
+    <label for="${id}">${label}</label>
+    <select id="${id}">
+      ${opts.map(o => {
+        let [k,t] = Array.isArray(o) ? o : [o,o];
+
+        return `
+          <option value="${esc(k)}"
+            ${k === v ? 'selected' : ''}>
+            ${esc(t)}
+          </option>
+        `;
+      }).join('')}
+    </select>
+  </div>
+`;
+
+const form = (body,action,label='Guardar') => `
+  <form onsubmit="event.preventDefault();${esc(action)}">
+    <div class="formgrid">${body}</div>
+
+    <div class="actions">
+      <button class="btn">${label}</button>
+
+      <button type="button" class="btn secondary"
+        onclick="edit='';render()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+`;
+
+const val = id => $(id).value;
+const n = id => Number(val(id));
+
+const opts = () => [
+  ['', 'Seleccionar servicio'],
+  ...db.servicios.map(s => [s.id,s.nombre])
+];
+
+const buttons = id => `
+  <button class="btn secondary smallbtn"
+    onclick="edit='${id}';render();window.scrollTo(0,0)">
+    Editar
+  </button>
+
+  <button class="btn danger smallbtn"
+    onclick="remove('${id}')">
+    Eliminar
+  </button>
+`;
+
+function nav() {
+  const groups = [
+    ['Mi estudio', ['inicio']],
+    ['Administración', ['servicios','insumos','mano','gastos']],
+    ['Finanzas', ['fichas','simulador','rentabilidad']],
+    ['Sistema', ['config']]
+  ];
+
+  $('navs').innerHTML = groups.map(([title,items]) => `
+    <div class="navgroup eyebrow">${title}</div>
+
+    ${items.map(k => `
+      <button class="nav ${page === k ? 'active' : ''}"
+        onclick="go('${k}')">
+
+        ${icon(k)}
+        ${names[k]}
+      </button>
+    `).join('')}
+  `).join('');
 }
 
-$("formMaterial").addEventListener("submit", e => {
-  e.preventDefault();
+function costChart(ss) {
+  let a = ss.reduce((a,s) => {
+    let c = calc(s);
 
-  const id = $("fichaServicio").value;
-  const insumo = $("fichaInsumo").value;
-  const cantidad = num("fichaCantidad");
+    return [
+      a[0] + c.m,
+      a[1] + c.l,
+      a[2] + c.g
+    ];
+  }, [0,0,0]);
 
-  if (!id || !insumo || cantidad <= 0) {
-    toast("Selecciona un insumo e ingresa una cantidad");
-    return;
-  }
+  let t = a.reduce((x,y) => x+y,0);
 
-  const f = obtenerFicha(id);
+  let colors = [
+    '#a5654d',
+    '#d5aa91',
+    '#7e8d71'
+  ];
 
-  const existente = f.materiales.find(m => m.insumo === insumo);
-
-  if (existente) existente.cantidad += cantidad;
-  else f.materiales.push({ insumo, cantidad });
-
-  f.estado = "En desarrollo";
-  f.confirmados = false;
-
-  db.fichas[id] = f;
-
-  $("fichaCantidad").value = "";
-
-  actualizar();
-  toast("Material agregado a la ficha");
-});
-
-function quitarMaterial(index) {
-  const id = $("fichaServicio").value;
-  const f = obtenerFicha(id);
-
-  f.materiales.splice(index, 1);
-  f.confirmados = false;
-  f.estado = "En desarrollo";
-
-  db.fichas[id] = f;
-
-  actualizar();
-}
-
-function guardarFicha() {
-  const id = $("fichaServicio").value;
-
-  if (!id) return;
-
-  const f = obtenerFicha(id);
-
-  const estado = $("fichaEstado").value;
-  const confirmado = $("materialesConfirmados").checked;
-
-  if (estado !== "En desarrollo" &&
-    (!confirmado || db.mano.horas <= 0 || db.baseHoras <= 0)) {
-    alert("Completa la revisión de materiales, mano de obra y gastos indirectos antes de marcar la ficha como revisada o validada.");
-    return;
-  }
-
-  if (estado === "Validado" && $("fichaCalidad").value !== "Comprobados") {
-    alert("Para validar una ficha, los datos deben estar comprobados.");
-    return;
-  }
-
-  f.calidad = $("fichaCalidad").value;
-  f.estado = estado;
-  f.confirmados = confirmado;
-  f.actualizado = new Date().toISOString();
-
-  db.fichas[id] = f;
-
-  actualizar();
-  toast("Ficha de costos guardada");
-}
-
-function cargarSimulador() {
-  const s = db.servicios.find(x => x.id === $("simServicio").value);
-
-  $("simPrecio").value = s ? s.precio : "";
-
-  simular();
-}
-
-function simular() {
-  const id = $("simServicio").value;
-  const c = calcular(id);
-
-  if (!c) {
-    $("resultadoSimulador").innerHTML =
-      '<div class="card empty">Selecciona un servicio para comenzar.</div>';
-    return;
-  }
-
-  if (!c.completo) {
-    $("resultadoSimulador").innerHTML =
-      '<div class="notice">Completa y revisa la ficha de costos de este servicio antes de simular precios.</div>';
-    return;
-  }
-
-  const precio = num("simPrecio");
-  const objetivo = num("simMargen");
-
-  if (precio < 0 || objetivo < 0 || objetivo >= 100) {
-    $("resultadoSimulador").innerHTML =
-      '<div class="notice">Ingresa un precio válido y un margen deseado entre 0 y 99%.</div>';
-    return;
-  }
-
-  const resultado = precio - c.total;
-  const margen = precio > 0 ? resultado / precio * 100 : null;
-
-  const sugerido = Math.ceil(c.total / (1 - objetivo / 100));
-
-  $("resultadoSimulador").innerHTML = `
-    <div class="grid">
-      <div class="card">
-        <div class="small">Costo total</div>
-        <div class="metric">${money(c.total)}</div>
-      </div>
-
-      <div class="card">
-        <div class="small">Resultado estimado</div>
-        <div class="metric ${resultado >= 0 ? "green" : "red"}">${money(resultado)}</div>
-      </div>
-
-      <div class="card">
-        <div class="small">Margen simulado</div>
-        <div class="metric ${resultado >= 0 ? "green" : "red"}">
-          ${margen === null ? "—" : decimal(margen) + "%"}
+  return t ? `
+    <div class="bar">
+      ${a.map((v,j) => `
+        <div style="width:${v/t*100}%;
+          background:${colors[j]}">
         </div>
-      </div>
-
-      <div class="card">
-        <div class="small">Precio para el margen deseado</div>
-        <div class="metric">${money(sugerido)}</div>
-      </div>
+      `).join('')}
     </div>
 
-    <div class="card">
-      <h3>Interpretación</h3>
+    ${a.map((v,j) => `
+      <div style="display:flex;
+        justify-content:space-between;
+        margin:10px 0">
 
-      <p>${resultado < 0
-        ? "El precio simulado no cubre los costos estimados del servicio."
-        : resultado === 0
-        ? "El precio simulado cubre los costos, pero no genera un margen positivo."
-        : "El precio simulado permite cubrir los costos y obtener un resultado positivo estimado."}</p>
+        <span>
+          <span style="color:${colors[j]}">●</span>
+          ${['Materiales','Mano de obra','Indirectos'][j]}
+        </span>
 
-      <p class="small">La simulación no modifica el precio registrado.</p>
+        <strong>${money(v)}</strong>
+      </div>
+    `).join('')}
+  ` : `
+    <div class="empty">
+      ${icon('rentabilidad')}
+      Sin costos registrados para graficar.
     </div>
   `;
 }
 
 function render() {
 
-  const costeados = db.servicios.filter(s => calcular(s.id).completo);
+  nav();
 
-  const margenes = costeados
-    .map(s => calcular(s.id).margen)
-    .filter(m => m !== null);
+  $('heading').textContent = names[page];
 
-  const promedio = margenes.length
-    ? margenes.reduce((a, b) => a + b, 0) / margenes.length
-    : null;
+  let html = '';
 
-  const cobertura = db.servicios.length
-    ? costeados.length / db.servicios.length * 100
-    : 0;
+  let s = db.servicios.find(x => x.id === edit);
+  let i = db.insumos.find(x => x.id === edit);
+  let g = db.gastos.find(x => x.id === edit);
 
-  const meta = Math.ceil(db.servicios.length * .8);
+  if (page === 'inicio') {
 
-  $("totalServicios").textContent = db.servicios.length;
-  $("totalCosteados").textContent = costeados.length;
-  $("totalInsumos").textContent = db.insumos.length;
+    const completed = db.servicios.filter(
+      s => calc(s).complete
+    );
 
-  $("margenPromedio").textContent =
-    promedio === null ? "—" : decimal(promedio) + "%";
+    const coverage = db.servicios.length
+      ? completed.length / db.servicios.length * 100
+      : 0;
 
-  $("margenPromedio").className =
-    "metric " + (promedio !== null && promedio < 0 ? "red" : "green");
+    const margins = completed.map(s => calc(s).margin)
+      .filter(m => m !== null);
 
-  $("cobertura").textContent = decimal(cobertura) + "%";
-  $("barra").style.width = cobertura + "%";
+    const avg = margins.length
+      ? margins.reduce((a,b) => a+b,0) / margins.length
+      : null;
 
-  $("metaTexto").textContent = !db.servicios.length
-    ? "Registra los servicios activos para comenzar el seguimiento."
-    : cobertura >= 80
-    ? "Meta de cobertura alcanzada."
-    : "Faltan " + Math.max(0, meta - costeados.length) + " servicios costeados para alcanzar la meta.";
+    const remaining = Math.max(
+      0,
+      Math.ceil(db.servicios.length * .8) - completed.length
+    );
 
-  $("resumenServicios").innerHTML = tabla(
-    ["Servicio", "Precio", "Estado"],
-    db.servicios.map(s => [
-      esc(s.nombre),
-      money(s.precio),
-      calcular(s.id).completo
-        ? '<span class="status status-ok">Costeado</span>'
-        : '<span class="status">Pendiente</span>'
-    ])
-  );
+    html = `
+      <section class="hero">
+        <div>
+          <div class="eyebrow">
+            Tu brújula financiera
+          </div>
 
-  $("tablaServicios").innerHTML = tabla(
-    ["Servicio", "Categoría", "Precio", "Duración", "Acciones"],
-    db.servicios.map(s => [
-      esc(s.nombre),
-      esc(s.categoria),
-      money(s.precio),
-      s.tiempo + " min",
-      `<button class="btn btn-secondary btn-small" onclick="editarServicio('${s.id}')">Editar</button>
-       <button class="btn btn-danger btn-small" onclick="eliminarServicio('${s.id}')">Eliminar</button>`
-    ])
-  );
+          <h1>
+            La belleza de conocer tus números.
+          </h1>
 
-  $("tablaInsumos").innerHTML = tabla(
-    ["Producto", "Precio", "Contenido", "Costo unitario", "Acciones"],
-    db.insumos.map(i => [
-      esc(i.nombre),
-      money(i.precio),
-      decimal(i.cantidad) + " " + esc(i.unidad),
-      "$" + decimal(i.precio / i.cantidad),
-      `<button class="btn btn-secondary btn-small" onclick="editarInsumo('${i.id}')">Editar</button>
-       <button class="btn btn-danger btn-small" onclick="eliminarInsumo('${i.id}')">Eliminar</button>`
-    ])
-  );
+          <p>
+            Conoce el costo de cada servicio, cuida tus márgenes
+            y toma mejores decisiones para tu estudio.
+          </p>
 
-  $("manoMensual").value = db.mano.horas ? db.mano.mensual : "";
-  $("manoHoras").value = db.mano.horas || "";
+          <button class="btn" onclick="go('servicios')">
+            Mis servicios
+          </button>
+        </div>
 
-  $("costoHora").textContent = db.mano.horas
-    ? money(costoLaboral() * 60)
-    : "—";
+        ${illustration}
+      </section>
 
-  $("costoMinuto").textContent = db.mano.horas
-    ? "$" + decimal(costoLaboral())
-    : "—";
+      <h3>Resumen de tu negocio</h3>
 
-  $("baseHoras").value = db.baseHoras || "";
-  $("totalGastos").textContent = money(totalIndirectos());
+      <div class="grid">
 
-  $("gastoMinuto").textContent = db.baseHoras
-    ? "$" + decimal(costoIndirecto())
-    : "—";
+        ${metric(
+          'Servicios activos',
+          db.servicios.length,
+          'servicios'
+        )}
 
-  $("tablaGastos").innerHTML = tabla(
-    ["Gasto", "Tipo", "Monto mensual", "Acciones"],
-    db.gastos.map(g => [
-      esc(g.nombre),
-      esc(g.tipo),
-      money(g.monto),
-      `<button class="btn btn-secondary btn-small" onclick="editarGasto('${g.id}')">Editar</button>
-       <button class="btn btn-danger btn-small" onclick="eliminarGasto('${g.id}')">Eliminar</button>`
-    ])
-  );
+        ${metric(
+          'Servicios costeados',
+          completed.length,
+          'fichas'
+        )}
 
-  opcionesServicios("fichaServicio");
-  opcionesServicios("simServicio");
+        ${metric(
+          'Margen promedio estimado',
+          avg === null ? '—' : dec(avg)+'%',
+          'rentabilidad'
+        )}
 
-  cargarFicha();
+        ${metric(
+          'Insumos registrados',
+          db.insumos.length,
+          'insumos'
+        )}
 
-  $("tablaRentabilidad").innerHTML = tabla(
-    ["Servicio", "Precio", "Costo", "Resultado", "Margen", "Estado"],
-    db.servicios.map(s => {
-      const c = calcular(s.id);
+      </div>
 
-      return [
-        esc(s.nombre),
-        money(s.precio),
-        c.completo ? money(c.total) : "Pendiente",
-        c.completo ? money(c.resultado) : "—",
-        c.completo && c.margen !== null
-          ? `<strong class="${c.margen >= 0 ? "green" : "red"}">${decimal(c.margen)}%</strong>`
-          : "—",
-        esc(obtenerFicha(s.id).estado)
-      ];
-    })
-  );
+      <div class="split">
 
-  simular();
-}
+        ${card('Tu camino hacia la meta', `
+          <br>
 
-function exportar() {
-  const blob = new Blob([JSON.stringify(db, null, 2)], {
-    type: "application/json"
-  });
+          <div class="row">
 
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
+            <div class="ring" style="--pct:${coverage}%">
+              <span>${dec(coverage)}%</span>
+            </div>
 
-  a.href = url;
-  a.download = "TATI_COST_Respaldo.json";
-  a.click();
+            <div>
+              <strong>Objetivo: 80%</strong>
 
-  URL.revokeObjectURL(url);
+              <p class="muted">
+                Costear los servicios activos
+                en un plazo de tres meses.
+              </p>
 
-  toast("Respaldo descargado");
-}
+              <br>
 
-function importar(event) {
-  const file = event.target.files[0];
-  if (!file) return;
+              <small>
+                ${!db.servicios.length
+                  ? 'Registra tus servicios para comenzar.'
+                  : coverage >= 80
+                  ? 'Meta de cobertura alcanzada.'
+                  : 'Faltan '+remaining+' servicios costeados.'}
+              </small>
+            </div>
 
-  const reader = new FileReader();
+          </div>
+        `)}
 
-  reader.onload = () => {
-    try {
-      const data = JSON.parse(reader.result);
+        ${card(
+          'Composición de costos de las fichas revisadas',
+          costChart(completed)
+        )}
 
-      const valido =
-        Array.isArray(data.servicios) &&
-        Array.isArray(data.insumos) &&
-        Array.isArray(data.gastos) &&
-        data.mano &&
-        data.fichas &&
-        typeof data.baseHoras === "number" &&
-        data.baseHoras >= 0 &&
-        Number.isFinite(data.mano.mensual) &&
-        data.mano.mensual >= 0 &&
-        Number.isFinite(data.mano.horas) &&
-        data.mano.horas >= 0 &&
-        data.servicios.every(s =>
-          typeof s.id === "string" &&
-          /^[a-z0-9]+$/.test(s.id) &&
-          typeof s.nombre === "string" &&
-          Number.isFinite(s.precio) &&
-          s.precio >= 0 &&
-          Number.isFinite(s.tiempo) &&
-          s.tiempo > 0
-        ) &&
-        data.insumos.every(i =>
-          typeof i.id === "string" &&
-          /^[a-z0-9]+$/.test(i.id) &&
-          typeof i.nombre === "string" &&
-          Number.isFinite(i.precio) &&
-          i.precio >= 0 &&
-          Number.isFinite(i.cantidad) &&
-          i.cantidad > 0
-        ) &&
-        data.gastos.every(g =>
-          typeof g.id === "string" &&
-          /^[a-z0-9]+$/.test(g.id) &&
-          typeof g.nombre === "string" &&
-          Number.isFinite(g.monto) &&
-          g.monto >= 0
-        ) &&
-        Object.values(data.fichas).every(f =>
-          f &&
-          Array.isArray(f.materiales) &&
-          f.materiales.every(m =>
-            typeof m.insumo === "string" &&
-            Number.isFinite(m.cantidad) &&
-            m.cantidad > 0
-          )
-        );
+      </div>
 
-      if (!valido) {
-        throw new Error("Formato inválido");
-      }
+      ${card('Estado de tus servicios', table(
+        ['Servicio','Precio','Estado'],
+        db.servicios.map(s => [
+          esc(s.nombre),
+          money(s.precio),
+          calc(s).complete
+            ? '<span class="tag ok">Costeado</span>'
+            : '<span class="tag">Pendiente</span>'
+        ])
+      ))}
 
-      if (!confirm("¿Reemplazar los datos actuales con este respaldo?")) return;
+      <div class="notice">
+        <strong>Tu estudio, tus decisiones.</strong><br>
+        Mantén actualizados los precios de compra y los costos
+        de trabajo para conocer la rentabilidad estimada de
+        tus servicios.
+      </div>
+    `;
+  }
 
-      db = data;
+  if (page === 'servicios') {
 
-      actualizar();
-      toast("Respaldo importado correctamente");
+    html = card(
+      s ? 'Editar servicio' : 'Nuevo servicio',
 
-    } catch (error) {
-      alert("El archivo no corresponde a un respaldo válido de TATI COST.");
+      form(
+        field('Nombre del servicio','nombre','text',s?.nombre) +
+
+        select('Categoría','categoria',[
+          'Peluquería',
+          'Manicure',
+          'Pedicure',
+          'Masajes',
+          'Depilación',
+          'Otros'
+        ],s?.categoria) +
+
+        field(
+          'Precio de venta ($)',
+          'precio',
+          'number',
+          s?.precio,
+          'min="0"'
+        ) +
+
+        field(
+          'Duración (minutos)',
+          'tiempo',
+          'number',
+          s?.tiempo,
+          'min="1"'
+        ),
+
+        'store()',
+        'Guardar servicio'
+      )
+
+    ) + card(
+      'Catálogo de servicios',
+
+      table(
+        ['Servicio','Categoría','Precio','Duración','Acciones'],
+
+        db.servicios.map(s => [
+          esc(s.nombre),
+          esc(s.categoria),
+          money(s.precio),
+          s.tiempo+' min',
+          buttons(s.id)
+        ])
+      )
+    );
+  }
+
+  if (page === 'insumos') {
+
+    html = card(
+      i ? 'Editar insumo' : 'Nuevo producto',
+
+      form(
+        field('Nombre del producto','nombre','text',i?.nombre) +
+
+        field(
+          'Precio de compra ($)',
+          'precio',
+          'number',
+          i?.precio,
+          'min="0"'
+        ) +
+
+        field(
+          'Contenido total',
+          'cantidad',
+          'number',
+          i?.cantidad,
+          'min="0.01" step="any"'
+        ) +
+
+        select('Unidad de medida','unidad',[
+          ['ml','Mililitros'],
+          ['g','Gramos'],
+          ['unidad','Unidades']
+        ],i?.unidad),
+
+        'store()',
+        'Guardar insumo'
+      )
+
+    ) + card(
+      'Catálogo de productos',
+
+      table(
+        ['Producto','Precio','Contenido','Costo unitario','Acciones'],
+
+        db.insumos.map(i => [
+          esc(i.nombre),
+          money(i.precio),
+          dec(i.cantidad)+' '+esc(i.unidad),
+          '$'+dec(i.precio/i.cantidad),
+          buttons(i.id)
+        ])
+      )
+
+    ) + `
+      <div class="notice">
+        El costo unitario se calcula dividiendo el precio
+        de compra por el contenido total del producto.
+      </div>
+    `;
+  }
+
+  if (page === 'mano') {
+
+    html = card(
+      'El valor de tu tiempo',
+
+      form(
+        field(
+          'Costo mensual de mano de obra ($)',
+          'mensual',
+          'number',
+          db.mano.horas ? db.mano.mensual : '',
+          'min="0"'
+        ) +
+
+        field(
+          'Horas productivas mensuales',
+          'horas',
+          'number',
+          db.mano.horas || '',
+          'min="0.01" step="any"'
+        ),
+
+        'db.mano={mensual:n("mensual"),horas:n("horas")};invalidate();save("Configuración guardada");render()'
+      )
+
+    ) + `
+      <div class="grid">
+
+        ${metric(
+          'Costo por hora',
+          db.mano.horas ? money(labor()*60) : '—',
+          'mano'
+        )}
+
+        ${metric(
+          'Costo por minuto',
+          db.mano.horas ? '$'+dec(labor()) : '—',
+          'mano'
+        )}
+
+      </div>
+
+      <div class="notice">
+        Tarifa promedio: costo mensual dividido por
+        los minutos productivos del mismo período.
+      </div>
+    `;
+  }
+
+  if (page === 'gastos') {
+
+    html = card(
+      g ? 'Editar gasto' : 'Nuevo gasto mensual',
+
+      form(
+        field('Nombre','nombre','text',g?.nombre) +
+
+        field(
+          'Monto ($)',
+          'monto',
+          'number',
+          g?.monto,
+          'min="0"'
+        ) +
+
+        select('Tipo','tipo',[
+          'Fijo',
+          'Variable'
+        ],g?.tipo),
+
+        'store()'
+      )
+
+    ) + card(
+      'Base de distribución',
+
+      form(
+        field(
+          'Horas productivas mensuales del salón',
+          'horas',
+          'number',
+          db.baseHoras || '',
+          'min="0.01" step="any"'
+        ),
+
+        'db.baseHoras=n("horas");invalidate();save("Base guardada");render()'
+      )
+
+    ) + `
+      <div class="grid">
+
+        ${metric(
+          'Gastos mensuales',
+          money(totalG()),
+          'gastos'
+        )}
+
+        ${metric(
+          'Gasto por minuto',
+          db.baseHoras ? '$'+dec(ind()) : '—',
+          'mano'
+        )}
+
+      </div>
+
+    ` + card(
+      'Gastos registrados',
+
+      table(
+        ['Gasto','Tipo','Monto','Acciones'],
+
+        db.gastos.map(g => [
+          esc(g.nombre),
+          esc(g.tipo),
+          money(g.monto),
+          buttons(g.id)
+        ])
+      )
+
+    ) + `
+      <div class="notice">
+        Distribución propuesta según duración de cada servicio.
+        Registra todos los gastos aplicables antes de revisar
+        las fichas.
+      </div>
+    `;
+  }
+
+  if (page === 'fichas') {
+
+    html = card('Selecciona un servicio', `
+      <div class="formgrid">
+        ${select('Servicio','pick',opts(),selected)}
+      </div>
+    `);
+
+    let s = db.servicios.find(s => s.id === selected);
+
+    if (s) {
+
+      let f = ficha(s.id);
+      let c = calc(s);
+
+      html += card(
+        'Materiales utilizados',
+
+        form(
+          select('Insumo','material',[
+            ['', 'Seleccionar'],
+            ...db.insumos.map(i => [
+              i.id,
+              i.nombre+' ('+i.unidad+')'
+            ])
+          ]) +
+
+          field(
+            'Cantidad utilizada',
+            'cantidad',
+            'number',
+            '',
+            'min="0.01" step="any"'
+          ),
+
+          'addMaterial()',
+          'Agregar material'
+
+        ) + table(
+          ['Material','Cantidad','Costo','Acción'],
+
+          f.materiales.map((m,j) => {
+
+            let i = db.insumos.find(
+              i => i.id === m.insumo
+            );
+
+            return [
+              esc(i?.nombre || 'No disponible'),
+              dec(m.cantidad)+' '+esc(i?.unidad),
+              money(i ? i.precio/i.cantidad*m.cantidad : 0),
+
+              `<button class="btn danger smallbtn"
+                onclick="dropMaterial(${j})">
+                Quitar
+              </button>`
+            ];
+          })
+        )
+
+      ) + card(
+        'Composición del costo',
+
+        costChart([s]) +
+
+        table(['Concepto','Monto'],[
+          ['Materiales',money(c.m)],
+          ['Mano de obra',money(c.l)],
+          ['Indirectos',money(c.g)],
+          ['<strong>Costo total estimado</strong>',
+            '<strong>'+money(c.t)+'</strong>'],
+          ['Precio de venta',money(s.precio)],
+          ['Resultado estimado',money(c.r)],
+          ['Margen sobre venta',
+            c.margin === null ? '—' : dec(c.margin)+'%']
+        ]) +
+
+        (!c.complete
+          ? `<div class="notice">
+              Ficha pendiente de revisión;
+              los costos pueden estar incompletos.
+            </div>`
+          : '')
+
+      ) + card(
+        'Revisión de la ficha',
+
+        `
+          <div class="formgrid">
+
+            ${select('Calidad de datos','calidad',[
+              'Estimados',
+              'Parcialmente comprobados',
+              'Comprobados'
+            ],f.calidad)}
+
+            ${select('Estado','estado',[
+              'En desarrollo',
+              'Revisado',
+              'Validado'
+            ],f.estado)}
+
+          </div>
+
+          <label>
+            <input type="checkbox"
+              id="confirmed"
+              style="width:auto"
+              ${f.confirmados ? 'checked' : ''}>
+
+            Revisé todos los materiales,
+            incluso si el servicio no requiere insumos.
+          </label>
+
+          <br>
+
+          <button class="btn" onclick="review()">
+            Guardar ficha
+          </button>
+        `
+      );
     }
+  }
 
-    event.target.value = "";
+  if (page === 'simulador') {
+
+    let s = db.servicios.find(s => s.id === simId);
+
+    html = card('Explora distintos precios', `
+
+      <p class="muted">
+        Evalúa diferentes escenarios sin modificar
+        el precio actual de tus servicios.
+      </p>
+
+      <div class="formgrid">
+
+        ${select('Servicio','simPick',opts(),simId)}
+
+        ${field(
+          'Precio simulado ($)',
+          'simPrecio',
+          'number',
+          s?.precio,
+          'min="0"'
+        )}
+
+        ${field(
+          'Margen deseado (%)',
+          'simMargen',
+          'number',
+          30,
+          'min="0" max="99" step="any"'
+        )}
+
+      </div>
+
+    `) + '<div id="simResult"></div>';
+  }
+
+  if (page === 'rentabilidad') {
+
+    html = card(
+      'Rentabilidad por servicio',
+
+      table(
+        ['Servicio','Precio','Costo','Resultado','Margen','Estado'],
+
+        db.servicios.map(s => {
+
+          let c = calc(s);
+
+          return [
+            esc(s.nombre),
+            money(s.precio),
+            c.complete ? money(c.t) : 'Pendiente',
+            c.complete ? money(c.r) : '—',
+
+            c.complete && c.margin !== null
+              ? `<strong class="${c.margin<0?'red':'green'}">
+                  ${dec(c.margin)}%
+                </strong>`
+              : '—',
+
+            esc(ficha(s.id).estado)
+          ];
+        })
+      )
+
+    ) + `
+      <div class="notice">
+        Los resultados son estimaciones por servicio,
+        no utilidad neta mensual.
+      </div>
+    `;
+  }
+
+  if (page === 'config') {
+
+    html = card('Sobre TATI COST', `
+
+      <br>
+
+      <div class="eyebrow">Beauty Business Studio</div>
+
+      <h2 style="margin:10px 0">
+        Tu brújula financiera.
+      </h2>
+
+      <p>
+        Una herramienta desarrollada para apoyar
+        la gestión de costos y márgenes de Tati Beauty Studio.
+      </p>
+
+      <br>
+
+      <small>
+        Proyecto académico · Innovación y Emprendimiento III
+        · INACAP Curicó.
+      </small>
+
+    `) + card('Tu información', `
+
+      <br>
+
+      <p>
+        Los datos se almacenan en este navegador,
+        no en una base de datos compartida.
+      </p>
+
+      <br>
+
+      <div class="actions">
+
+        <button class="btn" onclick="backup()">
+          Descargar respaldo
+        </button>
+
+        <button class="btn secondary"
+          onclick="$('import').click()">
+          Importar respaldo
+        </button>
+
+        <input type="file" id="import"
+          accept=".json"
+          style="display:none"
+          onchange="restore(event)">
+
+      </div>
+
+    `) + card('Reiniciar aplicación', `
+
+      <br>
+
+      <p>Elimina los datos locales de TATI COST.</p>
+
+      <br>
+
+      <button class="btn danger" onclick="resetData()">
+        Eliminar datos
+      </button>
+
+    `);
+  }
+
+  $('content').innerHTML = html;
+
+  if ($('pick')) {
+    $('pick').onchange = () => {
+      selected = val('pick');
+      render();
+    };
+  }
+
+  if ($('simPick')) {
+
+    $('simPick').onchange = () => {
+      simId = val('simPick');
+      render();
+    };
+
+    $('simPrecio').oninput = simulate;
+    $('simMargen').oninput = simulate;
+
+    simulate();
+  }
+}
+
+function store() {
+
+  let id = edit || uid();
+  let name = val('nombre').trim();
+
+  if (!name) {
+    alert('Ingresa un nombre válido.');
+    return;
+  }
+
+  let x = {
+    id,
+    nombre: name
   };
 
-  reader.readAsText(file);
+  if (page === 'servicios') {
+
+    Object.assign(x,{
+      categoria: val('categoria'),
+      precio: n('precio'),
+      tiempo: n('tiempo')
+    });
+
+    if (db.fichas[id]) {
+      db.fichas[id].estado = 'En desarrollo';
+    }
+  }
+
+  if (page === 'insumos') {
+
+    Object.assign(x,{
+      precio: n('precio'),
+      cantidad: n('cantidad'),
+      unidad: val('unidad')
+    });
+
+    let old = db.insumos.find(i => i.id === id);
+
+    if (
+      old &&
+      old.unidad !== x.unidad &&
+      Object.values(db.fichas).some(f =>
+        f.materiales.some(m => m.insumo === id)
+      )
+    ) {
+      alert(
+        'Retira el insumo de sus fichas antes de cambiar la unidad.'
+      );
+      return;
+    }
+
+    if (old) invalidate();
+  }
+
+  if (page === 'gastos') {
+
+    Object.assign(x,{
+      monto: n('monto'),
+      tipo: val('tipo')
+    });
+
+    invalidate();
+  }
+
+  let arr = db[page];
+  let j = arr.findIndex(x => x.id === id);
+
+  if (j < 0) arr.push(x);
+  else arr[j] = x;
+
+  edit = '';
+
+  save('Registro guardado');
+  render();
 }
 
-function reiniciar() {
-  if (!confirm("¿Eliminar permanentemente todos los datos de TATI COST almacenados en este navegador?")) return;
+function remove(id) {
 
-  db = inicial();
+  if (
+    page === 'insumos' &&
+    Object.values(db.fichas).some(f =>
+      f.materiales.some(m => m.insumo === id)
+    )
+  ) {
+    alert('Este insumo está asociado a una ficha.');
+    return;
+  }
 
-  resetServicio();
-  resetInsumo();
-  resetGasto();
+  if (!confirm('¿Eliminar este registro?')) return;
 
-  actualizar();
-  cargarSimulador();
+  db[page] = db[page].filter(x => x.id !== id);
 
-  toast("Aplicación reiniciada");
+  if (page === 'servicios') {
+
+    delete db.fichas[id];
+
+    if (selected === id) selected = '';
+    if (simId === id) simId = '';
+  }
+
+  if (page === 'gastos') invalidate();
+
+  edit = '';
+
+  save('Registro eliminado');
+  render();
+}
+
+function addMaterial() {
+
+  let id = val('material');
+  let q = n('cantidad');
+
+  if (!id || q <= 0 || !Number.isFinite(q)) {
+    alert('Selecciona un insumo y una cantidad válida.');
+    return;
+  }
+
+  let f = ficha(selected);
+
+  let m = f.materiales.find(m => m.insumo === id);
+
+  if (m) m.cantidad += q;
+  else f.materiales.push({
+    insumo: id,
+    cantidad: q
+  });
+
+  f.confirmados = false;
+  f.estado = 'En desarrollo';
+
+  db.fichas[selected] = f;
+
+  save('Material agregado');
+  render();
+}
+
+function dropMaterial(j) {
+
+  let f = ficha(selected);
+
+  f.materiales.splice(j,1);
+
+  f.confirmados = false;
+  f.estado = 'En desarrollo';
+
+  db.fichas[selected] = f;
+
+  save();
+  render();
+}
+
+function review() {
+
+  let f = ficha(selected);
+
+  let estado = val('estado');
+  let calidad = val('calidad');
+  let confirmados = $('confirmed').checked;
+
+  if (
+    estado !== 'En desarrollo' &&
+    (!confirmados || !db.mano.horas || !db.baseHoras)
+  ) {
+    alert(
+      'Completa materiales, mano de obra y base de gastos.'
+    );
+    return;
+  }
+
+  if (
+    estado === 'Validado' &&
+    calidad !== 'Comprobados'
+  ) {
+    alert('La validación requiere datos comprobados.');
+    return;
+  }
+
+  Object.assign(f,{
+    estado,
+    calidad,
+    confirmados,
+    actualizado: new Date().toISOString()
+  });
+
+  db.fichas[selected] = f;
+
+  save('Ficha guardada');
+  render();
+}
+
+function simulate() {
+
+  let s = db.servicios.find(s => s.id === simId);
+  let out = $('simResult');
+
+  if (!s) {
+
+    out.innerHTML = `
+      <div class="notice">
+        Selecciona un servicio.
+      </div>
+    `;
+
+    return;
+  }
+
+  let c = calc(s);
+
+  if (!c.complete) {
+
+    out.innerHTML = `
+      <div class="notice">
+        Completa y revisa la ficha antes de simular precios.
+      </div>
+    `;
+
+    return;
+  }
+
+  let p = n('simPrecio');
+  let m = n('simMargen');
+
+  if (
+    val('simPrecio') === '' ||
+    val('simMargen') === '' ||
+    !Number.isFinite(p) ||
+    !Number.isFinite(m) ||
+    p < 0 ||
+    m < 0 ||
+    m >= 100
+  ) {
+
+    out.innerHTML = `
+      <div class="notice">
+        Ingresa valores válidos.
+      </div>
+    `;
+
+    return;
+  }
+
+  out.innerHTML = `
+
+    <div class="grid">
+
+      ${metric(
+        'Costo total',
+        money(c.t),
+        'fichas'
+      )}
+
+      ${metric(
+        'Resultado estimado',
+        money(p-c.t),
+        'rentabilidad'
+      )}
+
+      ${metric(
+        'Margen simulado',
+        p ? dec((p-c.t)/p*100)+'%' : '—',
+        'rentabilidad'
+      )}
+
+      ${metric(
+        'Precio para margen deseado',
+        money(Math.ceil(c.t/(1-m/100))),
+        'simulador'
+      )}
+
+    </div>
+
+  ` + card('Lectura del escenario', `
+
+    <br>
+
+    <p>
+      ${p < c.t
+        ? 'El precio no cubre los costos estimados.'
+        : p === c.t
+        ? 'El precio cubre los costos sin margen positivo.'
+        : 'El precio cubre los costos y genera un resultado positivo estimado.'}
+    </p>
+
+    <br>
+
+    <small>
+      La simulación no modifica el precio registrado.
+    </small>
+
+  `);
+}
+
+function backup() {
+
+  let a = document.createElement('a');
+
+  let url = URL.createObjectURL(
+    new Blob(
+      [JSON.stringify(db,null,2)],
+      {type:'application/json'}
+    )
+  );
+
+  a.href = url;
+  a.download = 'TATI_COST_Respaldo.json';
+
+  a.click();
+
+  setTimeout(() => URL.revokeObjectURL(url),1000);
+}
+
+function valid(d) {
+
+  let nn = x =>
+    typeof x === 'number' &&
+    Number.isFinite(x) &&
+    x >= 0;
+
+  let ids = a =>
+    Array.isArray(a) &&
+
+    a.every(x =>
+      x &&
+      typeof x.id === 'string' &&
+      /^[a-z0-9]+$/.test(x.id) &&
+      typeof x.nombre === 'string'
+    ) &&
+
+    new Set(a.map(x => x.id)).size === a.length;
+
+  return d &&
+
+    ids(d.servicios) &&
+    ids(d.insumos) &&
+    ids(d.gastos) &&
+
+    d.servicios.every(s =>
+      nn(s.precio) &&
+      nn(s.tiempo) &&
+      s.tiempo > 0
+    ) &&
+
+    d.insumos.every(i =>
+      nn(i.precio) &&
+      nn(i.cantidad) &&
+      i.cantidad > 0 &&
+      ['ml','g','unidad'].includes(i.unidad)
+    ) &&
+
+    d.gastos.every(g => nn(g.monto)) &&
+
+    d.mano &&
+    nn(d.mano.mensual) &&
+    nn(d.mano.horas) &&
+    nn(d.baseHoras) &&
+
+    d.fichas &&
+    typeof d.fichas === 'object' &&
+    !Array.isArray(d.fichas) &&
+
+    Object.entries(d.fichas).every(([id,f]) =>
+
+      d.servicios.some(s => s.id === id) &&
+
+      f &&
+      Array.isArray(f.materiales) &&
+
+      f.materiales.every(m =>
+        nn(m.cantidad) &&
+        m.cantidad > 0 &&
+        d.insumos.some(i => i.id === m.insumo)
+      ) &&
+
+      ['En desarrollo','Revisado','Validado'].includes(f.estado) &&
+
+      typeof f.confirmados === 'boolean'
+    );
+}
+
+async function restore(e) {
+
+  try {
+
+    if (!e.target.files.length) return;
+
+    let d = JSON.parse(
+      await e.target.files[0].text()
+    );
+
+    if (!valid(d)) throw Error();
+
+    if (confirm('¿Reemplazar los datos actuales?')) {
+
+      db = d;
+      edit = '';
+      selected = '';
+      simId = '';
+
+      save('Respaldo importado');
+      render();
+    }
+
+  } catch(err) {
+
+    alert('Respaldo inválido.');
+  }
+
+  e.target.value = '';
+}
+
+function resetData() {
+
+  if (!confirm('¿Eliminar todos los datos de TATI COST?')) {
+    return;
+  }
+
+  db = fresh();
+
+  edit = '';
+  selected = '';
+  simId = '';
+
+  save('Datos eliminados');
+  render();
 }
 
 render();
 
 </script>
-
 </body>
 </html>
-
